@@ -116,7 +116,7 @@ Taulukot kirjoitetaan kuten allaoleva esimerkki näyttää mutta ilman tyhjiä r
 |mkdir|luo uuden kansion|
 
 
-Kun tyhjää riviä ei ole otsikon jälkeen, taulukko näyttää tältä:
+Kun tyhjiä rivejä ei ole, taulukko näyttää tältä:
 
 |Komento|Selitys|
 |---|---|
@@ -159,6 +159,10 @@ Työskentelet Terminaalissa, siirry aluksi projektikansioon:
 
 Mitä tapahtuu: init (initialize) luo kansioon piilotetun .git-alikansion, johon Git alkaa tallentaa kaikkien tiedostojen muutoshistoriaa (versioita). Kansiostasi tuli juuri repositorio eli "repo". Tämä tehdään vain kerran per projekti. Näet piilokansion halutessasi komennolla ls -la (tuo -a näyttää piilotiedostot – kuten DOSin dir /a!).
 
+#### VS Code : repositorion alustus
+
+Repositorion alustus (´git init´): Avaa kansio VS Codessa (File → Open Folder). Paina vasemman reunan Source Control -kuvaketta (Cmd + Shift + G). Jos kansio ei ole vielä Git-repo, paneelissa näkyy iso sininen nappi Initialize Repository – sen painaminen tekee täsmälleen saman kuin ´git init´.
+
 ### 3. Katso tilanne
 
 `git status`
@@ -183,9 +187,14 @@ Sitten itse commit:
 
 Selitys: commit tallentaa valmistelualueen sisällön pysyväksi tilannekuvaksi(versioksi) historiaan tietokoneen projektikansion piilossa olevaan .git hakemistoon. -m (message) antaa commitille viestin, joka kuvaa mitä tehtiin – kirjoita viestit aina niin, että ymmärrät ne vielä kuukausienkin päästä. Komennolla `git log`voi katsoa kaikki aiemmat commitit ja tarvittaessa palata vanhempaan versioon (committiin). Mitään ei tässä vaiheessa ole siirretty GitHubiin.
 
+Tämä kahtiajako on Gitin ydinajatus: paikallinen työskentely (add, commit) ja synkronointi etäpalvelimelle (push, pull) ovat erillisiä toimintoja. Voit tehdä vaikka kymmenen commitia junassa ilman nettiyhteyttä ja työntää ne kaikki kerralla GitHubiin myöhemmin.
+
+#### VS Code : Tiedostojen lisäys ja commit
+
 Sama VS Codessa: Source Control -paneelissa paina tiedoston vieressä +-merkkiä (= git add), kirjoita viesti yläreunan tekstikenttään ja paina Commit-nappia.
 
-Tämä kahtiajako on Gitin ydinajatus: paikallinen työskentely (add, commit) ja synkronointi etäpalvelimelle (push, pull) ovat erillisiä toimintoja. Voit tehdä vaikka kymmenen commitia junassa ilman nettiyhteyttä ja työntää ne kaikki kerralla GitHubiin myöhemmin.
+Tiedostojen lisäys ja commit (add + commit): Muutetut tiedostot ilmestyvät Source Control -paneeliin Changes-listaan. Vie hiiri tiedoston päälle ja paina + (Stage Changes) – tämä on git add. Tiedosto siirtyy Staged Changes -listaan. Kirjoita commit-viesti yläreunan tekstikenttään ja paina Commit. Vinkki: jos painat Commit ilman että mitään on stagettu, VS Code kysyy haluatko commitoida kaikki muutokset kerralla – se vastaa komentoa git add . + commit.
+
 
 ### 5 Katso historia
 
@@ -229,6 +238,10 @@ origin	git@github.com:jukkarouhe/md-harjoitus.git (push)
 jukkarouhe@Jukkas-MacBook-Pro md-harjoitus % 
 ```
 
+#### VS Code: Remore-kytkentä
+
+Remote-kytkentä: Source Control -paneelin oikean yläkulman …-valikko → Remote → Add Remote → liitä osoite git@github.com:jukkarouhe/md-harjoitus.git → anna nimeksi origin.
+
 ### 3 Haaran nimeäminen ja commitin työntö GitHubiin
 
 Ensin yhtenäistetään haaran nimi. Muistat ehkä `git init` -komennon vihjeen "master"-nimestä – GitHubin nykykäytäntö on main, joten nimetään paikallinen haara sen mukaiseksi:
@@ -245,9 +258,24 @@ Selitys: `push` lähettää paikalliset commitit etärepoon. `origin main` tarko
 
 Jos SSH-yhteys kysyy ensimmäisellä kerralla "Are you sure you want to continue connecting (yes/no)?", vastaa yes – se on normaali varmistus, kun koneesi ottaa yhteyttä GitHubiin ensimmäistä kertaa.
 
+#### VS Code : push ja pull ja historia (git log)
+
 Sama VS Codessa: Source Control -paneelin ...-valikosta (siis kolmen pisteen kautta avautuvasta drop-down valikosta source control osion yläpalkista) löytyvät Remote → Add Remote ja Push. Ensimmäisen pushin jälkeen VS Coden alapalkkiin ilmestyy myös synkronointikuvake (nuolet ympyränä), joka hoitaa push/pull-toiminnot yhdellä klikkauksella.
+
+Push ja pull: Ensimmäinen työntö: …-valikko → Push (VS Code kysyy tarvittaessa mihin haaraan). Jatkossa helpoin on alapalkin synkronointikuvake (nuolet ympyränä, haaran nimen "main" vieressä): yksi klikkaus tekee sekä pullin että pushin. Kuvakkeen vieressä näkyvät numerot kertovat odottavista commiteista: ↓ tulossa GitHubista, ↑ lähdössä sinne.
+
+Historia (git log): VS Codessa on sisäänrakennettu Timeline-näkymä: avaa ohje.md ja katso vasemman paneelin alaosasta Timeline-osio – siinä näkyvät tiedoston commitit aikajärjestyksessä, ja klikkaamalla näet mitä kussakin muutettiin.
 
 ### 4: Onnistuminen tarkistus
 
 Päivitä selaimessa repositoriosi sivu (github.com/jukkarouhe/md-harjoitus). Sinun pitäisi nähdä `ohje.md` ja `kuvat`-kansio siellä – ja hienona yksityiskohtana GitHub näyttää `ohje.md`:n sisällön valmiiksi muotoiltuna suoraan reposivulla, koska Markdown on GitHubin äidinkieltä. Voit myös klikata commit-historiaa (kellokuvake tai "commits") ja nähdä tekemäsi commitit viesteineen.
+
+## 5: Julkaisu nettiin
+
+Julkaisuun on kaksi reittiä, ja tässä kannattaa hetki miettiä:
+
+Pikatapa: repositorion asetuksista (Settings → Pages) voi kytkeä Pagesin päälle suoraan main-haarasta, jolloin GitHub tekee md-tiedostoista yksinkertaiset sivut. Toimii, mutta lopputulos on vaatimaton eikä vastaa tavoitettamme.
+
+Suunniteltu tapa (vaihe 5): rakennetaan sivusto MkDocsilla ja Material-teemalla – juuri siksi ne on asennettu koneellesi. Silloin saat hakutoiminnon, navigaation ja ammattimaisen ulkoasun, ja julkaisu tapahtuu komennolla mkdocs gh-deploy, joka hoitaa GitHub Pages -kytkennän puolestasi automaattisesti.
+
 
