@@ -103,13 +103,16 @@ Kielen nimi avaavan rivin perässä (esim. ```bash) kertoo, millä kielellä koo
 ## Taulukot
 
 
-Taulukot kirjoitetaan kuten allaoleva esimerkki näyttää mutta ilman tyhjää riviä otsikon ja toisen rivin välissä:
+Taulukot kirjoitetaan kuten allaoleva esimerkki näyttää mutta ilman tyhjiä rivejä otsikon ja toisten rivien välissä:
 
 |Komento|Selitys|
 
 |---|---|
+
 |ls |listaa kansion sisällön|
+
 |cd|vaihtaa kansiota|
+
 |mkdir|luo uuden kansion|
 
 
