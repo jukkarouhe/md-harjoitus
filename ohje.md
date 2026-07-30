@@ -208,10 +208,9 @@ Selitys: `push` lähettää paikalliset commitit etärepoon. `origin main` tarko
 
 Jos SSH-yhteys kysyy ensimmäisellä kerralla "Are you sure you want to continue connecting (yes/no)?", vastaa yes – se on normaali varmistus, kun koneesi ottaa yhteyttä GitHubiin ensimmäistä kertaa.
 
-Sama VS Codessa: Source Control -paneelin ...-valikosta löytyvät Remote → Add Remote ja Push. Ensimmäisen pushin jälkeen VS Coden alapalkkiin ilmestyy myös synkronointikuvake (nuolet ympyränä), joka hoitaa push/pull-toiminnot yhdellä klikkauksella.
+Sama VS Codessa: Source Control -paneelin ...-valikosta (siis kolmen pisteen kautta avautuvasta drop-down valikosta source control osion yläpalkista) löytyvät Remote → Add Remote ja Push. Ensimmäisen pushin jälkeen VS Coden alapalkkiin ilmestyy myös synkronointikuvake (nuolet ympyränä), joka hoitaa push/pull-toiminnot yhdellä klikkauksella.
 
-Askel 4: Todista onnistuminen
+### 4: Onnistuminen tarkistus
 
-Päivitä selaimessa repositoriosi sivu (github.com/jukkarouhe/md-harjoitus). Sinun pitäisi nähdä ohje.md ja kuvat-kansio siellä – ja hienona yksityiskohtana GitHub näyttää ohje.md:n sisällön valmiiksi muotoiltuna suoraan reposivulla, koska Markdown on GitHubin äidinkieltä. Voit myös klikata commit-historiaa (kellokuvake tai "commits") ja nähdä tekemäsi commitit viesteineen.
+Päivitä selaimessa repositoriosi sivu (github.com/jukkarouhe/md-harjoitus). Sinun pitäisi nähdä `ohje.md` ja `kuvat`-kansio siellä – ja hienona yksityiskohtana GitHub näyttää `ohje.md`:n sisällön valmiiksi muotoiltuna suoraan reposivulla, koska Markdown on GitHubin äidinkieltä. Voit myös klikata commit-historiaa (kellokuvake tai "commits") ja nähdä tekemäsi commitit viesteineen.
 
-Tee askeleet rauhassa ja kerro, näkyykö ohje.md GitHubissa muotoiltuna. Jos jokin komento antaa virheen (tyypillisin on kirjoitusvirhe remote-osoitteessa), kopioi virheilmoitus tänne, niin tulkitaan se yhdessä.
