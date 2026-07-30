@@ -2,7 +2,7 @@
 
 tämä dokumentti kokoaa opitut asiat askel askeleelta.
 
-## Markdown-syntaksi
+## 1 Markdown-syntaksi
 
 Otsikot tehdään # risuaita-merkillä. Yksi risuaita on pääotsikko, kaksi risuaitaa on alaotsikko, kolme on sitä seuraava taso. Jätä välilyönti # merkin/merkkien ja otsikkotekstin väliin.
 
@@ -143,17 +143,17 @@ Macin terminaali ei aja DOSia vaan Unix-pohjaista komentotulkkia (Macissa oletuk
 Pari muuta eroa: Unix käyttää kauttaviivaa / polkujen erottimena, kun DOS käytti kenoviivaa \. Ja Unixissa isot ja pienet kirjaimet ovat merkitseviä – Ohje.md ja ohje.md ovat eri tiedostoja, mikä DOSissa ei pitänyt paikkaansa.
 
 
-## Git paikallisesti
+## 2 Git paikallisesti
 
 Kahtiajako on Gitin ydinajatus: paikallinen työskentely (add, commit) ja synkronointi etäpalvelimelle (push, pull) ovat erillisiä toimintoja. Tässä käydään läpi paikallinen osuus.
 
-### 1. Kohdekansio
+### 1 Kohdekansio
 Työskentelet Terminaalissa, siirry aluksi projektikansioon:
 
 `cd ~/Projects/md-harjoitus`
 
 
-### 2. Alusta Git-repositorio:
+### 2 Alusta Git-repositorio:
 
 `git init`
 
@@ -163,7 +163,7 @@ Mitä tapahtuu: init (initialize) luo kansioon piilotetun .git-alikansion, johon
 
 Repositorion alustus (´git init´): Avaa kansio VS Codessa (File → Open Folder). Paina vasemman reunan Source Control -kuvaketta (Cmd + Shift + G). Jos kansio ei ole vielä Git-repo, paneelissa näkyy iso sininen nappi Initialize Repository – sen painaminen tekee täsmälleen saman kuin ´git init´.
 
-### 3. Katso tilanne
+### 3 Katso tilanne
 
 `git status`
 
@@ -171,7 +171,7 @@ Tämä on Gitin tärkein peruskomento – se kertoo aina, mitä repossa on menei
 
 Sama VS Codessa: katso vasemman reunan Source Control -kuvaketta (kolme palloa viivoilla yhdistettynä, Cmd + Shift + G). Näet samat tiedostot listassa merkinnällä U (Untracked). VS Code huomasi git init-komennon automaattisesti.
 
-### 4. tiedostojen lisääminen seurantaan ja commit
+### 4 tiedostojen lisääminen seurantaan ja commit
 
 Commit tehdään kahdessa vaiheessa. Ensin valitaan mukaan otettavat tiedostot:
 
@@ -200,7 +200,7 @@ Tiedostojen lisäys ja commit (add + commit): Muutetut tiedostot ilmestyvät Sou
 
 `git log` komento Terminaalissa: Näet juuri tekemäsi commitin: tekijän, ajan, viestin ja commitin yksilöivän tunnisteen (pitkä merkkijono). Poistu näkymästä painamalla q. Tiiviimpi muoto: `git log --oneline`.
 
-## Git --> GitHub
+## 3 Git --> GitHub
 
 ## Luodaan repositori GitHubiin
 
@@ -238,7 +238,7 @@ origin	git@github.com:jukkarouhe/md-harjoitus.git (push)
 jukkarouhe@Jukkas-MacBook-Pro md-harjoitus % 
 ```
 
-#### VS Code: Remore-kytkentä
+#### VS Code: Remote-kytkentä
 
 Remote-kytkentä: Source Control -paneelin oikean yläkulman …-valikko → Remote → Add Remote → liitä osoite git@github.com:jukkarouhe/md-harjoitus.git → anna nimeksi origin.
 
@@ -266,11 +266,63 @@ Push ja pull: Ensimmäinen työntö: …-valikko → Push (VS Code kysyy tarvitt
 
 Historia (git log): VS Codessa on sisäänrakennettu Timeline-näkymä: avaa ohje.md ja katso vasemman paneelin alaosasta Timeline-osio – siinä näkyvät tiedoston commitit aikajärjestyksessä, ja klikkaamalla näet mitä kussakin muutettiin.
 
-### 4: Onnistuminen tarkistus
+### 4 Onnistuminen tarkistus
 
 Päivitä selaimessa repositoriosi sivu (github.com/jukkarouhe/md-harjoitus). Sinun pitäisi nähdä `ohje.md` ja `kuvat`-kansio siellä – ja hienona yksityiskohtana GitHub näyttää `ohje.md`:n sisällön valmiiksi muotoiltuna suoraan reposivulla, koska Markdown on GitHubin äidinkieltä. Voit myös klikata commit-historiaa (kellokuvake tai "commits") ja nähdä tekemäsi commitit viesteineen.
 
-## 5: Julkaisu nettiin
+## 4 muokkaa → tarkista → commitoi → työnnä
+
+### Muutoksien tekeminen ja tarkastaminen
+Tee VS Codessa muokkauksia tiedostoon (tarpeen tullen alustus, valitse committoitavat muokatus tiedostot + commit, push/pull, Timeline). Ennen committia on hyvä tapa katsoa Terminaalissa, mikä muuttui. Komennot Terminaalissa ovat:
+
+```
+git status
+git diff
+```
+
+Selitys: `status` kertoo mitkä tiedostot muuttuivat, `diff` näyttää rivi riviltä mitä muuttui – poistetut rivit miinuksella (punaisella), lisätyt plussalla (vihreällä). Poistu diff-näkymästä painamalla **q** (kuten git logissa).
+
+VS Codessa: Source Control -paneelissa klikkaa muuttunutta tiedostoa – VS Code avaa rinnakkaisnäkymän, jossa vasemmalla on edellinen commitoitu versio ja oikealla nykyinen, muutokset värein korostettuna. Tämä on selvästi diff-komentoa havainnollisempi tapa. Erot näyttävän näkymän saat pois klikkaamalla ylälaidasta kyseisen tab-in kiinni(pois).
+
+### Committoiminen
+
+**Terminaalissa**:
+````
+git add ohje.md
+git commit -m "Lisätty VS Coden ohjeistusta"
+````
+huom, tällä komennolla lisättiin vain ohje.md koska ei käytetty pistettä `add` komennon jälkeen.
+
+**VS Codessa**:
+Source Control → ohje.md:n vieressä + (Stage Changes) → kirjoita viesti kenttään → **Commit**.
+
+### Työntäminen GitHubiin
+
+**Terminaalissa**:
+`git push` 
+
+pelkkä `push`riittää nyt, koska `-u`kytkentä tehtiin ensimmäisellä kerralla. 
+
+**VS Codessa**: klikkaa alapalkin synkronointikuvaketta (nuolet ympyränä, "main"-tekstin vieressä). Se ajaa sekä pullin että pushin. Käy varmistamassa selaimessa, että uusi osio näkyy GitHubissa.
+
+### Pelkkä Pull - miksi joskus pitää hakea muutoksia
+
+´git pull``
+
+Selitys: `pull` hakee GitHubista commitit, joita koneellasi ei vielä ole. Yksin yhdellä koneella työskennellessä se tuntuu turhalta – mutta se muuttuu tärkeäksi heti, jos (a) muokkaat tiedostoja suoraan GitHubin selainkäyttöliittymässä, (b) otat käyttöön toisen tietokoneen, tai (c) projektiin tulee toinen tekijä. Hyvä rutiini: aloita työskentelysessio aina `git pull` -komennolla (tai VS Coden synkronointikuvakkeella) – näin kone on varmasti ajan tasalla, eikä ristiriitoja synny.
+
+## Yleisimmät ongelmatilanteet ja ratkaisut
+
+|Tilanne|Ratkaisu|
+|---|---|
+|Push hylätään: "rejected... remote contains work"|GitHubissa on committeja joita koneelasi ei ole. Aja `git pull`ensin, sitten `git push`uudelleen|
+|Commit viesti unohtui ja avautui outo editori|Kirjoita viesti, paina Esc ja kirjoita `:wq` ja Enter (vim-editori). Jatkossa muista -m "viesti"|
+|Väärä tiedosto stagessa (=valittuna committiin)|`git restore --staged tiedosto.md` poistaa stagesta (muutokset säilyvät). VS Codessa: tiedoston vieressä - (unstage)|
+|Muutokset halutaan perua kokonaan|`git restore tiedosto.md`palauttaa viimeisimmän commitin version. VS Codessa: tiedoston vieressä ↩ (Discard Changes). Varo: muutokset katoavat oikeasti|
+/Ei muistikuvaa mitä tehty|`git status`kertoo aina tilanteen. VS Codessa: Source Control -paneeli|
+
+
+## 5 Julkaisu nettiin
 
 Julkaisuun on kaksi reittiä, ja tässä kannattaa hetki miettiä:
 
