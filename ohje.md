@@ -108,6 +108,8 @@ Pari muuta eroa: Unix käyttää kauttaviivaa / polkujen erottimena, kun DOS kä
 
 ## Git paikallisesti
 
+Kahtiajako on Gitin ydinajatus: paikallinen työskentely (add, commit) ja synkronointi etäpalvelimelle (push, pull) ovat erillisiä toimintoja. Tässä käydään läpi paikallinen osuus.
+
 ### 1. Kohdekansio
 Työskentelet Terminaalissa, siirry aluksi projektikansioon:
 
@@ -118,7 +120,7 @@ Työskentelet Terminaalissa, siirry aluksi projektikansioon:
 
 `git init`
 
-Mitä tapahtuu: init (initialize) luo kansioon piilotetun .git-alikansion, johon Git alkaa tallentaa kaikkien tiedostojen muutoshistoriaa. Kansiostasi tuli juuri repositorio eli "repo". Tämä tehdään vain kerran per projekti. Näet piilokansion halutessasi komennolla ls -la (tuo -a näyttää piilotiedostot – kuten DOSin dir /a!).
+Mitä tapahtuu: init (initialize) luo kansioon piilotetun .git-alikansion, johon Git alkaa tallentaa kaikkien tiedostojen muutoshistoriaa (versioita). Kansiostasi tuli juuri repositorio eli "repo". Tämä tehdään vain kerran per projekti. Näet piilokansion halutessasi komennolla ls -la (tuo -a näyttää piilotiedostot – kuten DOSin dir /a!).
 
 ### 3. Katso tilanne
 
@@ -134,12 +136,82 @@ Commit tehdään kahdessa vaiheessa. Ensin valitaan mukaan otettavat tiedostot:
 
 `git add .`
 
-Selitys: add siirtää tiedostot valmistelualueelle (staging area) eli "seuraavaan valokuvaan mukaan tulevat". Piste tarkoittaa "kaikki tämän kansion tiedostot". Aja `git status` uudelleen – tiedostot näkyvät nyt vihreällä, valmiina commitoitavaksi.
+Selitys: add siirtää tiedostot valmistelualueelle (staging area) eli "seuraavaan 'snapshottiin' (versiotallennukseen) mukaan tulevat editoidut tiedostot". Piste tarkoittaa "kaikki tämän kansion tiedostot". Aja `git status` uudelleen – tiedostot näkyvät nyt vihreällä, valmiina commitoitavaksi.
+
+Voit muokata vaikka viittä tiedostoa, mutta ottaa commitiin mukaan vain kaksi niistä (`git add tiedosto1.md tiedosto2.md`) ja jättää loput seuraavaan committiin.
 
 Sitten itse commit:
 
 `git commit -m "Ensimmäinen versio: Markdown-perusteet dokumentoitu"`
 
-Selitys: commit tallentaa valmistelualueen sisällön pysyväksi tilannekuvaksi historiaan. -m (message) antaa commitille viestin, joka kuvaa mitä tehtiin – kirjoita viestit aina niin, että ymmärrät ne vielä kuukausienkin päästä.
+Selitys: commit tallentaa valmistelualueen sisällön pysyväksi tilannekuvaksi(versioksi) historiaan tietokoneen projektikansion piilossa olevaan .git hakemistoon. -m (message) antaa commitille viestin, joka kuvaa mitä tehtiin – kirjoita viestit aina niin, että ymmärrät ne vielä kuukausienkin päästä. Komennolla `git log`voi katsoa kaikki aiemmat commitit ja tarvittaessa palata vanhempaan versioon (committiin). Mitään ei tässä vaiheessa ole siirretty GitHubiin.
 
 Sama VS Codessa: Source Control -paneelissa paina tiedoston vieressä +-merkkiä (= git add), kirjoita viesti yläreunan tekstikenttään ja paina Commit-nappia.
+
+Tämä kahtiajako on Gitin ydinajatus: paikallinen työskentely (add, commit) ja synkronointi etäpalvelimelle (push, pull) ovat erillisiä toimintoja. Voit tehdä vaikka kymmenen commitia junassa ilman nettiyhteyttä ja työntää ne kaikki kerralla GitHubiin myöhemmin.
+
+### 5 Katso historia
+
+`git log` komento Terminaalissa: Näet juuri tekemäsi commitin: tekijän, ajan, viestin ja commitin yksilöivän tunnisteen (pitkä merkkijono). Poistu näkymästä painamalla q. Tiiviimpi muoto: `git log --oneline`.
+
+## Git --> GitHub
+
+## Luodaan repositori GitHubiin
+
+Tämä tehdään selaimessa:
+
+1. Mene osoitteeseen github.com ja kirjaudu sisään (tunnus jukkarouhe)
+2. Paina oikean yläkulman +-merkkiä ja valitse New repository
+3. Täytä lomake:
+    - Repository name: md-harjoitus (sama nimi kuin paikallisella kansiolla – ei pakollista, mutta selkeää)
+    - Description: vapaaehtoinen, esim. "Markdown- ja Git-harjoitusprojekti"
+    - Public / Private: valitse Public, jos dokumentaatio saa näkyä kaikille – tämä on myös GitHub Pages -julkaisun (vaihe 5) kannalta helpoin valinta ilmaisella tilillä
+    - Tärkeää: älä ruksaa kohtia "Add a README", "Add .gitignore" tai "Choose a license" – repositorion pitää syntyä tyhjänä, koska sisältö tulee sinun koneeltasi. Jos GitHub loisi sinne valmiiksi tiedostoja, historiat menisivät ristiin.
+4. Paina Create repository
+
+GitHub näyttää nyt ohjesivun, jossa on valmiita komentoja. Käytetään niistä (lokaalisti tietokoneella) keskimmäistä vaihtoehtoa ("push an existing repository from the command line"), mutta käydään komennot läpi itse ymmärtäen.
+
+### 2 Kytketään paikallinen repo GitHubiin (remote)
+
+Terminaalissa projektikansiossa (tarkista siirtymällä `cd ~/Projects/md-harjoitus`):
+
+`git remote add origin git@github.com:jukkarouhe/md-harjoitus.git`
+
+Selitys: `remote` tarkoittaa etärepositoriota eli paikallisen repon "kaveria" verkossa. `add origin` lisää etärepon nimellä origin – se on vakiintunut nimi ensisijaiselle etärepolle (nimi voisi olla mikä vain, mutta origin on käytäntö, jota kaikki noudattavat). Osoite `git@github.com:...` on SSH-muotoinen osoite, eli yhteys todennetaan SSH-avaimellasi – salasanaa ei kysytä.
+
+Tarkista toimiko paikallisen repon kytkentä GitHubiin komennolla
+
+`git remote -v`
+
+Terminaalin pitäisi tulostaa origin kaksi kertaa (fetch ja push):
+
+```
+jukkarouhe@Jukkas-MacBook-Pro md-harjoitus % git remote -v
+origin	git@github.com:jukkarouhe/md-harjoitus.git (fetch)
+origin	git@github.com:jukkarouhe/md-harjoitus.git (push)
+jukkarouhe@Jukkas-MacBook-Pro md-harjoitus % 
+```
+
+### 3 Haaran nimeäminen ja commitin työntö GitHubiin
+
+Ensin yhtenäistetään haaran nimi. Muistat ehkä `git init` -komennon vihjeen "master"-nimestä – GitHubin nykykäytäntö on main, joten nimetään paikallinen haara sen mukaiseksi:
+
+`git branch -M main`
+
+Selitys: `branch -M main` nimeää nykyisen haaran uudelleen nimellä main. (Haarat käsitellään syvemmin myöhemmin – tässä vaiheessa riittää tietää, että main on projektin päälinja, se aikajana jolle commitisi ovat tallentuneet.)
+
+Sitten itse työntö:
+
+`git push -u origin main`
+
+Selitys: `push` lähettää paikalliset commitit etärepoon. `origin main` tarkoittaa "origin-nimiseen etärepoon, main-haaraan". Valitsin `-u` (upstream) tekee kytkennän muistiin: jatkossa pelkkä `git push` riittää, koska Git muistaa minne tämän haaran commitit kuuluvat. Tämä `-u` tarvitaan siis vain ensimmäisellä kerralla.
+
+Jos SSH-yhteys kysyy ensimmäisellä kerralla "Are you sure you want to continue connecting (yes/no)?", vastaa yes – se on normaali varmistus, kun koneesi ottaa yhteyttä GitHubiin ensimmäistä kertaa.
+
+Sama VS Codessa: Source Control -paneelin ...-valikosta löytyvät Remote → Add Remote ja Push. Ensimmäisen pushin jälkeen VS Coden alapalkkiin ilmestyy myös synkronointikuvake (nuolet ympyränä), joka hoitaa push/pull-toiminnot yhdellä klikkauksella.
+
+Askel 4: Todista onnistuminen
+
+Päivitä selaimessa repositoriosi sivu (github.com/jukkarouhe/md-harjoitus). Sinun pitäisi nähdä ohje.md ja kuvat-kansio siellä – ja hienona yksityiskohtana GitHub näyttää ohje.md:n sisällön valmiiksi muotoiltuna suoraan reposivulla, koska Markdown on GitHubin äidinkieltä. Voit myös klikata commit-historiaa (kellokuvake tai "commits") ja nähdä tekemäsi commitit viesteineen.
+
+Tee askeleet rauhassa ja kerro, näkyykö ohje.md GitHubissa muotoiltuna. Jos jokin komento antaa virheen (tyypillisin on kirjoitusvirhe remote-osoitteessa), kopioi virheilmoitus tänne, niin tulkitaan se yhdessä.
