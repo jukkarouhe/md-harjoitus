@@ -4,7 +4,7 @@ tämä dokumentti kokoaa opitut asiat askel askeleelta.
 
 ## Markdown-syntaksi
 
-Otsikot tehdään risuaita-merkillä. Yksi risuaita on pääotsikko, kaksi risuaitaa on alaotsikko, kolme on sitä seuraava taso.
+Otsikot tehdään # risuaita-merkillä. Yksi risuaita on pääotsikko, kaksi risuaitaa on alaotsikko, kolme on sitä seuraava taso. Jätä välilyönti # merkin/merkkien ja otsikkotekstin väliin.
 
 ## matoviiva näppiksellä
 
@@ -15,7 +15,7 @@ Ruudulle ei ilmesty vielä mitään (tai näkyy himmeä ~) – paina sitten väl
 
 ## Listat
 
-Numeroimaton lista tehdään viivalla rivin alussa:
+Numeroimaton lista tehdään tavuviivalla rivin alussa:
 
 - ensimmäinen asia
 - toinen asia
@@ -34,20 +34,37 @@ Kiva yksityiskohta: numeroiden ei tarvitse olla oikeassa järjestyksessä – va
 
 ## Tekstin korostukset
 
-Teksti voi olla *kursivoitua* yhdellä tähdellä tai **lihavoitua** kahdella tähdellä. Koodi ja komennot merkitään `takahipsuilla` ( ` löytyy + merkin ja backspacen välistä)
+Teksti voi olla *kursivoitua* yhdellä tähdellä sanan alussa ja lopussa tai **lihavoitua** kahdella tähdellä sanan alussa ja lopussa. 
+
+Koodi ja komennot merkitään `takahipsuilla` ( ` löytyy + merkin ja backspacen välistä). 
+
+eli: ´koodi ´ mutta hipsujen ja sanan välissä ei saa olla välilyöntiä.
 
 
 ## Linkit
 
 Linkki tehdään hakasulkeilla ja kaarisulkeilla:
 
+Linkkitekstin hakasulkeisiin
+: 
+
+[Noppa-Yatzy pelitaulukko] 
+
+ja urlin kaarisulkeisiin: 
+(https://jukkarouhe.github.io/yatzy/)
+
+Kirjoitetaan *peräkkäin ilman välilyöntiä* jolloin saadaan nätti linkki:
+
 [Noppa-Yatzy pelitaulukko](https://jukkarouhe.github.io/yatzy/)
 
-Linkkiteksti tulee hakasulkeisiin ja osoite kaarisulkeisiin.
 
 ## Kuvat
 
 Kuva lisätään kuten linkki, mutta eteen tulee huutomerkki:
+
+![poreallas kansi auki] (kuvat/poreallas-kansi-auki.JPEG)
+
+(ja yhteenkirjoitettuna ilman välilyöntiä)
 
 ![poreallas kansi auki](kuvat/poreallas-kansi-auki.JPEG)
 
@@ -58,7 +75,11 @@ Polku kuvat/kuvan-nimi.jpg on suhteellinen polku: se tarkoittaa "tämän .md-tie
 Yksittäinen komento merkitään takahipsuilla keskelle tekstiä,
 esimerkiksi komento `ls -la` listaa myös piilotiedostot.
 
-Monirivinen koodilohko tehdään kolmella takahipsulla:
+Monirivinen koodilohko tehdään kolmella takahipsulla siten että 
+
+ensimmäisellä rivillä on ```
+
+ja koodilohkon lopuksi viimeisellä rivillä on taas ``` jolloin saadaan muotoilu:
 
 ```
 mkdir kuvat
@@ -66,7 +87,7 @@ cd kuvat
 ls
 ```
 
-Kolmen takahipsun perään voi lisätä kielen nimen,
+Kolmen takahipsun perään voi lisätä kielen nimen, esim bash
 jolloin koodi saa värityksen:
 
 ```bash
@@ -80,6 +101,19 @@ Selitys: Aiemmin opit yksittäisen takahipsun tekstin keskellä. Koodilohko taas
 Kielen nimi avaavan rivin perässä (esim. ```bash) kertoo, millä kielellä koodi on kirjoitettu, jolloin editori ja GitHub värittävät sen luettavammaksi. Terminaalikomennoille käytetään nimeä bash, Python-koodille python ja niin edelleen.
 
 ## Taulukot
+
+
+Taulukot kirjoitetaan kuten allaoleva esimerkki näyttää mutta ilman tyhjää riviä otsikon ja toisen rivin välissä:
+
+|Komento|Selitys|
+
+|---|---|
+|ls |listaa kansion sisällön|
+|cd|vaihtaa kansiota|
+|mkdir|luo uuden kansion|
+
+
+Kun tyhjää riviä ei ole otsikon jälkeen, taulukko näyttää tältä:
 
 |Komento|Selitys|
 |---|---|
