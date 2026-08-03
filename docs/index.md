@@ -515,3 +515,40 @@ theme:
 Selitys: language: fi vaihtaa teeman valmiit tekstit (kuten hakukentän placeholder-tekstin) suomeksi. features-lista ottaa käyttöön lisäominaisuuksia: navigation.instant tekee sivujen välillä siirtymisestä nopeampaa (ei koko sivun uudelleenlatausta), search.suggest näyttää hakuehdotuksia kirjoittaessa. Nämä ovat vain kaksi esimerkkiä kymmenistä saatavilla olevista – Material-teemalla on paljon säädettävää, johon voidaan palata myöhemmin tarpeen mukaan.
 
 Tallenna ja katso selaimesta, että hakukentän teksti on nyt suomeksi ("Hae").
+
+#### Vaihtoehtoisia teemoja mkdocs.yml:n theme: name: -kohtaan
+
+MkDocsissa on kaksi sisäänrakennettua teemaa (eivät vaadi erillistä asennusta) ja lukuisia kolmannen osapuolen teemoja (vaativat oman `pip install` -asennuksensa, kuten Material aikanaan):
+
+|Teema	|Asennus	|Kuvaus|
+|---|---|---|
+|mkdocs	|sisäänrakennettu	|MkDocsin oma oletusteema, Bootstrap-pohjainen. Yksinkertainen, toimiva, mutta vaatimattoman näköinen – tätä näit ennen Materialin käyttöönottoa|
+|readthedocs	|sisäänrakennettu	|Jäljittelee tuttua Read the Docs -sivustojen ulkoasua (paljon Python-kirjastojen dokumentaatiota käyttää tätä tyyliä). Vasemman reunan navigaatio, siisti mutta hieman vanhahtava ilme|
+|material	|pip install mkdocs-material	|Nykyisin suosituin vaihtoehto, käytössäsi jo. Moderni ulkoasu, sisäänrakennettu hakutoiminto, tumma/vaalea tila, runsaasti muokattavia lisäominaisuuksia (features-lista)|
+|mkdocs-bootstrap4	|erillinen asennus	|Bootstrap 4 -pohjainen ulkoasu, tuttu monille verkkosivuille Bootstrapin suositun kevyen tyylin ansiosta|
+|mkdocs-alabaster	|erillinen asennus	|Kevyt, minimalistinen ja rauhallisen näköinen teema – suosittu erityisesti pienissä henkilökohtaisissa dokumentaatioprojekteissa|
+|mkdocs-windmill	|erillinen asennus	|Yksinkertainen, responsiivinen teema selkeällä sivupalkkinavigaatiolla, kevyempi vaihtoehto kuin Material|
+
+Käytännössä lähes kaikki tosielämän MkDocs-dokumentaatiosivustot (esimerkiksi useat suuret yritykset) käyttävät nimenomaan Materialia sen kattavuuden ja aktiivisen ylläpidon vuoksi, joten valintasi oli hyvä. Muiden kokeilu on silti helppoa: vaihda vain theme: name: -riviä ja aja mkdocs serve uudelleen nähdäksesi eron – kolmannen osapuolen teemoissa pitää ensin ajaa `pip install <teeman-nimi>` samaan tapaan kuin Material aikanaan.
+
+### Committoidaan teema-asetus
+
+Terminaalissa:
+
+`git status`
+
+Pitäisi näkyä mkdocs.yml muokattuna (modified). Lisää ja committoi:
+
+```
+git add mkdocs.yml
+git commit -m "Otettu käyttöön Material-teema"
+```
+
+Työnnä GitHubiin:
+
+bash
+git push
+
+
+
+
