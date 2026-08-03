@@ -1,0 +1,2079 @@
+
+<!doctype html>
+<html lang="fi" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Markdown- ja GitHub-harjoitus</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#markdown-ja-github-harjoitus" class="md-skip">
+          Hyppää sisältöön
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Ylätunniste">
+    <a href="." title="Markdown- ja GitHub-harjoitus" class="md-header__button md-logo" aria-label="Markdown- ja GitHub-harjoitus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Markdown- ja GitHub-harjoitus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Markdown- ja GitHub-harjoitus
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hae" placeholder="Hae" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Haku">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Tyhjää" aria-label="Tyhjää" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Aloitetaan hakua
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigaatio" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Markdown- ja GitHub-harjoitus" class="md-nav__button md-logo" aria-label="Markdown- ja GitHub-harjoitus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Markdown- ja GitHub-harjoitus
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Markdown- ja GitHub-harjoitus
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Markdown- ja GitHub-harjoitus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-markdown-syntaksi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Markdown-syntaksi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matoviiva-nappiksella" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        matoviiva näppiksellä
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tekstin-korostukset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tekstin korostukset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linkit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kuvat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kuvat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#koodilohkot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Koodilohkot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taulukot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taulukot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peruskomennot-terminaalissa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Peruskomennot terminaalissa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-git-paikallisesti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Git paikallisesti
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Git paikallisesti">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-kohdekansio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Kohdekansio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-alusta-git-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Alusta Git-repositorio:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Alusta Git-repositorio:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-code-repositorion-alustus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Code : repositorion alustus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-katso-tilanne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Katso tilanne
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tiedostojen-lisaaminen-seurantaan-ja-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 tiedostojen lisääminen seurantaan ja commit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 tiedostojen lisääminen seurantaan ja commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-code-tiedostojen-lisays-ja-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Code : Tiedostojen lisäys ja commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-katso-historia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Katso historia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-git-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Git --&gt; GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#luodaan-repositori-githubiin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Luodaan repositori GitHubiin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Luodaan repositori GitHubiin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-kytketaan-paikallinen-repo-githubiin-remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Kytketään paikallinen repo GitHubiin (remote)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Kytketään paikallinen repo GitHubiin (remote)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-code-remote-kytkenta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Code: Remote-kytkentä
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-haaran-nimeaminen-ja-commitin-tyonto-githubiin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Haaran nimeäminen ja commitin työntö GitHubiin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Haaran nimeäminen ja commitin työntö GitHubiin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-code-push-ja-pull-ja-historia-git-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Code : push ja pull ja historia (git log)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-onnistuminen-tarkistus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Onnistuminen tarkistus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-muokkaa-tarkista-commitoi-tyonna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 muokkaa → tarkista → commitoi → työnnä
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 muokkaa → tarkista → commitoi → työnnä">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#muutoksien-tekeminen-ja-tarkastaminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muutoksien tekeminen ja tarkastaminen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#committoiminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Committoiminen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tyontaminen-githubiin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Työntäminen GitHubiin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pelkka-pull-miksi-joskus-pitaa-hakea-muutoksia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pelkkä Pull - miksi joskus pitää hakea muutoksia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yleisimmat-ongelmatilanteet-ja-ratkaisut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yleisimmät ongelmatilanteet ja ratkaisut
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mkdocs-ja-julkaisu-nettiin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 MkDocs ja julkaisu nettiin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 MkDocs ja julkaisu nettiin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tarkistetaan-mkdocs-asennus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarkistetaan MkDocs asennus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tarkistetaan MkDocs asennus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etsitaan-virtuaaliymparisto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Etsitään virtuaaliympäristö
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miksi-virtuaaliymparisto-ylipaataan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Miksi virtuaaliympäristö ylipäätään?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Miksi virtuaaliympäristö ylipäätään?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtuaaliympariston-luominen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtuaaliympäristön luominen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtuaaliympariston-aktivoiminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtuaaliympäristön aktivoiminen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asennetaan-paketit-requirementstxtsta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asennetaan paketit requirements.txt:stä
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarkista-asennus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarkista asennus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jarjestetaan-kansiot-mkdocsin-tapaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Järjestetään kansiot MkDocsin tapaan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Järjestetään kansiot MkDocsin tapaan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#muista-tarkistaa-avoimet-valilehdet-git-mvn-jalkeen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muista tarkistaa avoimet välilehdet git mv:n jälkeen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#luodaan-mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Luodaan mkdocs.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kaynnistetaan-esikatsely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Käynnistetään esikatsely
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitignore-jatetaan-venv-ja-ds_store-pois-gitista" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gitignore - jätetään .venv ja .DS_Store pois Gitistä
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muokataan-mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muokataan mkdocs.yml
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Muokataan mkdocs.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kaynnista-esikatselu-uudelleen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Käynnistä esikatselu uudelleen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vaihtoehtoisia-teemoja-mkdocsymln-theme-name-kohtaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vaihtoehtoisia teemoja mkdocs.yml:n theme: name: -kohtaan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#committoidaan-teema-asetus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Committoidaan teema-asetus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Committoidaan teema-asetus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#julkaisu-github-pagesiin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Julkaisu GitHub Pagesiin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kuinka-ajaa-terminaalikomennot-vs-codessa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kuinka ajaa Terminaalikomennot VS Codessa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-coden-sisaanrakennettu-terminaali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Coden sisäänrakennettu terminaali
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-markdown-syntaksi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Markdown-syntaksi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matoviiva-nappiksella" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        matoviiva näppiksellä
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tekstin-korostukset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tekstin korostukset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linkit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kuvat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kuvat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#koodilohkot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Koodilohkot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taulukot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taulukot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peruskomennot-terminaalissa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Peruskomennot terminaalissa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-git-paikallisesti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Git paikallisesti
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Git paikallisesti">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-kohdekansio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Kohdekansio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-alusta-git-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Alusta Git-repositorio:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Alusta Git-repositorio:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-code-repositorion-alustus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Code : repositorion alustus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-katso-tilanne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Katso tilanne
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tiedostojen-lisaaminen-seurantaan-ja-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 tiedostojen lisääminen seurantaan ja commit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 tiedostojen lisääminen seurantaan ja commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-code-tiedostojen-lisays-ja-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Code : Tiedostojen lisäys ja commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-katso-historia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Katso historia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-git-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Git --&gt; GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#luodaan-repositori-githubiin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Luodaan repositori GitHubiin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Luodaan repositori GitHubiin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-kytketaan-paikallinen-repo-githubiin-remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Kytketään paikallinen repo GitHubiin (remote)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Kytketään paikallinen repo GitHubiin (remote)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-code-remote-kytkenta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Code: Remote-kytkentä
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-haaran-nimeaminen-ja-commitin-tyonto-githubiin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Haaran nimeäminen ja commitin työntö GitHubiin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Haaran nimeäminen ja commitin työntö GitHubiin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-code-push-ja-pull-ja-historia-git-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Code : push ja pull ja historia (git log)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-onnistuminen-tarkistus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Onnistuminen tarkistus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-muokkaa-tarkista-commitoi-tyonna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 muokkaa → tarkista → commitoi → työnnä
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 muokkaa → tarkista → commitoi → työnnä">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#muutoksien-tekeminen-ja-tarkastaminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muutoksien tekeminen ja tarkastaminen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#committoiminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Committoiminen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tyontaminen-githubiin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Työntäminen GitHubiin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pelkka-pull-miksi-joskus-pitaa-hakea-muutoksia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pelkkä Pull - miksi joskus pitää hakea muutoksia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yleisimmat-ongelmatilanteet-ja-ratkaisut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yleisimmät ongelmatilanteet ja ratkaisut
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mkdocs-ja-julkaisu-nettiin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 MkDocs ja julkaisu nettiin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 MkDocs ja julkaisu nettiin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tarkistetaan-mkdocs-asennus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarkistetaan MkDocs asennus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tarkistetaan MkDocs asennus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etsitaan-virtuaaliymparisto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Etsitään virtuaaliympäristö
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miksi-virtuaaliymparisto-ylipaataan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Miksi virtuaaliympäristö ylipäätään?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Miksi virtuaaliympäristö ylipäätään?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtuaaliympariston-luominen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtuaaliympäristön luominen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtuaaliympariston-aktivoiminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtuaaliympäristön aktivoiminen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asennetaan-paketit-requirementstxtsta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asennetaan paketit requirements.txt:stä
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarkista-asennus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarkista asennus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jarjestetaan-kansiot-mkdocsin-tapaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Järjestetään kansiot MkDocsin tapaan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Järjestetään kansiot MkDocsin tapaan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#muista-tarkistaa-avoimet-valilehdet-git-mvn-jalkeen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muista tarkistaa avoimet välilehdet git mv:n jälkeen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#luodaan-mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Luodaan mkdocs.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kaynnistetaan-esikatsely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Käynnistetään esikatsely
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitignore-jatetaan-venv-ja-ds_store-pois-gitista" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gitignore - jätetään .venv ja .DS_Store pois Gitistä
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muokataan-mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muokataan mkdocs.yml
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Muokataan mkdocs.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kaynnista-esikatselu-uudelleen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Käynnistä esikatselu uudelleen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vaihtoehtoisia-teemoja-mkdocsymln-theme-name-kohtaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vaihtoehtoisia teemoja mkdocs.yml:n theme: name: -kohtaan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#committoidaan-teema-asetus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Committoidaan teema-asetus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Committoidaan teema-asetus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#julkaisu-github-pagesiin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Julkaisu GitHub Pagesiin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kuinka-ajaa-terminaalikomennot-vs-codessa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kuinka ajaa Terminaalikomennot VS Codessa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-coden-sisaanrakennettu-terminaali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Coden sisäänrakennettu terminaali
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="markdown-ja-github-harjoitus">Markdown- ja GitHub-harjoitus</h1>
+<p>tämä dokumentti kokoaa opitut asiat askel askeleelta.</p>
+<h2 id="1-markdown-syntaksi">1 Markdown-syntaksi</h2>
+<p>Otsikot tehdään # risuaita-merkillä. Yksi risuaita on pääotsikko, kaksi risuaitaa on alaotsikko, kolme on sitä seuraava taso. Jätä välilyönti # merkin/merkkien ja otsikkotekstin väliin.</p>
+<h2 id="matoviiva-nappiksella">matoviiva näppiksellä</h2>
+<p>Aaltoviiva ~ kirjoitetaan suomalaisella Mac-näppäimistöllä näin:</p>
+<p>Paina Option (⌥) + ¨ – ¨-näppäin sijaitsee Å-näppäimen oikealla puolella, Enter-näppäimen vieressä. Option-näppäin on välilyöntinäppäimen vieressä (siinä lukee ⌥ tai "alt").
+Ruudulle ei ilmesty vielä mitään (tai näkyy himmeä ~) – paina sitten välilyöntiä, ja ~ ilmestyy.</p>
+<h2 id="listat">Listat</h2>
+<p>Numeroimaton lista tehdään tavuviivalla rivin alussa:</p>
+<ul>
+<li>ensimmäinen asia</li>
+<li>toinen asia</li>
+<li>kolmas asia<ul>
+<li>sisennetty alakohta (tab tai 4 spacea alkuun)</li>
+</ul>
+</li>
+</ul>
+<p>Numeroitu lista tehdään numerolla ja pisteellä</p>
+<ol>
+<li>ensimmäinen vaihe</li>
+<li>toinen vaihe</li>
+<li>kolmas vaihe</li>
+</ol>
+<p>Yksi tärkeä sääntö vielä: jätä tyhjä rivi ennen listan alkua – muuten lista ei muotoidu oikein vaan jää osaksi edellistä kappaletta.</p>
+<p>Kiva yksityiskohta: numeroiden ei tarvitse olla oikeassa järjestyksessä – vaikka kirjoittaisit joka riville 1., Markdown numeroi ne silti 1, 2, 3. Tämä helpottaa, kun lisäät kohtia listan keskelle.</p>
+<h2 id="tekstin-korostukset">Tekstin korostukset</h2>
+<p>Teksti voi olla <em>kursivoitua</em> yhdellä tähdellä sanan alussa ja lopussa tai <strong>lihavoitua</strong> kahdella tähdellä sanan alussa ja lopussa. </p>
+<p>Koodi ja komennot merkitään <code>takahipsuilla</code> ( ` löytyy + merkin ja backspacen välistä). </p>
+<p>eli: ´koodi ´ mutta hipsujen ja sanan välissä ei saa olla välilyöntiä.</p>
+<h2 id="linkit">Linkit</h2>
+<p>Linkki tehdään hakasulkeilla ja kaarisulkeilla:</p>
+<p>Linkkitekstin hakasulkeisiin
+: </p>
+<p>[Noppa-Yatzy pelitaulukko] </p>
+<p>ja urlin kaarisulkeisiin: 
+(https://jukkarouhe.github.io/yatzy/)</p>
+<p>Kirjoitetaan <em>peräkkäin ilman välilyöntiä</em> jolloin saadaan nätti linkki:</p>
+<p><a href="https://jukkarouhe.github.io/yatzy/">Noppa-Yatzy pelitaulukko</a></p>
+<h2 id="kuvat">Kuvat</h2>
+<p>Kuva lisätään kuten linkki, mutta eteen tulee huutomerkki:</p>
+<p>![poreallas kansi auki] (kuvat/poreallas-kansi-auki.JPEG)</p>
+<p>(ja yhteenkirjoitettuna ilman välilyöntiä)</p>
+<p><img alt="poreallas kansi auki" src="kuvat/poreallas-kansi-auki.JPEG" /></p>
+<p>Polku kuvat/kuvan-nimi.jpg on suhteellinen polku: se tarkoittaa "tämän .md-tiedoston sijainnista katsottuna kuvat-kansiossa oleva tiedosto". Suhteelliset polut ovat tärkeitä, koska ne toimivat sellaisenaan myös GitHubissa ja MkDocs-sivustolla – toisin kuin koneesi absoluuttiset polut (esim. /Users/...).</p>
+<h2 id="koodilohkot">Koodilohkot</h2>
+<p>Yksittäinen komento merkitään takahipsuilla keskelle tekstiä,
+esimerkiksi komento <code>ls -la</code> listaa myös piilotiedostot.</p>
+<p>Monirivinen koodilohko tehdään kolmella takahipsulla siten että </p>
+<p>ensimmäisellä rivillä on ```</p>
+<p>ja koodilohkon lopuksi viimeisellä rivillä on taas ``` jolloin saadaan muotoilu:</p>
+<pre><code>mkdir kuvat
+cd kuvat
+ls
+</code></pre>
+<p>Kolmen takahipsun perään voi lisätä kielen nimen, esim bash
+jolloin koodi saa värityksen:</p>
+<pre><code class="language-bash">cd ~/Projects/md-harjoitus
+git status
+ls la
+</code></pre>
+<p>Selitys: Aiemmin opit yksittäisen takahipsun tekstin keskellä. Koodilohko taas alkaa rivillä, jolla on kolme takahipsua ``` ja päättyy samanlaiseen riviin. Kaikki niiden välissä näytetään sellaisenaan harmaalla pohjalla – Markdown-merkit eivät vaikuta lohkon sisällä. Takahipsu tehtiin siis Shift + ´ ja välilyönti; kolme peräkkäin vaatii saman kolmesti (tai kikka: paina Shift + ´ kolme kertaa peräkkäin ja lopuksi välilyönti – saat kolme hipsua kerralla).</p>
+<p>Kielen nimi avaavan rivin perässä (esim. ```bash) kertoo, millä kielellä koodi on kirjoitettu, jolloin editori ja GitHub värittävät sen luettavammaksi. Terminaalikomennoille käytetään nimeä bash, Python-koodille python ja niin edelleen.</p>
+<h2 id="taulukot">Taulukot</h2>
+<p>Taulukot kirjoitetaan kuten allaoleva esimerkki näyttää mutta ilman tyhjiä rivejä otsikon ja toisten rivien välissä:</p>
+<p>|Komento|Selitys|</p>
+<p>|---|---|</p>
+<p>|ls |listaa kansion sisällön|</p>
+<p>|cd|vaihtaa kansiota|</p>
+<p>|mkdir|luo uuden kansion|</p>
+<p>Kun tyhjiä rivejä ei ole, taulukko näyttää tältä:</p>
+<table>
+<thead>
+<tr>
+<th>Komento</th>
+<th>Selitys</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ls</td>
+<td>listaa kansion sisällön</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>vaihtaa kansiota</td>
+</tr>
+<tr>
+<td>mkdir</td>
+<td>luo uuden kansion</td>
+</tr>
+</tbody>
+</table>
+<p>Selitys: taulukon sarakkeet erotetaan pystyviivalla |. Ensimmäinen rivi on otsikkorivi, toinen rivi viivoineen |---|---| erottaa otsikot sisällöstä (se on pakollinen), ja loput rivit ovat taulukon sisältöä. Pystyviiva tehdään suomalaisella Mac-näppäimistöllä Option (⌥) + 7. Sarakkeiden leveyksien ei tarvitse olla siistejä tai kohdakkain – Markdown tasaa taulukon automaattisesti.</p>
+<h2 id="peruskomennot-terminaalissa">Peruskomennot terminaalissa</h2>
+<p>Macin terminaali ei aja DOSia vaan Unix-pohjaista komentotulkkia (Macissa oletuksena zsh-niminen tulkki). Komennot ovat siksi eri nimisiä, vaikka tekevät samoja asioita. Tässä muutama vastinpari, jotka tunnistat:</p>
+<table>
+<thead>
+<tr>
+<th>DOS</th>
+<th>Mac/Unix</th>
+<th>Mitä tekee</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dir</td>
+<td>ls</td>
+<td>listaa kansion sisällön</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>cd</td>
+<td>vaihtaa kansiota (sama!)</td>
+</tr>
+<tr>
+<td>md / mkdir</td>
+<td>mkdir</td>
+<td>luo kansion</td>
+</tr>
+<tr>
+<td>copy</td>
+<td>cp</td>
+<td>kopioi tiedoston</td>
+</tr>
+<tr>
+<td>del</td>
+<td>rm</td>
+<td>poistaa tiedoston</td>
+</tr>
+<tr>
+<td>type</td>
+<td>cat</td>
+<td>näyttää tiedoston sisällön</td>
+</tr>
+<tr>
+<td>cls</td>
+<td>clear</td>
+<td>tyhjentää ruudun</td>
+</tr>
+</tbody>
+</table>
+<p>Pari muuta eroa: Unix käyttää kauttaviivaa / polkujen erottimena, kun DOS käytti kenoviivaa . Ja Unixissa isot ja pienet kirjaimet ovat merkitseviä – Ohje.md ja ohje.md ovat eri tiedostoja, mikä DOSissa ei pitänyt paikkaansa.</p>
+<h2 id="2-git-paikallisesti">2 Git paikallisesti</h2>
+<p>Kahtiajako on Gitin ydinajatus: paikallinen työskentely (add, commit) ja synkronointi etäpalvelimelle (push, pull) ovat erillisiä toimintoja. Tässä käydään läpi paikallinen osuus.</p>
+<h3 id="1-kohdekansio">1 Kohdekansio</h3>
+<p>Työskentelet Terminaalissa, siirry aluksi projektikansioon:</p>
+<p><code>cd ~/Projects/md-harjoitus</code></p>
+<h3 id="2-alusta-git-repositorio">2 Alusta Git-repositorio:</h3>
+<p><code>git init</code></p>
+<p>Mitä tapahtuu: init (initialize) luo kansioon piilotetun .git-alikansion, johon Git alkaa tallentaa kaikkien tiedostojen muutoshistoriaa (versioita). Kansiostasi tuli juuri repositorio eli "repo". Tämä tehdään vain kerran per projekti. Näet piilokansion halutessasi komennolla ls -la (tuo -a näyttää piilotiedostot – kuten DOSin dir /a!).</p>
+<h4 id="vs-code-repositorion-alustus">VS Code : repositorion alustus</h4>
+<p>Repositorion alustus (´git init´): Avaa kansio VS Codessa (File → Open Folder). Paina vasemman reunan Source Control -kuvaketta (Cmd + Shift + G). Jos kansio ei ole vielä Git-repo, paneelissa näkyy iso sininen nappi Initialize Repository – sen painaminen tekee täsmälleen saman kuin ´git init´.</p>
+<h3 id="3-katso-tilanne">3 Katso tilanne</h3>
+<p><code>git status</code></p>
+<p>Tämä on Gitin tärkein peruskomento – se kertoo aina, mitä repossa on meneillään. Nyt sen pitäisi listata punaisella "Untracked files" -otsikon alla ohje.md ja kuvat/-kansio: Git näkee tiedostot, mutta ei vielä seuraa niitä.</p>
+<p>Sama VS Codessa: katso vasemman reunan Source Control -kuvaketta (kolme palloa viivoilla yhdistettynä, Cmd + Shift + G). Näet samat tiedostot listassa merkinnällä U (Untracked). VS Code huomasi git init-komennon automaattisesti.</p>
+<h3 id="4-tiedostojen-lisaaminen-seurantaan-ja-commit">4 tiedostojen lisääminen seurantaan ja commit</h3>
+<p>Commit tehdään kahdessa vaiheessa. Ensin valitaan mukaan otettavat tiedostot:</p>
+<p><code>git add .</code></p>
+<p>Selitys: add siirtää tiedostot valmistelualueelle (staging area) eli "seuraavaan 'snapshottiin' (versiotallennukseen) mukaan tulevat editoidut tiedostot". Piste tarkoittaa "kaikki tämän kansion tiedostot". Aja <code>git status</code> uudelleen – tiedostot näkyvät nyt vihreällä, valmiina commitoitavaksi.</p>
+<p>Voit muokata vaikka viittä tiedostoa, mutta ottaa commitiin mukaan vain kaksi niistä (<code>git add tiedosto1.md tiedosto2.md</code>) ja jättää loput seuraavaan committiin.</p>
+<p>Sitten itse commit:</p>
+<p><code>git commit -m "Ensimmäinen versio: Markdown-perusteet dokumentoitu"</code></p>
+<p>Selitys: commit tallentaa valmistelualueen sisällön pysyväksi tilannekuvaksi(versioksi) historiaan tietokoneen projektikansion piilossa olevaan .git hakemistoon. -m (message) antaa commitille viestin, joka kuvaa mitä tehtiin – kirjoita viestit aina niin, että ymmärrät ne vielä kuukausienkin päästä. Komennolla <code>git log</code>voi katsoa kaikki aiemmat commitit ja tarvittaessa palata vanhempaan versioon (committiin). Mitään ei tässä vaiheessa ole siirretty GitHubiin.</p>
+<p>Tämä kahtiajako on Gitin ydinajatus: paikallinen työskentely (add, commit) ja synkronointi etäpalvelimelle (push, pull) ovat erillisiä toimintoja. Voit tehdä vaikka kymmenen commitia junassa ilman nettiyhteyttä ja työntää ne kaikki kerralla GitHubiin myöhemmin.</p>
+<h4 id="vs-code-tiedostojen-lisays-ja-commit">VS Code : Tiedostojen lisäys ja commit</h4>
+<p>Sama VS Codessa: Source Control -paneelissa paina tiedoston vieressä +-merkkiä (= git add), kirjoita viesti yläreunan tekstikenttään ja paina Commit-nappia.</p>
+<p>Tiedostojen lisäys ja commit (add + commit): Muutetut tiedostot ilmestyvät Source Control -paneeliin Changes-listaan. Vie hiiri tiedoston päälle ja paina + (Stage Changes) – tämä on git add. Tiedosto siirtyy Staged Changes -listaan. Kirjoita commit-viesti yläreunan tekstikenttään ja paina Commit. Vinkki: jos painat Commit ilman että mitään on stagettu, VS Code kysyy haluatko commitoida kaikki muutokset kerralla – se vastaa komentoa git add . + commit.</p>
+<h3 id="5-katso-historia">5 Katso historia</h3>
+<p><code>git log</code> komento Terminaalissa: Näet juuri tekemäsi commitin: tekijän, ajan, viestin ja commitin yksilöivän tunnisteen (pitkä merkkijono). Poistu näkymästä painamalla q. Tiiviimpi muoto: <code>git log --oneline</code>.</p>
+<h2 id="3-git-github">3 Git --&gt; GitHub</h2>
+<h2 id="luodaan-repositori-githubiin">Luodaan repositori GitHubiin</h2>
+<p>Tämä tehdään selaimessa:</p>
+<ol>
+<li>Mene osoitteeseen github.com ja kirjaudu sisään (tunnus jukkarouhe)</li>
+<li>Paina oikean yläkulman +-merkkiä ja valitse New repository</li>
+<li>Täytä lomake:<ul>
+<li>Repository name: md-harjoitus (sama nimi kuin paikallisella kansiolla – ei pakollista, mutta selkeää)</li>
+<li>Description: vapaaehtoinen, esim. "Markdown- ja Git-harjoitusprojekti"</li>
+<li>Public / Private: valitse Public, jos dokumentaatio saa näkyä kaikille – tämä on myös GitHub Pages -julkaisun (vaihe 5) kannalta helpoin valinta ilmaisella tilillä</li>
+<li>Tärkeää: älä ruksaa kohtia "Add a README", "Add .gitignore" tai "Choose a license" – repositorion pitää syntyä tyhjänä, koska sisältö tulee sinun koneeltasi. Jos GitHub loisi sinne valmiiksi tiedostoja, historiat menisivät ristiin.</li>
+</ul>
+</li>
+<li>Paina Create repository</li>
+</ol>
+<p>GitHub näyttää nyt ohjesivun, jossa on valmiita komentoja. Käytetään niistä (lokaalisti tietokoneella) keskimmäistä vaihtoehtoa ("push an existing repository from the command line"), mutta käydään komennot läpi itse ymmärtäen.</p>
+<h3 id="2-kytketaan-paikallinen-repo-githubiin-remote">2 Kytketään paikallinen repo GitHubiin (remote)</h3>
+<p>Terminaalissa projektikansiossa (tarkista siirtymällä <code>cd ~/Projects/md-harjoitus</code>):</p>
+<p><code>git remote add origin git@github.com:jukkarouhe/md-harjoitus.git</code></p>
+<p>Selitys: <code>remote</code> tarkoittaa etärepositoriota eli paikallisen repon "kaveria" verkossa. <code>add origin</code> lisää etärepon nimellä origin – se on vakiintunut nimi ensisijaiselle etärepolle (nimi voisi olla mikä vain, mutta origin on käytäntö, jota kaikki noudattavat). Osoite <code>git@github.com:...</code> on SSH-muotoinen osoite, eli yhteys todennetaan SSH-avaimellasi – salasanaa ei kysytä.</p>
+<p>Tarkista toimiko paikallisen repon kytkentä GitHubiin komennolla</p>
+<p><code>git remote -v</code></p>
+<p>Terminaalin pitäisi tulostaa origin kaksi kertaa (fetch ja push):</p>
+<pre><code>jukkarouhe@Jukkas-MacBook-Pro md-harjoitus % git remote -v
+origin  git@github.com:jukkarouhe/md-harjoitus.git (fetch)
+origin  git@github.com:jukkarouhe/md-harjoitus.git (push)
+jukkarouhe@Jukkas-MacBook-Pro md-harjoitus % 
+</code></pre>
+<h4 id="vs-code-remote-kytkenta">VS Code: Remote-kytkentä</h4>
+<p>Remote-kytkentä: Source Control -paneelin oikean yläkulman …-valikko → Remote → Add Remote → liitä osoite git@github.com:jukkarouhe/md-harjoitus.git → anna nimeksi origin.</p>
+<h3 id="3-haaran-nimeaminen-ja-commitin-tyonto-githubiin">3 Haaran nimeäminen ja commitin työntö GitHubiin</h3>
+<p>Ensin yhtenäistetään haaran nimi. Muistat ehkä <code>git init</code> -komennon vihjeen "master"-nimestä – GitHubin nykykäytäntö on main, joten nimetään paikallinen haara sen mukaiseksi:</p>
+<p><code>git branch -M main</code></p>
+<p>Selitys: <code>branch -M main</code> nimeää nykyisen haaran uudelleen nimellä main. (Haarat käsitellään syvemmin myöhemmin – tässä vaiheessa riittää tietää, että main on projektin päälinja, se aikajana jolle commitisi ovat tallentuneet.)</p>
+<p>Sitten itse työntö:</p>
+<p><code>git push -u origin main</code></p>
+<p>Selitys: <code>push</code> lähettää paikalliset commitit etärepoon. <code>origin main</code> tarkoittaa "origin-nimiseen etärepoon, main-haaraan". Valitsin <code>-u</code> (upstream) tekee kytkennän muistiin: jatkossa pelkkä <code>git push</code> riittää, koska Git muistaa minne tämän haaran commitit kuuluvat. Tämä <code>-u</code> tarvitaan siis vain ensimmäisellä kerralla.</p>
+<p>Jos SSH-yhteys kysyy ensimmäisellä kerralla "Are you sure you want to continue connecting (yes/no)?", vastaa yes – se on normaali varmistus, kun koneesi ottaa yhteyttä GitHubiin ensimmäistä kertaa.</p>
+<h4 id="vs-code-push-ja-pull-ja-historia-git-log">VS Code : push ja pull ja historia (git log)</h4>
+<p>Sama VS Codessa: Source Control -paneelin ...-valikosta (siis kolmen pisteen kautta avautuvasta drop-down valikosta source control osion yläpalkista) löytyvät Remote → Add Remote ja Push. Ensimmäisen pushin jälkeen VS Coden alapalkkiin ilmestyy myös synkronointikuvake (nuolet ympyränä), joka hoitaa push/pull-toiminnot yhdellä klikkauksella.</p>
+<p>Push ja pull: Ensimmäinen työntö: …-valikko → Push (VS Code kysyy tarvittaessa mihin haaraan). Jatkossa helpoin on alapalkin synkronointikuvake (nuolet ympyränä, haaran nimen "main" vieressä): yksi klikkaus tekee sekä pullin että pushin. Kuvakkeen vieressä näkyvät numerot kertovat odottavista commiteista: ↓ tulossa GitHubista, ↑ lähdössä sinne.</p>
+<p>Historia (git log): VS Codessa on sisäänrakennettu Timeline-näkymä: avaa ohje.md ja katso vasemman paneelin alaosasta Timeline-osio – siinä näkyvät tiedoston commitit aikajärjestyksessä, ja klikkaamalla näet mitä kussakin muutettiin.</p>
+<h3 id="4-onnistuminen-tarkistus">4 Onnistuminen tarkistus</h3>
+<p>Päivitä selaimessa repositoriosi sivu (github.com/jukkarouhe/md-harjoitus). Sinun pitäisi nähdä <code>ohje.md</code> ja <code>kuvat</code>-kansio siellä – ja hienona yksityiskohtana GitHub näyttää <code>ohje.md</code>:n sisällön valmiiksi muotoiltuna suoraan reposivulla, koska Markdown on GitHubin äidinkieltä. Voit myös klikata commit-historiaa (kellokuvake tai "commits") ja nähdä tekemäsi commitit viesteineen.</p>
+<h2 id="4-muokkaa-tarkista-commitoi-tyonna">4 muokkaa → tarkista → commitoi → työnnä</h2>
+<h3 id="muutoksien-tekeminen-ja-tarkastaminen">Muutoksien tekeminen ja tarkastaminen</h3>
+<p>Tee VS Codessa muokkauksia tiedostoon (tarpeen tullen alustus, valitse committoitavat muokatus tiedostot + commit, push/pull, Timeline). Ennen committia on hyvä tapa katsoa Terminaalissa, mikä muuttui. Komennot Terminaalissa ovat:</p>
+<pre><code>git status
+git diff
+</code></pre>
+<p>Selitys: <code>status</code> kertoo mitkä tiedostot muuttuivat, <code>diff</code> näyttää rivi riviltä mitä muuttui – poistetut rivit miinuksella (punaisella), lisätyt plussalla (vihreällä). Poistu diff-näkymästä painamalla <strong>q</strong> (kuten git logissa).</p>
+<p>VS Codessa: Source Control -paneelissa klikkaa muuttunutta tiedostoa – VS Code avaa rinnakkaisnäkymän, jossa vasemmalla on edellinen commitoitu versio ja oikealla nykyinen, muutokset värein korostettuna. Tämä on selvästi diff-komentoa havainnollisempi tapa. Erot näyttävän näkymän saat pois klikkaamalla ylälaidasta kyseisen tab-in kiinni(pois).</p>
+<h3 id="committoiminen">Committoiminen</h3>
+<p><strong>Terminaalissa</strong>:</p>
+<pre><code>git add ohje.md
+git commit -m &quot;Lisätty VS Coden ohjeistusta&quot;
+</code></pre>
+<p>huom, tällä komennolla lisättiin vain ohje.md koska ei käytetty pistettä <code>add</code> komennon jälkeen.</p>
+<p><strong>VS Codessa</strong>:
+Source Control → ohje.md:n vieressä + (Stage Changes) → kirjoita viesti kenttään → <strong>Commit</strong>.</p>
+<h3 id="tyontaminen-githubiin">Työntäminen GitHubiin</h3>
+<p><strong>Terminaalissa</strong>:
+<code>git push</code> </p>
+<p>pelkkä <code>push</code>riittää nyt, koska <code>-u</code>kytkentä tehtiin ensimmäisellä kerralla. </p>
+<p><strong>VS Codessa</strong>: klikkaa alapalkin synkronointikuvaketta (nuolet ympyränä, "main"-tekstin vieressä). Se ajaa sekä pullin että pushin. Käy varmistamassa selaimessa, että uusi osio näkyy GitHubissa.</p>
+<h3 id="pelkka-pull-miksi-joskus-pitaa-hakea-muutoksia">Pelkkä Pull - miksi joskus pitää hakea muutoksia</h3>
+<p>´git pull``</p>
+<p>Selitys: <code>pull</code> hakee GitHubista commitit, joita koneellasi ei vielä ole. Yksin yhdellä koneella työskennellessä se tuntuu turhalta – mutta se muuttuu tärkeäksi heti, jos (a) muokkaat tiedostoja suoraan GitHubin selainkäyttöliittymässä, (b) otat käyttöön toisen tietokoneen, tai (c) projektiin tulee toinen tekijä. Hyvä rutiini: aloita työskentelysessio aina <code>git pull</code> -komennolla (tai VS Coden synkronointikuvakkeella) – näin kone on varmasti ajan tasalla, eikä ristiriitoja synny.</p>
+<h2 id="yleisimmat-ongelmatilanteet-ja-ratkaisut">Yleisimmät ongelmatilanteet ja ratkaisut</h2>
+<table>
+<thead>
+<tr>
+<th>Tilanne</th>
+<th>Ratkaisu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Push hylätään: "rejected... remote contains work"</td>
+<td>GitHubissa on committeja joita koneelasi ei ole. Aja <code>git pull</code>ensin, sitten <code>git push</code>uudelleen</td>
+</tr>
+<tr>
+<td>Commit viesti unohtui ja avautui outo editori</td>
+<td>Kirjoita viesti, paina Esc ja kirjoita <code>:wq</code> ja Enter (vim-editori). Jatkossa muista -m "viesti"</td>
+</tr>
+<tr>
+<td>Väärä tiedosto stagessa (=valittuna committiin)</td>
+<td><code>git restore --staged tiedosto.md</code> poistaa stagesta (muutokset säilyvät). VS Codessa: tiedoston vieressä - (unstage)</td>
+</tr>
+<tr>
+<td>Muutokset halutaan perua kokonaan</td>
+<td><code>git restore tiedosto.md</code>palauttaa viimeisimmän commitin version. VS Codessa: tiedoston vieressä ↩ (Discard Changes). Varo: muutokset katoavat oikeasti</td>
+</tr>
+<tr>
+<td>/Ei muistikuvaa mitä tehty</td>
+<td><code>git status</code>kertoo aina tilanteen. VS Codessa: Source Control -paneeli</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-mkdocs-ja-julkaisu-nettiin">5 MkDocs ja julkaisu nettiin</h2>
+<p>Julkaisuun on kaksi reittiä, ja tässä kannattaa hetki miettiä:</p>
+<p>Pikatapa: repositorion asetuksista (Settings → Pages) voi kytkeä Pagesin päälle suoraan main-haarasta, jolloin GitHub tekee md-tiedostoista yksinkertaiset sivut. Toimii, mutta lopputulos on vaatimaton eikä vastaa tavoitettamme.</p>
+<p>Suunniteltu tapa: rakennetaan sivusto MkDocsilla ja Material-teemalla. Silloin saat hakutoiminnon, navigaation ja ammattimaisen ulkoasun, ja julkaisu tapahtuu komennolla mkdocs gh-deploy, joka hoitaa GitHub Pages -kytkennän puolestasi automaattisesti.</p>
+<h3 id="tarkistetaan-mkdocs-asennus">Tarkistetaan MkDocs asennus</h3>
+<p>Terminaalissa projektikansiossa (<code>cd ~/Projects/md-harjoitus</code>):</p>
+<p><code>mkdocs --versions</code></p>
+<p>Jos komento ei löydä MkDocs asennusta, todennäköisesti sitä ei ole Terminaalin hakupolussa (PATH). Toinen mahdollisuus on että MkDocs on asennettu virtuaaliympäristöön (venv), joka pitää aktivoida uudelleen.</p>
+<p>Kokeile Termonaalissa näitä komentoja järjestyksessä ja katso mikä tuottaa tulosta:</p>
+<p><code>python3 -m mkdocs --version</code></p>
+<p>Selitys: tämä käynnistää MkDocsin Pythonin kautta ohittaen PATH-ongelman. Jos tämä tulostaa version (1.6.1), paketti on asennettu ja kyse on vain hakupolusta – helppo korjata.</p>
+<p>Jos tuli virhe ("No module named mkdocs"), tarkista näkyykö paketti pip-listauksessa:</p>
+<p>`pip3 list | grep -i mkdocs``</p>
+<p>Selitys: pip3 list listaa kaikki asennetut Python-paketit, ja grep -i mkdocs suodattaa listasta rivit, joissa lukee mkdocs (-i = isot/pienet kirjaimet samanarvoisia). Putkimerkki | (Option + 7) ohjaa edellisen komennon tulosteen seuraavalle – tämäkin konsepti saattaa olla DOS-ajoilta tuttu.</p>
+<p>Jos asennusta ei löydy, se on mahdollisesti asennettu virtuaaliympäristöön jonkun aiemman projektin yhteydessä (porealtaan huoltokansio?).</p>
+<h4 id="etsitaan-virtuaaliymparisto">Etsitään virtuaaliympäristö</h4>
+<p>Aja Terminaalissa (missä tahansa kansiossa):</p>
+<p><code>find ~/Projects -name "pyvenv.cfg"</code> </p>
+<ul>
+<li>Jos venv löytyi: aktivoidaan se väliaikaisesti, tarkistetaan sisältääkö se MkDocsin, ja päätetään haluatko käyttää samaa venviä myös tässä projektissa vai luoda tälle oma erillinen (suositeltavampi – projektit kannattaa pitää siististi erillään toisistaan)</li>
+<li>Jos ei löytynyt mitään: paketit asennettiin ehkä suoraan globaaliin Pythoniin, mutta eri Python-versiolla kuin nykyinen <code>python3</code> osoittaa (huomasitko tulosteessa polun <code>/opt/homebrew/opt/python@3.14/</code>? – jos asennus tehtiin esim. Python 3.12:lla, paketit eivät näy 3.14:n listassa). Tässä tapauksessa selvitetään mitä Python-versioita koneellasi on.</li>
+</ul>
+<p><strong>Suositeltu tapa</strong>: luodaan tälle projektille oma virtuaaliympäristö. Tämä on muutenkin Python-projekteissa suositeltu käytäntö, koska jokainen projekti pysyy omissa paketeissaan sekoittamatta muita.</p>
+<h4 id="miksi-virtuaaliymparisto-ylipaataan">Miksi virtuaaliympäristö ylipäätään?</h4>
+<p>Venv on kuin erillinen, eristetty "laatikko" Python-paketeille per projekti. Ilman sitä kaikki paketit menisivät yhteen isoon kasaan koko koneelle, ja eri projektien versiotarpeet voisivat riidellä keskenään. Venv ratkaisee tämän: kun se on aktivoituna, <code>pip install</code> asentaa paketit vain siihen kansioon, ei koko koneelle.</p>
+<h5 id="virtuaaliympariston-luominen">Virtuaaliympäristön luominen</h5>
+<p>Terminaalissa , projektikansiossa (<code>cd ~/Projects/md-harjoitus</code>):</p>
+<p><code>python3 -m venv .venv</code></p>
+<p>Selitys: <code>python3 -m venv</code> on Pythonin sisäänrakennettu työkalu venvien luontiin. <code>.venv</code> on luotavan kansion nimi (piste alussa piilottaa sen tavallisesta listauksesta – vakiintunut käytäntö). Tämä luo projektikansioon <code>.venv</code>-nimisen alikansion, joka sisältää oman kopion Pythonista ja tyhjän pip-asennuksen.</p>
+<h5 id="virtuaaliympariston-aktivoiminen">Virtuaaliympäristön aktivoiminen</h5>
+<p><code>source .venv/bin/activate</code></p>
+<p>Selitys: <code>source</code> ajaa skriptin nykyisessä terminaali-istunnossa (eikä uudessa aliprosessissa, kuten tavallinen komennon ajo tekisi) – tämä on välttämätöntä, jotta aktivointi jää voimaan. Onnistuessaan terminaalin komentorivin alkuun ilmestyy (<code>.venv</code>), joka kertoo: "olet nyt tämän venvin sisällä, kaikki pip- ja python-komennot koskevat vain sitä."</p>
+<h5 id="asennetaan-paketit-requirementstxtsta">Asennetaan paketit requirements.txt:stä</h5>
+<p>Projektisi dokumentaatiossa on jo requirements.txt, joka listaa tarvittavat paketit. Jos tiedosto on toisen Projektin kansiossa kopioi se tämän Projektin kansioon ajamalla:</p>
+<p><code>cp ~/Projects/poreallas/requirements.txt ~/Projects/md-harjoitus/requirements.txt</code> </p>
+<p>Selitys: <code>cp</code> (copy) kopioi tiedoston – ensimmäinen polku on lähde, toinen kohde. Alkuperäinen tiedosto poreallas-kansiossa säilyy koskemattomana.</p>
+<p>Tämän jälkeen asennetaan paketit </p>
+<p><code>pip install -r requirements.txt</code> </p>
+<p>koska nyt tiedosto löytyy oikeasta paikasta.</p>
+<p>Pieni lisähuomio myöhempää varten: koska requirements.txt on nyt osa tätä projektia, se kannattaa myös committoida Gitiin yhdessä mkdocs.yml:n kanssa – se on nimenomaan sellainen tiedosto, joka pitää viedä GitHubiin (toisin kuin .venv-kansio), jotta projekti on kenen tahansa pystytettävissä uudelleen.</p>
+<h5 id="tarkista-asennus">Tarkista asennus</h5>
+<p>Aja Terminaalissa</p>
+<p><code>mkdocs --version</code></p>
+<p>Nyt komento löytyy, koska aktiivinen venv lisäsi oman <code>bin</code>-kansionsa hakupolun alkuun.</p>
+<p><strong>Tärkeä muistisääntö</strong>: venv pitää aktivoida <strong>jokaisessa uudessa terminaali-istunnossa</strong> erikseen (komento <code>source .venv/bin/activate</code>) ennen kuin mkdocs-komennot toimivat. Jos suljet terminaalin ja avaat uuden, (<code>.venv</code>) ei enää näy eikä mkdocs löydy – se ei ole virhe, vaan pitää vain aktivoida uudelleen. Pois venvistä pääsee komennolla <em>deactivate</em>.</p>
+<p>Vinkki myöhempää varten: <code>.venv</code>-kansiota ei koskaan viedä Gitiin (se on iso ja koneriippuvainen) – siksi juuri requirements.txt on olemassa: sen avulla kuka tahansa voi pystyttää saman ympäristön uudelleen yhdellä komennolla.</p>
+<h3 id="jarjestetaan-kansiot-mkdocsin-tapaan">Järjestetään kansiot MkDocsin tapaan</h3>
+<p>Nyt kun MkDocs toimii, tehdään seuraava siirto:</p>
+<pre><code>mkdir docs
+git mv ohje.md docs/index.md
+git mv kuvat docs/kuvat
+</code></pre>
+<h4 id="muista-tarkistaa-avoimet-valilehdet-git-mvn-jalkeen">Muista tarkistaa avoimet välilehdet git mv:n jälkeen</h4>
+<p>Kun siirrät tai nimeät tiedoston uudelleen terminaalissa
+(<code>git mv vanha.md uusi.md</code>) samalla kun tiedosto on auki VS Codessa, editorin välilehti ei aina päivity automaattisesti.</p>
+<p>Varmuuden vuoksi <code>git mv</code> -komennon jälkeen:
+1. Katso VS Coden välilehden yläreunasta täsmällinen polku
+   (voit tarkistaa hiiren ollessa välilehden päällä, tai
+   avaamalla tiedosto uudelleen tiedostopaneelista)
+2. Jos epäilyttää, sulje vanha välilehti kokonaan (<code>Cmd + W</code>)
+   ja avaa tiedosto uudelleen tiedostopaneelista oikeasta
+   sijainnista
+3. Aja <code>git status</code> siirron jälkeen ja tarkista, että vanha
+   tiedostonimi EI näy "untracked"-listassa</p>
+<h3 id="luodaan-mkdocsyml">Luodaan mkdocs.yml</h3>
+<p>Luo VS Codessa projektin juureen (samaan tasoon kuin docs-kansio, ei sen sisään) tiedosto mkdocs.yml ja sitten kirjoita tiedoston ensimmäiselle riville:</p>
+<p>site_name: Markdown- ja GitHub-harjoitus</p>
+<p><strong>Huom.</strong> site_name jälkeen täytyy olla yksi välilyönti.</p>
+<h3 id="kaynnistetaan-esikatsely">Käynnistetään esikatsely</h3>
+<p>Terminaalissa: <code>mkdocs serve</code></p>
+<p>Avaa selaimessa http://localhost:8000. Pysäytys Terminaalissa: Ctrl + C. </p>
+<h3 id="gitignore-jatetaan-venv-ja-ds_store-pois-gitista">gitignore - jätetään .venv ja .DS_Store pois Gitistä</h3>
+<p>Ennen kuin committoidaan, tehdään tärkeä siisteystoimenpide: estetään <code>.venv</code>-kansion joutuminen vahingossa GitHubiin (se on iso, koneriippuvainen, ja jokainen pystyttää oman versionsa requirements.txt:n avulla).</p>
+<p>Luo VS Codessa projektin juureen tiedosto <code>.gitignore</code> ja kirjoita sisään:</p>
+<pre><code>.venv/
+.DS_Store
+</code></pre>
+<p>Selitys: <code>.gitignore</code> on tiedosto, joka listaa polut, joita Git ei koskaan seuraa – ne eivät näy <code>git status</code>-listauksessa eivätkä päädy committeihin, vaikka ajaisit <code>git add</code> .. Tämä on tärkeä tiedosto jatkossa aina kun projektissa on koneriippuvaisia tai isoja kansioita.</p>
+<p>Varmista <code>git status</code>-komennolla, että <code>.venv</code> eikä <code>.DS_Store</code> eivät näy listassa lainkaan (requirements.txt, mkdocs.yml, .gitignore ja docs-kansion siirrot sen sijaan näkyvät).</p>
+<p>Vielä puuttuu viimeinen ´git add´ -komento, joka nostaa loput muutokset stagelle.</p>
+<p>Terminaalissa:</p>
+<p><code>git add docs/index.md mkdocs.yml requirements.txt .gitignore</code></p>
+<p>Tarkista uudelleen: 
+<code>git status</code></p>
+<p>Nyt kaiken pitäisi olla "Changes to be committed" -listassa, eikä mitään "Untracked" tai "Changes not staged" -kohdissa. Jos näyttää siltä, committoi:</p>
+<pre><code>git commit -m &quot;MkDocs-projektirakenne: docs-kansio, mkdocs.yml, .gitignore&quot;
+</code></pre>
+<h3 id="muokataan-mkdocsyml">Muokataan mkdocs.yml</h3>
+<p>Askel 1:
+Avaa mkdocs.yml VS Codessa ja lisää teema-asetus olemassa olevan rivin jatkoksi:</p>
+<pre><code>site_name: Markdown- ja GitHub-harjoitus
+theme:
+  name: material
+</code></pre>
+<p>Selitys: theme: on uusi avain, jonka alle tulee sisennettynä (kaksi välilyöntiä, ei tabulaattoria – YAML on tarkka sisennyksistä) name: material. Tämä kertoo MkDocsille: "älä käytä sisäänrakennettua oletusteemaa, vaan asennettua Material-pakettia". Tallenna (Cmd + S).</p>
+<p>Tärkeä YAML-huomio: sisennys pitää olla täsmälleen sama koko tiedostossa (esim. aina 2 välilyöntiä per taso) – YAML käyttää sisennystä rakenteen merkitsemiseen, ei sulkeita kuten monissa muissa formaateissa. Jos VS Code automaattisesti muuttaa sisennyksen tabulaattoriksi, MkDocs saattaa valittaa – tarkista tarvittaessa.</p>
+<h4 id="kaynnista-esikatselu-uudelleen">Käynnistä esikatselu uudelleen</h4>
+<p>Jos <code>mkdocs serve</code> on yhä käynnissä edellisestä kerrasta, se päivittyy automaattisesti heti kun tallensit mkdocs.yml:n – terminaaliin ilmestyy rivi tyyliin "Detected file changes, rebuilding". Jos palvelin ei ole käynnissä, käynnistä se:</p>
+<p><code>mkdocs serve</code></p>
+<p>Päivitä selain (localhost:8000). Näet heti eron: siisti navigaatiopalkki vasemmalla, hakukenttä ylhäällä, siniset korostusvärit ja modernimpi typografia.</p>
+<p>Askel 3: Muutama hyödyllinen lisäasetus (valinnainen mutta suositeltava)</p>
+<p>Voit laajentaa mkdocs.yml:ää näillä hyvillä perusasetuksilla:</p>
+<p>yaml
+site_name: Markdown- ja GitHub-harjoitus
+theme:
+  name: material
+  language: fi
+  features:
+    - navigation.instant
+    - search.suggest</p>
+<p>Selitys: language: fi vaihtaa teeman valmiit tekstit (kuten hakukentän placeholder-tekstin) suomeksi. features-lista ottaa käyttöön lisäominaisuuksia: navigation.instant tekee sivujen välillä siirtymisestä nopeampaa (ei koko sivun uudelleenlatausta), search.suggest näyttää hakuehdotuksia kirjoittaessa. Nämä ovat vain kaksi esimerkkiä kymmenistä saatavilla olevista – Material-teemalla on paljon säädettävää, johon voidaan palata myöhemmin tarpeen mukaan.</p>
+<p>Tallenna ja katso selaimesta, että hakukentän teksti on nyt suomeksi ("Hae").</p>
+<h4 id="vaihtoehtoisia-teemoja-mkdocsymln-theme-name-kohtaan">Vaihtoehtoisia teemoja mkdocs.yml:n theme: name: -kohtaan</h4>
+<p>MkDocsissa on kaksi sisäänrakennettua teemaa (eivät vaadi erillistä asennusta) ja lukuisia kolmannen osapuolen teemoja (vaativat oman <code>pip install</code> -asennuksensa, kuten Material aikanaan):</p>
+<table>
+<thead>
+<tr>
+<th>Teema</th>
+<th>Asennus</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mkdocs</td>
+<td>sisäänrakennettu</td>
+<td>MkDocsin oma oletusteema, Bootstrap-pohjainen. Yksinkertainen, toimiva, mutta vaatimattoman näköinen – tätä näit ennen Materialin käyttöönottoa</td>
+</tr>
+<tr>
+<td>readthedocs</td>
+<td>sisäänrakennettu</td>
+<td>Jäljittelee tuttua Read the Docs -sivustojen ulkoasua (paljon Python-kirjastojen dokumentaatiota käyttää tätä tyyliä). Vasemman reunan navigaatio, siisti mutta hieman vanhahtava ilme</td>
+</tr>
+<tr>
+<td>material</td>
+<td>pip install mkdocs-material</td>
+<td>Nykyisin suosituin vaihtoehto, käytössäsi jo. Moderni ulkoasu, sisäänrakennettu hakutoiminto, tumma/vaalea tila, runsaasti muokattavia lisäominaisuuksia (features-lista)</td>
+</tr>
+<tr>
+<td>mkdocs-bootstrap4</td>
+<td>erillinen asennus</td>
+<td>Bootstrap 4 -pohjainen ulkoasu, tuttu monille verkkosivuille Bootstrapin suositun kevyen tyylin ansiosta</td>
+</tr>
+<tr>
+<td>mkdocs-alabaster</td>
+<td>erillinen asennus</td>
+<td>Kevyt, minimalistinen ja rauhallisen näköinen teema – suosittu erityisesti pienissä henkilökohtaisissa dokumentaatioprojekteissa</td>
+</tr>
+<tr>
+<td>mkdocs-windmill</td>
+<td>erillinen asennus</td>
+<td>Yksinkertainen, responsiivinen teema selkeällä sivupalkkinavigaatiolla, kevyempi vaihtoehto kuin Material</td>
+</tr>
+</tbody>
+</table>
+<p>Käytännössä lähes kaikki tosielämän MkDocs-dokumentaatiosivustot (esimerkiksi useat suuret yritykset) käyttävät nimenomaan Materialia sen kattavuuden ja aktiivisen ylläpidon vuoksi, joten valintasi oli hyvä. Muiden kokeilu on silti helppoa: vaihda vain theme: name: -riviä ja aja mkdocs serve uudelleen nähdäksesi eron – kolmannen osapuolen teemoissa pitää ensin ajaa <code>pip install &lt;teeman-nimi&gt;</code> samaan tapaan kuin Material aikanaan.</p>
+<h3 id="committoidaan-teema-asetus">Committoidaan teema-asetus</h3>
+<p>Terminaalissa:</p>
+<p><code>git status</code></p>
+<p>Pitäisi näkyä mkdocs.yml muokattuna (modified). Lisää ja committoi:</p>
+<pre><code>git add mkdocs.yml
+git commit -m &quot;Otettu käyttöön Material-teema&quot;
+</code></pre>
+<p>Työnnä GitHubiin:</p>
+<p><code>git push</code></p>
+<h4 id="julkaisu-github-pagesiin">Julkaisu GitHub Pagesiin</h4>
+<p>Nyt itse julkaisukomento:</p>
+<p><code>mkdocs gh-deploy</code></p>
+<p>Selitys mitä tapahtuu tämän yhden komennon takana: MkDocs (1) rakentaa koko sivuston valmiiksi HTML-, CSS- ja JS-tiedostoiksi site-nimiseen väliaikaiskansioon, (2) luo (tai päivittää) repositorioosi erillisen haaran nimeltä gh-pages, joka sisältää vain nuo rakennetut tiedostot – ei lähdekoodiasi (.md-tiedostoja) vaan valmiin sivuston, ja (3) työntää sen haaran GitHubiin automaattisesti.</p>
+<p>Tämä on tärkeä käsite: sinulla on nyt kaksi haaraa GitHubissa – main (lähdemateriaali: docs-kansio, mkdocs.yml, kaikki mitä olet kirjoittanut) ja gh-pages (valmis, rakennettu sivusto, jonka GitHub Pages tarjoilee selaimeen). Et koskaan muokkaa gh-pages-haaraa käsin – se syntyy aina uudelleen mkdocs gh-deploy -komennolla main-haaran sisällöstä.</p>
+<p>GitHub saattaa tarvita hetken (yleensä alle minuutin, joskus pari) ottaakseen gh-pages-haaran käyttöön Pages-palveluna ensimmäistä kertaa.</p>
+<h4 id="kuinka-ajaa-terminaalikomennot-vs-codessa">Kuinka ajaa Terminaalikomennot VS Codessa</h4>
+<p>mkdocs gh-deploy ei ole Git-komento, vaan MkDocsin oma työkalu, joka rakentaa sivuston ja hoitaa Git-työnnön taustalla puolestasi. Sille ei ole olemassa VS Coden Source Control -paneelin nappia, koska VS Coden Git-käyttöliittymä osaa vain tavallisia Git-toimintoja (add, commit, push, pull) – ei MkDocsin kaltaisten ulkopuolisten työkalujen erikoiskomentoja. Sama pätee mkdocs serve-komentoon: sekään ei ole Git-toiminto, joten Source Control -paneelissa ei ole sille vastinetta.</p>
+<p>Mutta hyvä uutinen ratkaisee juuri tavoitteesi: VS Codessa on sisäänrakennettu terminaali, joka toimii täsmälleen kuten erillinen Terminal-sovellus, mutta samassa ikkunassa koodisi kanssa – et koskaan vaihda sovellusta.</p>
+<h4 id="vs-coden-sisaanrakennettu-terminaali">VS Coden sisäänrakennettu terminaali</h4>
+<p>Avaa se näppäinyhdistelmällä <strong>Ctrl + ** (gravis-merkki, Esc-näppäimen alapuolella, samalla näppäimellä kuin § suomalaisessa asettelussa) tai valikosta </strong>Terminal → New Terminal<strong>. Terminaali-ikkuna avautuu editorin alaosaan, ja se on </strong>täsmälleen sama zsh-tulkki** kuin erillisessä Terminal-sovelluksessa – samat komennot, sama .venv`-aktivointi, sama kaikki. Ainoa ero on sijainti: se elää VS Coden sisällä.</p>
+<p>Eli käytännössä koko tähänastinen työskentelysi voisi tapahtua näin:</p>
+<p>Tiedostojen editointi: VS Coden editori (kuten nytkin)
+Git add / commit: Source Control -paneeli hiirellä (kuten olet jo tehnyt)
+mkdocs serve / mkdocs gh-deploy: VS Coden sisäänrakennettu terminaali (Ctrl + `)</p>
+<p>Näin pysyt yhdessä ikkunassa koko ajan – vain näppäintä Ctrl + ` painamalla vaihdat editorin ja terminaalin välillä saman sovelluksen sisällä, et sovellusten välillä.</p>
+<p>Käytännössä nyt</p>
+<p>Terminal-komennot voi ajaa myös VS Coden sisäänrakennetussa terminaalissa (Ctrl + `), jolloin ei tarvitse vaihtaa sovellusten välillä.</p>
+<p>Paina **Ctrl + ** tai valitse ylävalikosta &gt;Terminal ja sieltä &gt;New Terminal VS Codessa avataksesi terminaalin, tarkista että (.venv)näkyy alussa (jos ei, ajasource .venv/bin/activate`), ja aja siellä samat komennot kuin aiemmin:</p>
+<pre><code>git add mkdocs.yml
+git commit -m &quot;Otettu käyttöön Material-teema&quot;
+git push
+mkdocs gh-deploy
+</code></pre>
+<p>(Commit ja push voit vaihtoehtoisesti tehdä Source Control -paneelin napeilla, jos haluat – molemmat tavat toimivat samasta ikkunasta.)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "search.suggest"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Kopioitu leikep\u00f6yd\u00e4lle", "clipboard.copy": "Kopioi leikep\u00f6yd\u00e4lle", "search.result.more.one": "1 lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.more.other": "# lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.none": "Ei t\u00e4sm\u00e4\u00e4vi\u00e4 dokumentteja", "search.result.one": "1 t\u00e4sm\u00e4\u00e4v\u00e4 dokumentti", "search.result.other": "# t\u00e4sm\u00e4\u00e4v\u00e4\u00e4 dokumenttia", "search.result.placeholder": "Kirjoita aloittaaksesi haun", "search.result.term.missing": "Puuttuu", "select.version": "Valitse versio"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
