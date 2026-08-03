@@ -596,4 +596,22 @@ mkdocs gh-deploy
 kaikki tavalliset Git-toiminnot (`add`, `commit`, `push`) hoituvat Source Control -paneelista, ja vain MkDocsin omat erikoiskomennot (`mkdocs serve`, `mkdocs gh-deploy`) tarvitsevat terminaalin, koska ne eivät ole Git-komentoja. Tämä on juuri se yhden ikkunan työskentelytapa, jonka halusin.
 
 
+### GitHub julkaisun tarkistaminen
 
+Tarkistus repositorion pääsivulta
+
+Palaa repositorion Code-välilehdelle. Oikeassa reunassa, "About"-laatikon alapuolella, näkyy usein pieni "github-pages"-linkki tai ympäristöluettelo (Environments), josta klikkaamalla pääset näkemään viimeisimmän julkaisun tilan ja tarkan ajankohdan.
+
+Vaihtoehtoisesti:
+
+1. Mene repositorioosi: github.com/jukkarouhe/md-harjoitus
+2. Klikkaa yläpalkin **Settings**-välilehteä (repositorion omat asetukset, ei GitHub-tilisi asetukset)
+3. Valitse vasemmasta valikosta **Pages** 
+4. Sivun yläosassa pitäisi lukea joko:
+- **"Your site is live at https://jukkarouhe.github.io/md-harjoitus/"** vihreällä – tällöin julkaisu on kunnossa GitHubin puolesta, ja 404 johtuu joko väärästä osoitteesta tai selaimen välimuistista (kokeile Cmd + Shift + R, joka pakottaa sivun lataamaan uudelleen ilman välimuistia)
+- tai kohta **"Source"**, josta tarkistat että valittuna on **Deploy from a branch** ja haara on **gh-pages** (juurikansiosta, ei docs-kansiosta) – jos gh-pages-haaraa ei ole valittuna lainkaan, valitse se pudotusvalikosta ja paina Save
+
+
+- **Päivittäminen jatkossa on yksinkertaista:** muokkaa .md-tiedostoja, commitoi ja pushaa normaalisti (kuten olet oppinut), ja aina kun haluat päivittää julkisen sivuston vastaavaksi, aja `mkdocs gh-deploy` uudelleen. Se on ainoa ylimääräinen askel julkaisussa – itse sisällönmuokkaus ei muutu miksikään.
+- **Kannattaa vielä kirjata ohje.md:hen** koko tämä julkaisuprosessi tiiviisti yhteen paikkaan (mkdocs serve esikatseluun, mkdocs gh-deploy julkaisuun), jotta se on helposti palautettavissa mieleen kuukausien päästä.
+- Jos joskus haluat laajentaa sivustoa useammalla sivulla (ei vain yhdellä index.md:llä), se onnistuu lisäämällä uusia .md-tiedostoja docs-kansioon – MkDocs huomaa ne automaattisesti navigaatioon.
