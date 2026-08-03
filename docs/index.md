@@ -419,6 +419,21 @@ git mv ohje.md docs/index.md
 git mv kuvat docs/kuvat
 ``` 
 
+#### Muista tarkistaa avoimet välilehdet git mv:n jälkeen
+
+Kun siirrät tai nimeät tiedoston uudelleen terminaalissa
+(`git mv vanha.md uusi.md`) samalla kun tiedosto on auki VS Codessa, editorin välilehti ei aina päivity automaattisesti.
+
+Varmuuden vuoksi `git mv` -komennon jälkeen:
+1. Katso VS Coden välilehden yläreunasta täsmällinen polku
+   (voit tarkistaa hiiren ollessa välilehden päällä, tai
+   avaamalla tiedosto uudelleen tiedostopaneelista)
+2. Jos epäilyttää, sulje vanha välilehti kokonaan (`Cmd + W`)
+   ja avaa tiedosto uudelleen tiedostopaneelista oikeasta
+   sijainnista
+3. Aja `git status` siirron jälkeen ja tarkista, että vanha
+   tiedostonimi EI näy "untracked"-listassa
+
 ### Luodaan mkdocs.yml
 
 Luo VS Codessa projektin juureen (samaan tasoon kuin docs-kansio, ei sen sisään) tiedosto mkdocs.yml ja sitten kirjoita tiedoston ensimmäiselle riville:
@@ -447,4 +462,17 @@ Selitys: `.gitignore` on tiedosto, joka listaa polut, joita Git ei koskaan seura
 Varmista `git status`-komennolla, että `.venv` eikä `.DS_Store` eivät näy listassa lainkaan (requirements.txt, mkdocs.yml, .gitignore ja docs-kansion siirrot sen sijaan näkyvät).
 
 
+Vielä puuttuu viimeinen ´git add´ -komento, joka nostaa loput muutokset stagelle.
 
+Terminaalissa:
+
+`git add docs/index.md mkdocs.yml requirements.txt .gitignore`
+
+Tarkista uudelleen: 
+`git status`
+
+Nyt kaiken pitäisi olla "Changes to be committed" -listassa, eikä mitään "Untracked" tai "Changes not staged" -kohdissa. Jos näyttää siltä, committoi:
+
+```
+git commit -m "MkDocs-projektirakenne: docs-kansio, mkdocs.yml, .gitignore"
+```
