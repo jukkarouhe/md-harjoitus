@@ -1,1 +1,3 @@
 site_name: Markdown- ja GitHub-harjoitus
+theme:
+  name: material

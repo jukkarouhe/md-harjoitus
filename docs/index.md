@@ -476,3 +476,41 @@ Nyt kaiken pitäisi olla "Changes to be committed" -listassa, eikä mitään "Un
 ```
 git commit -m "MkDocs-projektirakenne: docs-kansio, mkdocs.yml, .gitignore"
 ```
+### Muokataan mkdocs.yml 
+
+Avaa mkdocs.yml VS Codessa ja lisää teema-asetus olemassa olevan rivin jatkoksi:
+
+```
+site_name: Markdown- ja GitHub-harjoitus
+theme:
+  name: material
+```
+Selitys: theme: on uusi avain, jonka alle tulee sisennettynä (kaksi välilyöntiä, ei tabulaattoria – YAML on tarkka sisennyksistä) name: material. Tämä kertoo MkDocsille: "älä käytä sisäänrakennettua oletusteemaa, vaan asennettua Material-pakettia". Tallenna (Cmd + S).
+
+Tärkeä YAML-huomio: sisennys pitää olla täsmälleen sama koko tiedostossa (esim. aina 2 välilyöntiä per taso) – YAML käyttää sisennystä rakenteen merkitsemiseen, ei sulkeita kuten monissa muissa formaateissa. Jos VS Code automaattisesti muuttaa sisennyksen tabulaattoriksi, MkDocs saattaa valittaa – tarkista tarvittaessa.
+
+Askel 2: Käynnistä esikatselu uudelleen
+
+Jos mkdocs serve on yhä käynnissä edellisestä kerrasta, se päivittyy automaattisesti heti kun tallensit mkdocs.yml:n – terminaaliin ilmestyy rivi tyyliin "Detected file changes, rebuilding". Jos palvelin ei ole käynnissä, käynnistä se:
+
+bash
+mkdocs serve
+
+Päivitä selain (localhost:8000). Näet heti eron: siisti navigaatiopalkki vasemmalla, hakukenttä ylhäällä, siniset korostusvärit ja modernimpi typografia.
+
+Askel 3: Muutama hyödyllinen lisäasetus (valinnainen mutta suositeltava)
+
+Voit laajentaa mkdocs.yml:ää näillä hyvillä perusasetuksilla:
+
+yaml
+site_name: Markdown- ja GitHub-harjoitus
+theme:
+  name: material
+  language: fi
+  features:
+    - navigation.instant
+    - search.suggest
+
+Selitys: language: fi vaihtaa teeman valmiit tekstit (kuten hakukentän placeholder-tekstin) suomeksi. features-lista ottaa käyttöön lisäominaisuuksia: navigation.instant tekee sivujen välillä siirtymisestä nopeampaa (ei koko sivun uudelleenlatausta), search.suggest näyttää hakuehdotuksia kirjoittaessa. Nämä ovat vain kaksi esimerkkiä kymmenistä saatavilla olevista – Material-teemalla on paljon säädettävää, johon voidaan palata myöhemmin tarpeen mukaan.
+
+Tallenna ja katso selaimesta, että hakukentän teksti on nyt suomeksi ("Hae").
