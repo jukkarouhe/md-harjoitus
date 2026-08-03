@@ -5,3 +5,4 @@ theme:
   features:
     - navigation.instant
     - search.suggest
+    

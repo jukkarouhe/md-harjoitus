@@ -546,8 +546,53 @@ git commit -m "Otettu käyttöön Material-teema"
 
 Työnnä GitHubiin:
 
-bash
+`git push`
+
+
+#### Julkaisu GitHub Pagesiin
+
+Nyt itse julkaisukomento:
+
+`mkdocs gh-deploy`
+
+Selitys mitä tapahtuu tämän yhden komennon takana: MkDocs (1) rakentaa koko sivuston valmiiksi HTML-, CSS- ja JS-tiedostoiksi site-nimiseen väliaikaiskansioon, (2) luo (tai päivittää) repositorioosi erillisen haaran nimeltä gh-pages, joka sisältää vain nuo rakennetut tiedostot – ei lähdekoodiasi (.md-tiedostoja) vaan valmiin sivuston, ja (3) työntää sen haaran GitHubiin automaattisesti.
+
+Tämä on tärkeä käsite: sinulla on nyt kaksi haaraa GitHubissa – main (lähdemateriaali: docs-kansio, mkdocs.yml, kaikki mitä olet kirjoittanut) ja gh-pages (valmis, rakennettu sivusto, jonka GitHub Pages tarjoilee selaimeen). Et koskaan muokkaa gh-pages-haaraa käsin – se syntyy aina uudelleen mkdocs gh-deploy -komennolla main-haaran sisällöstä.
+
+GitHub saattaa tarvita hetken (yleensä alle minuutin, joskus pari) ottaakseen gh-pages-haaran käyttöön Pages-palveluna ensimmäistä kertaa.
+
+#### Kuinka ajaa Terminaalikomennot VS Codessa
+
+mkdocs gh-deploy ei ole Git-komento, vaan MkDocsin oma työkalu, joka rakentaa sivuston ja hoitaa Git-työnnön taustalla puolestasi. Sille ei ole olemassa VS Coden Source Control -paneelin nappia, koska VS Coden Git-käyttöliittymä osaa vain tavallisia Git-toimintoja (add, commit, push, pull) – ei MkDocsin kaltaisten ulkopuolisten työkalujen erikoiskomentoja. Sama pätee mkdocs serve-komentoon: sekään ei ole Git-toiminto, joten Source Control -paneelissa ei ole sille vastinetta.
+
+Mutta hyvä uutinen ratkaisee juuri tavoitteesi: VS Codessa on sisäänrakennettu terminaali, joka toimii täsmälleen kuten erillinen Terminal-sovellus, mutta samassa ikkunassa koodisi kanssa – et koskaan vaihda sovellusta.
+
+#### VS Coden sisäänrakennettu terminaali
+
+Avaa se näppäinyhdistelmällä **Ctrl + ** (gravis-merkki, Esc-näppäimen alapuolella, samalla näppäimellä kuin § suomalaisessa asettelussa) tai valikosta **Terminal → New Terminal**. Terminaali-ikkuna avautuu editorin alaosaan, ja se on **täsmälleen sama zsh-tulkki** kuin erillisessä Terminal-sovelluksessa – samat komennot, sama .venv`-aktivointi, sama kaikki. Ainoa ero on sijainti: se elää VS Coden sisällä.
+
+Eli käytännössä koko tähänastinen työskentelysi voisi tapahtua näin:
+
+Tiedostojen editointi: VS Coden editori (kuten nytkin)
+Git add / commit: Source Control -paneeli hiirellä (kuten olet jo tehnyt)
+mkdocs serve / mkdocs gh-deploy: VS Coden sisäänrakennettu terminaali (Ctrl + `)
+
+Näin pysyt yhdessä ikkunassa koko ajan – vain näppäintä Ctrl + ` painamalla vaihdat editorin ja terminaalin välillä saman sovelluksen sisällä, et sovellusten välillä.
+
+Käytännössä nyt
+
+Terminal-komennot voi ajaa myös VS Coden sisäänrakennetussa terminaalissa (Ctrl + `), jolloin ei tarvitse vaihtaa sovellusten välillä.
+
+Paina **Ctrl + ** tai valitse ylävalikosta >Terminal ja sieltä >New Terminal VS Codessa avataksesi terminaalin, tarkista että (.venv)näkyy alussa (jos ei, ajasource .venv/bin/activate`), ja aja siellä samat komennot kuin aiemmin:
+
+```
+git add mkdocs.yml
+git commit -m "Otettu käyttöön Material-teema"
 git push
+mkdocs gh-deploy
+```
+(Commit ja push voit vaihtoehtoisesti tehdä Source Control -paneelin napeilla, jos haluat – molemmat tavat toimivat samasta ikkunasta.)
+
 
 
 
