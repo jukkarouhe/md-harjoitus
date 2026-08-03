@@ -4,6 +4,92 @@ Tämä dokumentti kokoaa opitut asiat askel askeleelta: Markdown-syntaksi, Git p
 
 ---
 
+## Pikaopas: yleisimmät terminaalikomennot
+
+Tämä taulukko kokoaa kaikki dokumentissa käytetyt komennot yhteen paikkaan nopeaa muistin virkistämistä varten. Yksityiskohtaiset selitykset ja käyttöyhteydet löytyvät kunkin osan omasta kappaleesta.
+
+### Ympäristö ja liikkuminen
+
+| Komento | Mitä tekee |
+|---|---|
+| `cd ~/Projects/md-harjoitus` | Siirtyy projektikansioon (`~` = kotikansio) |
+| `ls` | Listaa kansion sisällön |
+| `ls -la` | Listaa myös piilotiedostot (esim. `.git`, `.venv`) |
+| `mkdir kansio` | Luo uuden kansion |
+| `cp lähde kohde` | Kopioi tiedoston |
+| `rm tiedosto` | Poistaa tiedoston levyltä |
+| `clear` | Tyhjentää terminaali-ikkunan |
+| `Ctrl + C` | Keskeyttää käynnissä olevan komennon (esim. `mkdocs serve`) |
+
+### Virtuaaliympäristö (venv)
+
+| Komento | Mitä tekee |
+|---|---|
+| `source .venv/bin/activate` | **Aktivoi virtuaaliympäristön** – tehtävä jokaisessa uudessa terminaali-istunnossa ennen mkdocs-komentoja. Onnistuessaan komentorivin alkuun ilmestyy `(.venv)` |
+| `deactivate` | Poistuu virtuaaliympäristöstä |
+| `python3 -m venv .venv` | Luo uuden virtuaaliympäristön projektikansioon (vain kerran per projekti) |
+| `pip install -r requirements.txt` | Asentaa kaikki tiedostossa listatut Python-paketit |
+| `pip3 list \| grep -i mkdocs` | Tarkistaa, onko MkDocs asennettuna |
+
+### Git – paikallinen työskentely
+
+| Komento | Mitä tekee |
+|---|---|
+| `git status` | **Tärkein peruskomento** – kertoo aina, mitä repossa on meneillään |
+| `git diff` | Näyttää rivi riviltä, mitä muuttui edellisen commitin jälkeen (poistu **q**) |
+| `git add tiedosto.md` | Lisää tiedoston valmistelualueelle (staging) |
+| `git add .` | Lisää kaikki muuttuneet tiedostot kerralla |
+| `git commit -m "viesti"` | Tallentaa valmistelualueen sisällön pysyväksi versioksi paikallisesti |
+| `git log` | Näyttää commit-historian (poistu **q**) |
+| `git log --oneline` | Sama tiiviissä muodossa, yksi rivi per commit |
+| `git init` | Alustaa kansion Git-repositorioksi (vain kerran per projekti) |
+| `git mv vanha.md uusi.md` | Siirtää tai nimeää tiedoston niin, että historia säilyy |
+
+### Git – yhteys GitHubiin
+
+| Komento | Mitä tekee |
+|---|---|
+| `git push` | Työntää paikalliset commitit GitHubiin |
+| `git pull` | Hakee GitHubista commitit, joita koneella ei vielä ole |
+| `git remote -v` | Näyttää, mihin etärepositorioon projekti on kytketty |
+| `git branch -a` | Listaa kaikki haarat, myös etärepositorion (esim. `gh-pages`) |
+| `git remote add origin git@github.com:tunnus/repo.git` | Kytkee paikallisen repon GitHubiin (vain kerran) |
+| `git branch -M main` | Nimeää nykyisen haaran nimellä `main` (vain kerran) |
+| `git push -u origin main` | Ensimmäinen työntö, joka luo pysyvän kytkennän haaran ja etärepon välille |
+
+### Virhetilanteiden korjaus
+
+| Komento | Mitä tekee |
+|---|---|
+| `git restore --staged tiedosto.md` | Poistaa tiedoston valmistelualueelta – muutokset säilyvät |
+| `git restore tiedosto.md` | Palauttaa tiedoston viimeisimpään commitoituun versioon – **muutokset katoavat** |
+| `git rm --cached tiedosto` | Lopettaa tiedoston seuraamisen Gitissä, mutta säilyttää sen levyllä |
+
+### MkDocs – esikatselu ja julkaisu
+
+| Komento | Mitä tekee |
+|---|---|
+| `mkdocs --version` | Tarkistaa, että MkDocs on asennettu ja löytyy hakupolusta |
+| `mkdocs serve` | Käynnistää paikallisen esikatselun osoitteeseen `http://localhost:8000` (pysäytys **Ctrl + C**) |
+| `mkdocs build` | Rakentaa sivuston `site`-kansioon julkaisematta sitä |
+| `mkdocs gh-deploy` | **Julkaisee sivuston GitHub Pagesiin** – rakentaa sivuston ja työntää sen `gh-pages`-haaraan |
+
+### Tyypillinen työskentelyrutiini alusta loppuun
+
+```bash
+cd ~/Projects/md-harjoitus       # 1. Siirry projektikansioon
+source .venv/bin/activate        # 2. Aktivoi virtuaaliympäristö
+git pull                         # 3. Hae mahdolliset muutokset
+mkdocs serve                     # 4. Käynnistä esikatselu (toisessa välilehdessä)
+                                 # 5. Muokkaa .md-tiedostoja VS Codessa
+git status                       # 6. Tarkista mitä muuttui
+git add docs/index.md            # 7. Valitse commitiin tulevat tiedostot
+git commit -m "Kuvaava viesti"   # 8. Tallenna versio paikallisesti
+git push                         # 9. Työnnä GitHubiin
+mkdocs gh-deploy                 # 10. Päivitä julkinen sivusto
+```
+
+
 # Osa 1: Markdown-syntaksi
 
 ## Otsikot
