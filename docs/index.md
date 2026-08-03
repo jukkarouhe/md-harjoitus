@@ -613,5 +613,4 @@ Vaihtoehtoisesti:
 
 
 - **Päivittäminen jatkossa on yksinkertaista:** muokkaa .md-tiedostoja, commitoi ja pushaa normaalisti (kuten olet oppinut), ja aina kun haluat päivittää julkisen sivuston vastaavaksi, aja `mkdocs gh-deploy` uudelleen. Se on ainoa ylimääräinen askel julkaisussa – itse sisällönmuokkaus ei muutu miksikään.
-- **Kannattaa vielä kirjata ohje.md:hen** koko tämä julkaisuprosessi tiiviisti yhteen paikkaan (mkdocs serve esikatseluun, mkdocs gh-deploy julkaisuun), jotta se on helposti palautettavissa mieleen kuukausien päästä.
 - Jos joskus haluat laajentaa sivustoa useammalla sivulla (ei vain yhdellä index.md:llä), se onnistuu lisäämällä uusia .md-tiedostoja docs-kansioon – MkDocs huomaa ne automaattisesti navigaatioon.
