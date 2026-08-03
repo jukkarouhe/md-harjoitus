@@ -89,6 +89,18 @@ git push                         # 9. Työnnä GitHubiin
 mkdocs gh-deploy                 # 10. Päivitä julkinen sivusto
 ```
 
+Jos docs-kansiossa on nyt useampi .md sivu, ne näkyvät kukin omalla nimellään vasemmassa navigaatiossa, mikä on juuri MkDocsin ideana monisivuisessa dokumentaatiossa.
+
+Vinkki jatkoa varten: navigaation järjestystä ja nimiä voi halutessaan ohjata itse lisäämällä mkdocs.yml-tiedostoon nav-osion, esimerkiksi:
+
+```
+yaml
+nav:
+  - Etusivu: index.md
+  - Pikaopas: pikaopas.md
+```
+
+Ilman nav-osiota MkDocs järjestää sivut aakkosjärjestykseen tiedostonimen mukaan, mikä ei aina vastaa loogista lukujärjestystä. Tämä on hyödyllinen tietää, jos sivuja tulee lisää.
 
 ## Osa 1: Markdown-syntaksi
 
