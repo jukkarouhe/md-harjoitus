@@ -1,509 +1,520 @@
 # Markdown- ja GitHub-harjoitus
 
-tämä dokumentti kokoaa opitut asiat askel askeleelta.
+Tämä dokumentti kokoaa opitut asiat askel askeleelta: Markdown-syntaksi, Git paikallisesti, GitHub-yhteys, päivittäinen työskentelyrutiini ja lopuksi dokumentaation julkaisu verkkosivuna MkDocsilla.
 
-## 1 Markdown-syntaksi
+---
 
-Otsikot tehdään # risuaita-merkillä. Yksi risuaita on pääotsikko, kaksi risuaitaa on alaotsikko, kolme on sitä seuraava taso. Jätä välilyönti # merkin/merkkien ja otsikkotekstin väliin.
+# Osa 1: Markdown-syntaksi
 
-## matoviiva näppiksellä
+## Otsikot
 
-Aaltoviiva ~ kirjoitetaan suomalaisella Mac-näppäimistöllä näin:
+Otsikot tehdään risuaita-merkillä `#`. Yksi risuaita on pääotsikko, kaksi alaotsikko, kolme sitä seuraava taso. Jätä välilyönti risuaidan ja otsikkotekstin väliin.
 
-Paina Option (⌥) + ¨ – ¨-näppäin sijaitsee Å-näppäimen oikealla puolella, Enter-näppäimen vieressä. Option-näppäin on välilyöntinäppäimen vieressä (siinä lukee ⌥ tai "alt").
-Ruudulle ei ilmesty vielä mitään (tai näkyy himmeä ~) – paina sitten välilyöntiä, ja ~ ilmestyy.
+```markdown
+# Pääotsikko
+## Alaotsikko
+### Kolmostason otsikko
+```
 
 ## Listat
 
 Numeroimaton lista tehdään tavuviivalla rivin alussa:
 
+```markdown
 - ensimmäinen asia
 - toinen asia
 - kolmas asia
-    - sisennetty alakohta (tab tai 4 spacea alkuun)
+    - sisennetty alakohta (tab tai 4 välilyöntiä alkuun)
+```
 
-Numeroitu lista tehdään numerolla ja pisteellä
+Numeroitu lista tehdään numerolla ja pisteellä:
 
+```markdown
 1. ensimmäinen vaihe
 2. toinen vaihe
 3. kolmas vaihe
+```
 
-Yksi tärkeä sääntö vielä: jätä tyhjä rivi ennen listan alkua – muuten lista ei muotoidu oikein vaan jää osaksi edellistä kappaletta.
+Kaksi tärkeää huomiota:
 
-Kiva yksityiskohta: numeroiden ei tarvitse olla oikeassa järjestyksessä – vaikka kirjoittaisit joka riville 1., Markdown numeroi ne silti 1, 2, 3. Tämä helpottaa, kun lisäät kohtia listan keskelle.
+- Jätä **tyhjä rivi** ennen listan alkua – muuten lista jää osaksi edellistä kappaletta.
+- Numeroiden ei tarvitse olla oikeassa järjestyksessä – vaikka kirjoittaisit joka riville `1.`, Markdown numeroi ne silti 1, 2, 3. Tämä helpottaa kohtien lisäämistä listan keskelle.
 
 ## Tekstin korostukset
 
-Teksti voi olla *kursivoitua* yhdellä tähdellä sanan alussa ja lopussa tai **lihavoitua** kahdella tähdellä sanan alussa ja lopussa. 
+Teksti voi olla *kursivoitua* yhdellä tähdellä (`*sana*`) tai **lihavoitua** kahdella tähdellä (`**sana**`) sanan alussa ja lopussa, ilman välilyöntiä tähtien ja sanan välissä.
 
-Koodi ja komennot merkitään `takahipsuilla` ( ` löytyy + merkin ja backspacen välistä). 
-
-eli: ´koodi ´ mutta hipsujen ja sanan välissä ei saa olla välilyöntiä.
-
+Koodi ja komennot merkitään `takahipsuilla`: esimerkiksi `` `koodi` ``, ilman välilyöntiä hipsujen ja tekstin välissä.
 
 ## Linkit
 
-Linkki tehdään hakasulkeilla ja kaarisulkeilla:
+Linkki tehdään hakasulkeilla ja kaarisulkeilla, peräkkäin ilman välilyöntiä:
 
-Linkkitekstin hakasulkeisiin
-: 
+```markdown
+[Näkyvä linkkiteksti](https://osoite.fi)
+```
 
-[Noppa-Yatzy pelitaulukko] 
+Esimerkki:
 
-ja urlin kaarisulkeisiin: 
-(https://jukkarouhe.github.io/yatzy/)
-
-Kirjoitetaan *peräkkäin ilman välilyöntiä* jolloin saadaan nätti linkki:
-
+```markdown
 [Noppa-Yatzy pelitaulukko](https://jukkarouhe.github.io/yatzy/)
-
+```
 
 ## Kuvat
 
-Kuva lisätään kuten linkki, mutta eteen tulee huutomerkki:
+Kuva lisätään kuten linkki, mutta eteen tulee huutomerkki, ja jälleen ilman välilyöntiä hakasulkeiden ja kaarisulkeiden välissä:
 
-![poreallas kansi auki] (kuvat/poreallas-kansi-auki.JPEG)
+```markdown
+![Kuvan kuvausteksti](kuvat/kuvan-nimi.jpg)
+```
 
-(ja yhteenkirjoitettuna ilman välilyöntiä)
-
-![poreallas kansi auki](kuvat/poreallas-kansi-auki.JPEG)
-
-Polku kuvat/kuvan-nimi.jpg on suhteellinen polku: se tarkoittaa "tämän .md-tiedoston sijainnista katsottuna kuvat-kansiossa oleva tiedosto". Suhteelliset polut ovat tärkeitä, koska ne toimivat sellaisenaan myös GitHubissa ja MkDocs-sivustolla – toisin kuin koneesi absoluuttiset polut (esim. /Users/...).
+Polku `kuvat/kuvan-nimi.jpg` on **suhteellinen polku**: se tarkoittaa "tämän .md-tiedoston sijainnista katsottuna kuvat-kansiossa oleva tiedosto". Suhteelliset polut toimivat sellaisenaan myös GitHubissa ja MkDocs-sivustolla – toisin kuin koneen absoluuttiset polut (esim. `/Users/...`).
 
 ## Koodilohkot
 
-Yksittäinen komento merkitään takahipsuilla keskelle tekstiä,
-esimerkiksi komento `ls -la` listaa myös piilotiedostot.
+Yksittäinen komento merkitään takahipsuilla keskellä tekstiä, esimerkiksi komento `ls -la` listaa myös piilotiedostot.
 
-Monirivinen koodilohko tehdään kolmella takahipsulla siten että 
+Monirivinen koodilohko tehdään kolmella takahipsulla: ensimmäisellä rivillä kolme takahipsua, sisältö, ja viimeisellä rivillä taas kolme takahipsua:
 
-ensimmäisellä rivillä on ```
-
-ja koodilohkon lopuksi viimeisellä rivillä on taas ``` jolloin saadaan muotoilu:
-
+````markdown
 ```
 mkdir kuvat
 cd kuvat
 ls
 ```
+````
 
-Kolmen takahipsun perään voi lisätä kielen nimen, esim bash
-jolloin koodi saa värityksen:
+Kolmen takahipsun perään voi lisätä kielen nimen, jolloin koodi saa värityksen (terminaalikomennoille `bash`, Python-koodille `python` jne.):
 
+````markdown
 ```bash
 cd ~/Projects/md-harjoitus
 git status
-ls la
 ```
+````
 
-Selitys: Aiemmin opit yksittäisen takahipsun tekstin keskellä. Koodilohko taas alkaa rivillä, jolla on kolme takahipsua ``` ja päättyy samanlaiseen riviin. Kaikki niiden välissä näytetään sellaisenaan harmaalla pohjalla – Markdown-merkit eivät vaikuta lohkon sisällä. Takahipsu tehtiin siis Shift + ´ ja välilyönti; kolme peräkkäin vaatii saman kolmesti (tai kikka: paina Shift + ´ kolme kertaa peräkkäin ja lopuksi välilyönti – saat kolme hipsua kerralla).
-
-Kielen nimi avaavan rivin perässä (esim. ```bash) kertoo, millä kielellä koodi on kirjoitettu, jolloin editori ja GitHub värittävät sen luettavammaksi. Terminaalikomennoille käytetään nimeä bash, Python-koodille python ja niin edelleen.
+Koodilohkon sisällä Markdown-merkit eivät vaikuta – kaikki näytetään sellaisenaan harmaalla pohjalla.
 
 ## Taulukot
 
+Taulukon sarakkeet erotetaan pystyviivalla `|`. Ensimmäinen rivi on otsikkorivi, toinen rivi viivoineen (`|---|---|`) erottaa otsikot sisällöstä (pakollinen), ja loput rivit ovat sisältöä. Sarakkeiden leveyksien ei tarvitse olla siistejä tai kohdakkain – Markdown tasaa taulukon automaattisesti.
 
-Taulukot kirjoitetaan kuten allaoleva esimerkki näyttää mutta ilman tyhjiä rivejä otsikon ja toisten rivien välissä:
+```markdown
+| Komento | Selitys |
+|---------|---------|
+| ls      | listaa kansion sisällön |
+| cd      | vaihtaa kansiota |
+| mkdir   | luo uuden kansion |
+```
 
-|Komento|Selitys|
+## Erikoismerkit suomalaisella Mac-näppäimistöllä
 
+| Merkki | Näppäinyhdistelmä |
 |---|---|
+| `~` (aaltoviiva) | Option (⌥) + ¨ (Å:n oikealla puolella), sitten välilyönti |
+| `` ` `` (takahipsu) | Shift + ´ (+ -näppäimen ja Backspacen välissä), sitten välilyönti |
+| `\|` (pystyviiva) | Option (⌥) + 7 |
+| `[` `]` (hakasulkeet) | Option + 8 / Option + 9 |
+| `(` `)` (kaarisulkeet) | Shift + 8 / Shift + 9 |
 
-|ls |listaa kansion sisällön|
+¨ ja ´ ovat niin sanottuja tarkemerkkejä ("kuolleita näppäimiä"), jotka jäävät odottamaan seuraavaa merkkiä yhdistyäkseen siihen (kuten ñ). Välilyönti kertoo, että haluat merkin yksinään.
 
-|cd|vaihtaa kansiota|
+## Terminaalin peruskomennot (DOS-vertailu)
 
-|mkdir|luo uuden kansion|
+Macin terminaali ei aja DOSia vaan Unix-pohjaista komentotulkkia (oletuksena zsh). Komennot ovat siksi eri nimisiä, vaikka tekevät samoja asioita:
 
-
-Kun tyhjiä rivejä ei ole, taulukko näyttää tältä:
-
-|Komento|Selitys|
-|---|---|
-|ls |listaa kansion sisällön|
-|cd|vaihtaa kansiota|
-|mkdir|luo uuden kansion|
-
-Selitys: taulukon sarakkeet erotetaan pystyviivalla |. Ensimmäinen rivi on otsikkorivi, toinen rivi viivoineen |---|---| erottaa otsikot sisällöstä (se on pakollinen), ja loput rivit ovat taulukon sisältöä. Pystyviiva tehdään suomalaisella Mac-näppäimistöllä Option (⌥) + 7. Sarakkeiden leveyksien ei tarvitse olla siistejä tai kohdakkain – Markdown tasaa taulukon automaattisesti.
-
-## Peruskomennot terminaalissa
-
-Macin terminaali ei aja DOSia vaan Unix-pohjaista komentotulkkia (Macissa oletuksena zsh-niminen tulkki). Komennot ovat siksi eri nimisiä, vaikka tekevät samoja asioita. Tässä muutama vastinpari, jotka tunnistat:
-
-|DOS	|Mac/Unix	|Mitä tekee|
+| DOS | Mac/Unix | Mitä tekee |
 |---|---|---|
-|dir	|ls	|listaa kansion sisällön|
-|cd	|cd	|vaihtaa kansiota (sama!)|
-|md / mkdir	|mkdir	|luo kansion|
-|copy	|cp	|kopioi tiedoston|
-|del	|rm	|poistaa tiedoston|
-|type	|cat	|näyttää tiedoston sisällön|
-|cls	|clear	|tyhjentää ruudun|
+| dir | ls | listaa kansion sisällön |
+| cd | cd | vaihtaa kansiota (sama!) |
+| md / mkdir | mkdir | luo kansion |
+| copy | cp | kopioi tiedoston |
+| del | rm | poistaa tiedoston |
+| type | cat | näyttää tiedoston sisällön |
+| cls | clear | tyhjentää ruudun |
 
-Pari muuta eroa: Unix käyttää kauttaviivaa / polkujen erottimena, kun DOS käytti kenoviivaa \. Ja Unixissa isot ja pienet kirjaimet ovat merkitseviä – Ohje.md ja ohje.md ovat eri tiedostoja, mikä DOSissa ei pitänyt paikkaansa.
+Kaksi muuta eroa: Unix käyttää kauttaviivaa `/` polkujen erottimena (DOS käytti kenoviivaa `\`), ja Unixissa isot ja pienet kirjaimet ovat merkitseviä – `Ohje.md` ja `ohje.md` ovat eri tiedostoja.
 
+---
 
-## 2 Git paikallisesti
+# Osa 2: Git paikallisesti
 
-Kahtiajako on Gitin ydinajatus: paikallinen työskentely (add, commit) ja synkronointi etäpalvelimelle (push, pull) ovat erillisiä toimintoja. Tässä käydään läpi paikallinen osuus.
+Gitin ydinajatus on kahtiajako: **paikallinen työskentely** (add, commit) ja **synkronointi etäpalvelimelle** (push, pull) ovat erillisiä toimintoja. Tässä osassa käydään läpi paikallinen puoli.
 
-### 1 Kohdekansio
-Työskentelet Terminaalissa, siirry aluksi projektikansioon:
+## 2.1 Siirry projektikansioon
 
-`cd ~/Projects/md-harjoitus`
+**Terminaalissa:**
 
+```bash
+cd ~/Projects/md-harjoitus
+```
 
-### 2 Alusta Git-repositorio:
+## 2.2 Tarkista Git-asetukset
 
-`git init`
+Git leimaa jokaiseen commitiin tekijän nimen ja sähköpostin. Tarkista, ovatko ne asetettu:
 
-Mitä tapahtuu: init (initialize) luo kansioon piilotetun .git-alikansion, johon Git alkaa tallentaa kaikkien tiedostojen muutoshistoriaa (versioita). Kansiostasi tuli juuri repositorio eli "repo". Tämä tehdään vain kerran per projekti. Näet piilokansion halutessasi komennolla ls -la (tuo -a näyttää piilotiedostot – kuten DOSin dir /a!).
+**Terminaalissa:**
 
-#### VS Code : repositorion alustus
+```bash
+git config --global user.name
+git config --global user.email
+```
 
-Repositorion alustus (´git init´): Avaa kansio VS Codessa (File → Open Folder). Paina vasemman reunan Source Control -kuvaketta (Cmd + Shift + G). Jos kansio ei ole vielä Git-repo, paneelissa näkyy iso sininen nappi Initialize Repository – sen painaminen tekee täsmälleen saman kuin ´git init´.
+Jos rivit tulostavat nimen ja sähköpostin, kaikki on kunnossa. Jos ne palauttavat tyhjää, aseta ne (käytä GitHub-tilin sähköpostia):
 
-### 3 Katso tilanne
+```bash
+git config --global user.name "Oma Nimi"
+git config --global user.email "oma@osoite.fi"
+```
 
-`git status`
+`--global` tarkoittaa, että asetus koskee kaikkia projekteja tällä koneella, ei vain tätä kansiota.
 
-Tämä on Gitin tärkein peruskomento – se kertoo aina, mitä repossa on meneillään. Nyt sen pitäisi listata punaisella "Untracked files" -otsikon alla ohje.md ja kuvat/-kansio: Git näkee tiedostot, mutta ei vielä seuraa niitä.
+## 2.3 Alusta repositorio
 
-Sama VS Codessa: katso vasemman reunan Source Control -kuvaketta (kolme palloa viivoilla yhdistettynä, Cmd + Shift + G). Näet samat tiedostot listassa merkinnällä U (Untracked). VS Code huomasi git init-komennon automaattisesti.
+**Terminaalissa:**
 
-### 4 tiedostojen lisääminen seurantaan ja commit
+```bash
+git init
+```
 
-Commit tehdään kahdessa vaiheessa. Ensin valitaan mukaan otettavat tiedostot:
+`init` (initialize) luo kansioon piilotetun `.git`-alikansion, johon Git tallentaa tiedostojen muutoshistorian. Kansiosta tulee **repositorio** eli "repo". Tämä tehdään vain kerran per projekti. Piilokansio näkyy komennolla `ls -la` (`-a` näyttää piilotiedostot – kuten DOSin `dir /a`).
 
-`git add .`
+**VS Codessa:** Avaa kansio (File → Open Folder). Paina vasemman reunan Source Control -kuvaketta (Cmd + Shift + G). Jos kansio ei ole vielä Git-repo, näkyy sininen nappi **Initialize Repository** – se tekee saman kuin `git init`.
 
-Selitys: add siirtää tiedostot valmistelualueelle (staging area) eli "seuraavaan 'snapshottiin' (versiotallennukseen) mukaan tulevat editoidut tiedostot". Piste tarkoittaa "kaikki tämän kansion tiedostot". Aja `git status` uudelleen – tiedostot näkyvät nyt vihreällä, valmiina commitoitavaksi.
+## 2.4 Tarkista tilanne
 
-Voit muokata vaikka viittä tiedostoa, mutta ottaa commitiin mukaan vain kaksi niistä (`git add tiedosto1.md tiedosto2.md`) ja jättää loput seuraavaan committiin.
+**Terminaalissa:**
 
-Sitten itse commit:
+```bash
+git status
+```
 
-`git commit -m "Ensimmäinen versio: Markdown-perusteet dokumentoitu"`
+Tämä on Gitin tärkein peruskomento – se kertoo aina, mitä repossa on meneillään. Alustuksen jälkeen sen pitäisi listata punaisella "Untracked files" -otsikon alla kaikki kansion tiedostot: Git näkee ne, mutta ei vielä seuraa niitä.
 
-Selitys: commit tallentaa valmistelualueen sisällön pysyväksi tilannekuvaksi(versioksi) historiaan tietokoneen projektikansion piilossa olevaan .git hakemistoon. -m (message) antaa commitille viestin, joka kuvaa mitä tehtiin – kirjoita viestit aina niin, että ymmärrät ne vielä kuukausienkin päästä. Komennolla `git log`voi katsoa kaikki aiemmat commitit ja tarvittaessa palata vanhempaan versioon (committiin). Mitään ei tässä vaiheessa ole siirretty GitHubiin.
+**VS Codessa:** Source Control -paneelissa samat tiedostot näkyvät merkinnällä **U** (Untracked).
 
-Tämä kahtiajako on Gitin ydinajatus: paikallinen työskentely (add, commit) ja synkronointi etäpalvelimelle (push, pull) ovat erillisiä toimintoja. Voit tehdä vaikka kymmenen commitia junassa ilman nettiyhteyttä ja työntää ne kaikki kerralla GitHubiin myöhemmin.
+## 2.5 Lisää tiedostot seurantaan ja tee commit
 
-#### VS Code : Tiedostojen lisäys ja commit
+Commit tehdään kahdessa vaiheessa: ensin valitaan mukaan otettavat tiedostot, sitten otetaan tilannekuva.
 
-Sama VS Codessa: Source Control -paneelissa paina tiedoston vieressä +-merkkiä (= git add), kirjoita viesti yläreunan tekstikenttään ja paina Commit-nappia.
+**Terminaalissa:**
 
-Tiedostojen lisäys ja commit (add + commit): Muutetut tiedostot ilmestyvät Source Control -paneeliin Changes-listaan. Vie hiiri tiedoston päälle ja paina + (Stage Changes) – tämä on git add. Tiedosto siirtyy Staged Changes -listaan. Kirjoita commit-viesti yläreunan tekstikenttään ja paina Commit. Vinkki: jos painat Commit ilman että mitään on stagettu, VS Code kysyy haluatko commitoida kaikki muutokset kerralla – se vastaa komentoa git add . + commit.
+```bash
+git add .
+```
 
+`add` siirtää tiedostot **valmistelualueelle** (staging area) eli seuraavaan tilannekuvaan mukaan tuleviksi. Piste tarkoittaa "kaikki tämän kansion tiedostot". Voit myös valita vain osan: `git add tiedosto1.md tiedosto2.md`. Aja `git status` uudelleen – tiedostot näkyvät nyt vihreällä, valmiina commitoitavaksi.
 
-### 5 Katso historia
+```bash
+git commit -m "Ensimmäinen versio: Markdown-perusteet dokumentoitu"
+```
 
-`git log` komento Terminaalissa: Näet juuri tekemäsi commitin: tekijän, ajan, viestin ja commitin yksilöivän tunnisteen (pitkä merkkijono). Poistu näkymästä painamalla q. Tiiviimpi muoto: `git log --oneline`.
+`commit` tallentaa valmistelualueen sisällön pysyväksi tilannekuvaksi historiaan, `.git`-kansioon. `-m` (message) antaa commitille kuvaavan viestin. Tässä vaiheessa mitään ei ole vielä siirretty GitHubiin – kaikki tapahtuu vain paikallisesti.
 
-## 3 Git --> GitHub
+**VS Codessa:** Source Control -paneelissa paina tiedoston vieressä **+** (Stage Changes) – vastaa `git add`. Tiedosto siirtyy Staged Changes -listaan. Kirjoita viesti yläreunan kenttään ja paina **Commit**. Jos painat Commit ilman että mitään on stagettu, VS Code kysyy haluatko commitoida kaikki muutokset kerralla – se vastaa `git add .` + commit.
 
-## Luodaan repositori GitHubiin
+## 2.6 Katso historia
+
+**Terminaalissa:**
+
+```bash
+git log
+```
+
+Näet tekijän, ajan, viestin ja commitin tunnisteen. Poistu näkymästä painamalla **q**. Tiiviimpi muoto: `git log --oneline`.
+
+**VS Codessa:** avaa tiedosto ja katso vasemman paneelin alaosasta **Timeline**-osiota – siinä näkyvät tiedoston commitit aikajärjestyksessä.
+
+---
+
+# Osa 3: GitHub-yhteys
+
+## 3.1 Luo repositorio GitHubiin
 
 Tämä tehdään selaimessa:
 
-1. Mene osoitteeseen github.com ja kirjaudu sisään (tunnus jukkarouhe)
-2. Paina oikean yläkulman +-merkkiä ja valitse New repository
+1. Mene osoitteeseen github.com ja kirjaudu sisään
+2. Paina oikean yläkulman **+**-merkkiä ja valitse **New repository**
 3. Täytä lomake:
-    - Repository name: md-harjoitus (sama nimi kuin paikallisella kansiolla – ei pakollista, mutta selkeää)
-    - Description: vapaaehtoinen, esim. "Markdown- ja Git-harjoitusprojekti"
-    - Public / Private: valitse Public, jos dokumentaatio saa näkyä kaikille – tämä on myös GitHub Pages -julkaisun (vaihe 5) kannalta helpoin valinta ilmaisella tilillä
-    - Tärkeää: älä ruksaa kohtia "Add a README", "Add .gitignore" tai "Choose a license" – repositorion pitää syntyä tyhjänä, koska sisältö tulee sinun koneeltasi. Jos GitHub loisi sinne valmiiksi tiedostoja, historiat menisivät ristiin.
-4. Paina Create repository
+   - **Repository name:** sama nimi kuin paikallisella kansiolla (ei pakollista, mutta selkeää)
+   - **Public / Private:** valitse **Public**, jos dokumentaatio saa näkyä kaikille – helpoin valinta myös GitHub Pages -julkaisua varten
+   - **Älä ruksaa** "Add a README", "Add .gitignore" tai "Choose a license" – repositorion pitää syntyä tyhjänä, koska sisältö tulee koneelta. Muuten historiat menisivät ristiin.
+4. Paina **Create repository**
 
-GitHub näyttää nyt ohjesivun, jossa on valmiita komentoja. Käytetään niistä (lokaalisti tietokoneella) keskimmäistä vaihtoehtoa ("push an existing repository from the command line"), mutta käydään komennot läpi itse ymmärtäen.
+## 3.2 Kytke paikallinen repo GitHubiin (remote)
 
-### 2 Kytketään paikallinen repo GitHubiin (remote)
+**Terminaalissa:**
 
-Terminaalissa projektikansiossa (tarkista siirtymällä `cd ~/Projects/md-harjoitus`):
-
-`git remote add origin git@github.com:jukkarouhe/md-harjoitus.git`
-
-Selitys: `remote` tarkoittaa etärepositoriota eli paikallisen repon "kaveria" verkossa. `add origin` lisää etärepon nimellä origin – se on vakiintunut nimi ensisijaiselle etärepolle (nimi voisi olla mikä vain, mutta origin on käytäntö, jota kaikki noudattavat). Osoite `git@github.com:...` on SSH-muotoinen osoite, eli yhteys todennetaan SSH-avaimellasi – salasanaa ei kysytä.
-
-Tarkista toimiko paikallisen repon kytkentä GitHubiin komennolla
-
-`git remote -v`
-
-Terminaalin pitäisi tulostaa origin kaksi kertaa (fetch ja push):
-
-```
-jukkarouhe@Jukkas-MacBook-Pro md-harjoitus % git remote -v
-origin	git@github.com:jukkarouhe/md-harjoitus.git (fetch)
-origin	git@github.com:jukkarouhe/md-harjoitus.git (push)
-jukkarouhe@Jukkas-MacBook-Pro md-harjoitus % 
+```bash
+git remote add origin git@github.com:kayttajatunnus/repo-nimi.git
 ```
 
-#### VS Code: Remote-kytkentä
+`remote` tarkoittaa etärepositoriota eli paikallisen repon "kaveria" verkossa. `add origin` lisää etärepon nimellä **origin** – vakiintunut nimi ensisijaiselle etärepolle. SSH-muotoinen osoite (`git@github.com:...`) todentaa yhteyden SSH-avaimella – salasanaa ei kysytä.
 
-Remote-kytkentä: Source Control -paneelin oikean yläkulman …-valikko → Remote → Add Remote → liitä osoite git@github.com:jukkarouhe/md-harjoitus.git → anna nimeksi origin.
+Tarkista kytkentä:
 
-### 3 Haaran nimeäminen ja commitin työntö GitHubiin
-
-Ensin yhtenäistetään haaran nimi. Muistat ehkä `git init` -komennon vihjeen "master"-nimestä – GitHubin nykykäytäntö on main, joten nimetään paikallinen haara sen mukaiseksi:
-
-`git branch -M main`
-
-Selitys: `branch -M main` nimeää nykyisen haaran uudelleen nimellä main. (Haarat käsitellään syvemmin myöhemmin – tässä vaiheessa riittää tietää, että main on projektin päälinja, se aikajana jolle commitisi ovat tallentuneet.)
-
-Sitten itse työntö:
-
-`git push -u origin main`
-
-Selitys: `push` lähettää paikalliset commitit etärepoon. `origin main` tarkoittaa "origin-nimiseen etärepoon, main-haaraan". Valitsin `-u` (upstream) tekee kytkennän muistiin: jatkossa pelkkä `git push` riittää, koska Git muistaa minne tämän haaran commitit kuuluvat. Tämä `-u` tarvitaan siis vain ensimmäisellä kerralla.
-
-Jos SSH-yhteys kysyy ensimmäisellä kerralla "Are you sure you want to continue connecting (yes/no)?", vastaa yes – se on normaali varmistus, kun koneesi ottaa yhteyttä GitHubiin ensimmäistä kertaa.
-
-#### VS Code : push ja pull ja historia (git log)
-
-Sama VS Codessa: Source Control -paneelin ...-valikosta (siis kolmen pisteen kautta avautuvasta drop-down valikosta source control osion yläpalkista) löytyvät Remote → Add Remote ja Push. Ensimmäisen pushin jälkeen VS Coden alapalkkiin ilmestyy myös synkronointikuvake (nuolet ympyränä), joka hoitaa push/pull-toiminnot yhdellä klikkauksella.
-
-Push ja pull: Ensimmäinen työntö: …-valikko → Push (VS Code kysyy tarvittaessa mihin haaraan). Jatkossa helpoin on alapalkin synkronointikuvake (nuolet ympyränä, haaran nimen "main" vieressä): yksi klikkaus tekee sekä pullin että pushin. Kuvakkeen vieressä näkyvät numerot kertovat odottavista commiteista: ↓ tulossa GitHubista, ↑ lähdössä sinne.
-
-Historia (git log): VS Codessa on sisäänrakennettu Timeline-näkymä: avaa ohje.md ja katso vasemman paneelin alaosasta Timeline-osio – siinä näkyvät tiedoston commitit aikajärjestyksessä, ja klikkaamalla näet mitä kussakin muutettiin.
-
-### 4 Onnistuminen tarkistus
-
-Päivitä selaimessa repositoriosi sivu (github.com/jukkarouhe/md-harjoitus). Sinun pitäisi nähdä `ohje.md` ja `kuvat`-kansio siellä – ja hienona yksityiskohtana GitHub näyttää `ohje.md`:n sisällön valmiiksi muotoiltuna suoraan reposivulla, koska Markdown on GitHubin äidinkieltä. Voit myös klikata commit-historiaa (kellokuvake tai "commits") ja nähdä tekemäsi commitit viesteineen.
-
-## 4 muokkaa → tarkista → commitoi → työnnä
-
-### Muutoksien tekeminen ja tarkastaminen
-Tee VS Codessa muokkauksia tiedostoon (tarpeen tullen alustus, valitse committoitavat muokatus tiedostot + commit, push/pull, Timeline). Ennen committia on hyvä tapa katsoa Terminaalissa, mikä muuttui. Komennot Terminaalissa ovat:
-
+```bash
+git remote -v
 ```
+
+Tulosteessa pitäisi näkyä origin kahdesti (fetch ja push).
+
+**VS Codessa:** Source Control -paneelin **…**-valikko → **Remote → Add Remote** → liitä osoite → anna nimeksi origin.
+
+## 3.3 Nimeä haara ja työnnä commitit
+
+**Terminaalissa:**
+
+```bash
+git branch -M main
+```
+
+Nimeää nykyisen haaran uudelleen nimellä **main** – GitHubin nykykäytäntö (Gitin oma oletusnimi voi olla "master"). Haara on projektin päälinja, se aikajana jolle commitit tallentuvat.
+
+```bash
+git push -u origin main
+```
+
+`push` lähettää paikalliset commitit etärepoon. `-u` (upstream) tekee kytkennän muistiin: jatkossa pelkkä `git push` riittää. Jos SSH-yhteys kysyy ensimmäisellä kerralla varmistusta yhteyden luotettavuudesta, vastaa **yes**.
+
+**VS Codessa:** **…**-valikko → **Push**. Ensimmäisen pushin jälkeen alapalkkiin ilmestyy synkronointikuvake (nuolet ympyränä), joka hoitaa push/pull-toiminnot yhdellä klikkauksella jatkossa. Kuvakkeen vieressä näkyvät numerot kertovat odottavista commiteista: ↓ tulossa GitHubista, ↑ lähdössä sinne.
+
+## 3.4 Tarkista onnistuminen
+
+Päivitä repositorion sivu selaimessa. Tiedostojen pitäisi näkyä siellä, ja Markdown-tiedosto näkyy valmiiksi muotoiltuna suoraan reposivulla. Commit-historia näkyy "commits"-linkistä.
+
+---
+
+# Osa 4: Päivittäinen työskentelyrutiini
+
+Rutiini on sykli: **muokkaa → tarkista → commitoi → työnnä**.
+
+## 4.1 Muokkaa
+
+Tee muutokset tiedostoihin VS Codessa ja tallenna (Cmd + S). VS Code merkitsee muokatun tiedoston **M**-kirjaimella (Modified), ja Source Control -kuvakkeeseen ilmestyy numero.
+
+## 4.2 Tarkista mitä muuttui
+
+**Terminaalissa:**
+
+```bash
 git status
 git diff
 ```
 
-Selitys: `status` kertoo mitkä tiedostot muuttuivat, `diff` näyttää rivi riviltä mitä muuttui – poistetut rivit miinuksella (punaisella), lisätyt plussalla (vihreällä). Poistu diff-näkymästä painamalla **q** (kuten git logissa).
+`status` kertoo mitkä tiedostot muuttuivat, `diff` näyttää rivi riviltä mitä muuttui – poistetut rivit miinuksella (punaisella), lisätyt plussalla (vihreällä). Poistu diff-näkymästä painamalla **q**.
 
-VS Codessa: Source Control -paneelissa klikkaa muuttunutta tiedostoa – VS Code avaa rinnakkaisnäkymän, jossa vasemmalla on edellinen commitoitu versio ja oikealla nykyinen, muutokset värein korostettuna. Tämä on selvästi diff-komentoa havainnollisempi tapa. Erot näyttävän näkymän saat pois klikkaamalla ylälaidasta kyseisen tab-in kiinni(pois).
+**VS Codessa:** klikkaa muuttunutta tiedostoa Source Control -paneelissa – avautuu rinnakkaisnäkymä, jossa vasemmalla edellinen commitoitu versio ja oikealla nykyinen, muutokset värein korostettuna. Sulje näkymä klikkaamalla ylälaidasta tabin kiinni.
 
-### Committoiminen
+## 4.3 Commitoi
 
-**Terminaalissa**:
-````
-git add ohje.md
-git commit -m "Lisätty VS Coden ohjeistusta"
-````
-huom, tällä komennolla lisättiin vain ohje.md koska ei käytetty pistettä `add` komennon jälkeen.
+**Terminaalissa:**
 
-**VS Codessa**:
-Source Control → ohje.md:n vieressä + (Stage Changes) → kirjoita viesti kenttään → **Commit**.
-
-### Työntäminen GitHubiin
-
-**Terminaalissa**:
-`git push` 
-
-pelkkä `push`riittää nyt, koska `-u`kytkentä tehtiin ensimmäisellä kerralla. 
-
-**VS Codessa**: klikkaa alapalkin synkronointikuvaketta (nuolet ympyränä, "main"-tekstin vieressä). Se ajaa sekä pullin että pushin. Käy varmistamassa selaimessa, että uusi osio näkyy GitHubissa.
-
-### Pelkkä Pull - miksi joskus pitää hakea muutoksia
-
-´git pull``
-
-Selitys: `pull` hakee GitHubista commitit, joita koneellasi ei vielä ole. Yksin yhdellä koneella työskennellessä se tuntuu turhalta – mutta se muuttuu tärkeäksi heti, jos (a) muokkaat tiedostoja suoraan GitHubin selainkäyttöliittymässä, (b) otat käyttöön toisen tietokoneen, tai (c) projektiin tulee toinen tekijä. Hyvä rutiini: aloita työskentelysessio aina `git pull` -komennolla (tai VS Coden synkronointikuvakkeella) – näin kone on varmasti ajan tasalla, eikä ristiriitoja synny.
-
-## Yleisimmät ongelmatilanteet ja ratkaisut
-
-|Tilanne|Ratkaisu|
-|---|---|
-|Push hylätään: "rejected... remote contains work"|GitHubissa on committeja joita koneelasi ei ole. Aja `git pull`ensin, sitten `git push`uudelleen|
-|Commit viesti unohtui ja avautui outo editori|Kirjoita viesti, paina Esc ja kirjoita `:wq` ja Enter (vim-editori). Jatkossa muista -m "viesti"|
-|Väärä tiedosto stagessa (=valittuna committiin)|`git restore --staged tiedosto.md` poistaa stagesta (muutokset säilyvät). VS Codessa: tiedoston vieressä - (unstage)|
-|Muutokset halutaan perua kokonaan|`git restore tiedosto.md`palauttaa viimeisimmän commitin version. VS Codessa: tiedoston vieressä ↩ (Discard Changes). Varo: muutokset katoavat oikeasti|
-/Ei muistikuvaa mitä tehty|`git status`kertoo aina tilanteen. VS Codessa: Source Control -paneeli|
-
-
-## 5 MkDocs ja julkaisu nettiin
-
-Julkaisuun on kaksi reittiä, ja tässä kannattaa hetki miettiä:
-
-Pikatapa: repositorion asetuksista (Settings → Pages) voi kytkeä Pagesin päälle suoraan main-haarasta, jolloin GitHub tekee md-tiedostoista yksinkertaiset sivut. Toimii, mutta lopputulos on vaatimaton eikä vastaa tavoitettamme.
-
-Suunniteltu tapa: rakennetaan sivusto MkDocsilla ja Material-teemalla. Silloin saat hakutoiminnon, navigaation ja ammattimaisen ulkoasun, ja julkaisu tapahtuu komennolla mkdocs gh-deploy, joka hoitaa GitHub Pages -kytkennän puolestasi automaattisesti.
-
-### Tarkistetaan MkDocs asennus
-
-Terminaalissa projektikansiossa (`cd ~/Projects/md-harjoitus`):
-
-`mkdocs --versions`
-
-Jos komento ei löydä MkDocs asennusta, todennäköisesti sitä ei ole Terminaalin hakupolussa (PATH). Toinen mahdollisuus on että MkDocs on asennettu virtuaaliympäristöön (venv), joka pitää aktivoida uudelleen.
-
-Kokeile Termonaalissa näitä komentoja järjestyksessä ja katso mikä tuottaa tulosta:
-
-`python3 -m mkdocs --version`
-
-Selitys: tämä käynnistää MkDocsin Pythonin kautta ohittaen PATH-ongelman. Jos tämä tulostaa version (1.6.1), paketti on asennettu ja kyse on vain hakupolusta – helppo korjata.
-
-Jos tuli virhe ("No module named mkdocs"), tarkista näkyykö paketti pip-listauksessa:
-
-`pip3 list | grep -i mkdocs``
-
-Selitys: pip3 list listaa kaikki asennetut Python-paketit, ja grep -i mkdocs suodattaa listasta rivit, joissa lukee mkdocs (-i = isot/pienet kirjaimet samanarvoisia). Putkimerkki | (Option + 7) ohjaa edellisen komennon tulosteen seuraavalle – tämäkin konsepti saattaa olla DOS-ajoilta tuttu.
-
-Jos asennusta ei löydy, se on mahdollisesti asennettu virtuaaliympäristöön jonkun aiemman projektin yhteydessä (porealtaan huoltokansio?).
-
-#### Etsitään virtuaaliympäristö
-
-Aja Terminaalissa (missä tahansa kansiossa):
-
-`find ~/Projects -name "pyvenv.cfg"` 
-
-- Jos venv löytyi: aktivoidaan se väliaikaisesti, tarkistetaan sisältääkö se MkDocsin, ja päätetään haluatko käyttää samaa venviä myös tässä projektissa vai luoda tälle oma erillinen (suositeltavampi – projektit kannattaa pitää siististi erillään toisistaan)
-- Jos ei löytynyt mitään: paketit asennettiin ehkä suoraan globaaliin Pythoniin, mutta eri Python-versiolla kuin nykyinen `python3` osoittaa (huomasitko tulosteessa polun `/opt/homebrew/opt/python@3.14/`? – jos asennus tehtiin esim. Python 3.12:lla, paketit eivät näy 3.14:n listassa). Tässä tapauksessa selvitetään mitä Python-versioita koneellasi on.
-
-**Suositeltu tapa**: luodaan tälle projektille oma virtuaaliympäristö. Tämä on muutenkin Python-projekteissa suositeltu käytäntö, koska jokainen projekti pysyy omissa paketeissaan sekoittamatta muita.
-
-#### Miksi virtuaaliympäristö ylipäätään?
-
-Venv on kuin erillinen, eristetty "laatikko" Python-paketeille per projekti. Ilman sitä kaikki paketit menisivät yhteen isoon kasaan koko koneelle, ja eri projektien versiotarpeet voisivat riidellä keskenään. Venv ratkaisee tämän: kun se on aktivoituna, `pip install` asentaa paketit vain siihen kansioon, ei koko koneelle.
-
-##### Virtuaaliympäristön luominen
-
-Terminaalissa , projektikansiossa (`cd ~/Projects/md-harjoitus`):
-
-`python3 -m venv .venv`
-
-Selitys: `python3 -m venv` on Pythonin sisäänrakennettu työkalu venvien luontiin. `.venv` on luotavan kansion nimi (piste alussa piilottaa sen tavallisesta listauksesta – vakiintunut käytäntö). Tämä luo projektikansioon `.venv`-nimisen alikansion, joka sisältää oman kopion Pythonista ja tyhjän pip-asennuksen.
-
-##### Virtuaaliympäristön aktivoiminen
-
-`source .venv/bin/activate`
-
-Selitys: `source` ajaa skriptin nykyisessä terminaali-istunnossa (eikä uudessa aliprosessissa, kuten tavallinen komennon ajo tekisi) – tämä on välttämätöntä, jotta aktivointi jää voimaan. Onnistuessaan terminaalin komentorivin alkuun ilmestyy (`.venv`), joka kertoo: "olet nyt tämän venvin sisällä, kaikki pip- ja python-komennot koskevat vain sitä."
-
-##### Asennetaan paketit requirements.txt:stä
-
-Projektisi dokumentaatiossa on jo requirements.txt, joka listaa tarvittavat paketit. Jos tiedosto on toisen Projektin kansiossa kopioi se tämän Projektin kansioon ajamalla:
-
-`cp ~/Projects/poreallas/requirements.txt ~/Projects/md-harjoitus/requirements.txt` 
-
-Selitys: `cp` (copy) kopioi tiedoston – ensimmäinen polku on lähde, toinen kohde. Alkuperäinen tiedosto poreallas-kansiossa säilyy koskemattomana.
-
-Tämän jälkeen asennetaan paketit 
-
-`pip install -r requirements.txt` 
-
-koska nyt tiedosto löytyy oikeasta paikasta.
-
-Pieni lisähuomio myöhempää varten: koska requirements.txt on nyt osa tätä projektia, se kannattaa myös committoida Gitiin yhdessä mkdocs.yml:n kanssa – se on nimenomaan sellainen tiedosto, joka pitää viedä GitHubiin (toisin kuin .venv-kansio), jotta projekti on kenen tahansa pystytettävissä uudelleen.
-
-##### Tarkista asennus
-
-Aja Terminaalissa
-
-`mkdocs --version`
-
-Nyt komento löytyy, koska aktiivinen venv lisäsi oman `bin`-kansionsa hakupolun alkuun.
-
-**Tärkeä muistisääntö**: venv pitää aktivoida **jokaisessa uudessa terminaali-istunnossa** erikseen (komento `source .venv/bin/activate`) ennen kuin mkdocs-komennot toimivat. Jos suljet terminaalin ja avaat uuden, (`.venv`) ei enää näy eikä mkdocs löydy – se ei ole virhe, vaan pitää vain aktivoida uudelleen. Pois venvistä pääsee komennolla *deactivate*.
-
-Vinkki myöhempää varten: `.venv`-kansiota ei koskaan viedä Gitiin (se on iso ja koneriippuvainen) – siksi juuri requirements.txt on olemassa: sen avulla kuka tahansa voi pystyttää saman ympäristön uudelleen yhdellä komennolla.
-
-### Järjestetään kansiot MkDocsin tapaan
-
-Nyt kun MkDocs toimii, tehdään seuraava siirto:
-
+```bash
+git add tiedoston-nimi.md
+git commit -m "Kuvaava viesti tehdystä muutoksesta"
 ```
+
+Kun tiedosto nimetään erikseen (ei pistettä), commitiin tulee vain se tiedosto.
+
+**VS Codessa:** Source Control → tiedoston vieressä **+** → kirjoita viesti → **Commit**.
+
+## 4.4 Työnnä GitHubiin
+
+**Terminaalissa:**
+
+```bash
+git push
+```
+
+**VS Codessa:** klikkaa alapalkin synkronointikuvaketta.
+
+## 4.5 Hae muutoksia (pull)
+
+**Terminaalissa:**
+
+```bash
+git pull
+```
+
+`pull` hakee GitHubista commitit, joita koneella ei vielä ole. Yhdellä koneella työskennellessä tämä tuntuu turhalta, mutta muuttuu tärkeäksi heti, jos (a) tiedostoja muokataan suoraan GitHubin selainkäyttöliittymässä, (b) käytössä on toinen tietokone, tai (c) projektiin tulee toinen tekijä. **Hyvä tapa:** aloita työskentelysessio aina `git pull`-komennolla (tai VS Coden synkronointikuvakkeella).
+
+## 4.6 Terminaalikomennot VS Coden sisällä
+
+VS Codessa on sisäänrakennettu terminaali, joka toimii täsmälleen kuten erillinen Terminal-sovellus, mutta samassa ikkunassa – sovellusten välillä ei tarvitse vaihtaa.
+
+Avaa se näppäinyhdistelmällä **Ctrl + `** (gravis-merkki, Esc-näppäimen alapuolella) tai valikosta **Terminal → New Terminal**.
+
+Työnjako yhden ikkunan sisällä:
+
+- **Tiedostojen editointi:** VS Coden editori
+- **git add / commit / push / pull:** Source Control -paneeli hiirellä, TAI komennot sisäänrakennetussa terminaalissa
+- **Ulkopuolisten työkalujen komennot** (esim. `mkdocs serve`, `mkdocs gh-deploy`): aina sisäänrakennetussa terminaalissa, koska ne eivät ole Git-komentoja eikä niille ole nappia Source Control -paneelissa
+
+## 4.7 Yleisimmät ongelmatilanteet ja ratkaisut
+
+| Tilanne | Ratkaisu |
+|---|---|
+| Push hylätään: "rejected... remote contains work" | GitHubissa on committeja joita koneella ei ole. Aja `git pull` ensin, sitten `git push` uudelleen |
+| Commit-viesti unohtui ja avautui outo editori | Kirjoita viesti, paina Esc, kirjoita `:wq` ja Enter (vim-editori). Jatkossa muista `-m "viesti"` |
+| Väärä tiedosto stagessa | `git restore --staged tiedosto.md` poistaa stagesta (muutokset säilyvät). VS Codessa: tiedoston vieressä **−** (Unstage) |
+| Muutokset halutaan perua kokonaan | `git restore tiedosto.md` palauttaa viimeisimmän commitin version. VS Codessa: tiedoston vieressä ↩ (Discard Changes). **Varo:** muutokset katoavat oikeasti |
+| Ei muistikuvaa mitä on tehty | `git status` kertoo aina tilanteen. VS Codessa: Source Control -paneeli |
+
+---
+
+# Osa 5: MkDocs ja julkaisu GitHub Pagesiin
+
+## 5.1 Kaksi tapaa julkaista
+
+- **Pikatapa:** repositorion asetuksista (Settings → Pages) voi kytkeä Pagesin päälle suoraan main-haarasta, jolloin GitHub tekee md-tiedostoista yksinkertaiset sivut. Toimii, mutta lopputulos on vaatimaton.
+- **Suunniteltu tapa (tässä käytetty):** rakennetaan sivusto MkDocsilla ja Material-teemalla. Saadaan hakutoiminto, navigaatio ja ammattimainen ulkoasu, ja julkaisu tapahtuu komennolla `mkdocs gh-deploy`, joka hoitaa GitHub Pages -kytkennän automaattisesti.
+
+## 5.2 Tarkista MkDocs-asennus
+
+**Terminaalissa, projektikansiossa:**
+
+```bash
+mkdocs --version
+```
+
+Jos komento ei löydy, se ei ole terminaalin hakupolussa (PATH), tai se on asennettu virtuaaliympäristöön (venv), joka pitää aktivoida. Kokeile:
+
+```bash
+python3 -m mkdocs --version
+```
+
+Jos tämä tulostaa version, paketti on asennettu ja kyse on vain hakupolusta. Jos tuli virhe "No module named mkdocs", tarkista pip-listaus:
+
+```bash
+pip3 list | grep -i mkdocs
+```
+
+`pip3 list` listaa kaikki asennetut Python-paketit, `grep -i mkdocs` suodattaa rivit joissa lukee mkdocs. Jos asennusta ei löydy lainkaan, se on ehkä asennettu virtuaaliympäristöön jonkin toisen projektin yhteydessä. Etsi se:
+
+```bash
+find ~/Projects -name "pyvenv.cfg"
+```
+
+## 5.3 Virtuaaliympäristö (venv)
+
+Venv on eristetty "laatikko" Python-paketeille per projekti. Ilman sitä kaikki paketit menisivät yhteen kasaan koko koneelle, ja eri projektien versiotarpeet voisivat riidellä keskenään. Aktivoituna `pip install` asentaa paketit vain siihen kansioon.
+
+**Luo virtuaaliympäristö:**
+
+```bash
+python3 -m venv .venv
+```
+
+`.venv` on luotavan kansion nimi (piste alussa piilottaa sen tavallisesta listauksesta).
+
+**Aktivoi se:**
+
+```bash
+source .venv/bin/activate
+```
+
+`source` ajaa skriptin nykyisessä terminaali-istunnossa, mikä on välttämätöntä aktivoinnin pysyvyydelle. Onnistuessaan komentorivin alkuun ilmestyy `(.venv)`.
+
+**Asenna paketit requirements.txt:stä:**
+
+Jos requirements.txt on toisen projektin kansiossa, kopioi se ensin:
+
+```bash
+cp ~/Projects/toinen-projekti/requirements.txt ~/Projects/md-harjoitus/requirements.txt
+```
+
+Asenna paketit:
+
+```bash
+pip install -r requirements.txt
+```
+
+`-r` (requirements) lukee asennettavat paketit tiedostosta rivi riviltä. Tämä asentaa MkDocsin, Material-teeman, ghp-importin ja niiden riippuvuudet samoina versioina kuin tiedostossa lukee.
+
+**Tarkista asennus:**
+
+```bash
+mkdocs --version
+```
+
+**Tärkeä muistisääntö:** venv pitää aktivoida **jokaisessa uudessa terminaali-istunnossa** erikseen (`source .venv/bin/activate`) ennen kuin mkdocs-komennot toimivat. Pois venvistä pääsee komennolla `deactivate`.
+
+`.venv`-kansiota ei koskaan viedä Gitiin (iso, koneriippuvainen) – siksi requirements.txt on olemassa: sen avulla kuka tahansa voi pystyttää saman ympäristön uudelleen.
+
+## 5.4 Järjestä kansiot MkDocsin tapaan
+
+MkDocs odottaa, että sisältö on **docs**-kansiossa ja asetustiedosto **mkdocs.yml** projektin juuressa. `docs/index.md` on sivuston etusivu.
+
+```bash
 mkdir docs
 git mv ohje.md docs/index.md
 git mv kuvat docs/kuvat
-``` 
+```
 
-#### Muista tarkistaa avoimet välilehdet git mv:n jälkeen
+`git mv` siirtää (ja tarvittaessa nimeää) tiedoston niin, että Git ymmärtää kyseessä olevan siirron eikä poistoa + uutta tiedostoa – tiedoston koko historia säilyy ehjänä.
 
-Kun siirrät tai nimeät tiedoston uudelleen terminaalissa
-(`git mv vanha.md uusi.md`) samalla kun tiedosto on auki VS Codessa, editorin välilehti ei aina päivity automaattisesti.
+**Huomio:** jos siirrettävä tiedosto on samaan aikaan auki VS Codessa, editorin välilehti ei aina päivity automaattisesti, ja saatat vahingossa jatkaa kirjoittamista vanhaan tiedostonimeen. Varmuuden vuoksi `git mv`-komennon jälkeen:
 
-Varmuuden vuoksi `git mv` -komennon jälkeen:
-1. Katso VS Coden välilehden yläreunasta täsmällinen polku
-   (voit tarkistaa hiiren ollessa välilehden päällä, tai
-   avaamalla tiedosto uudelleen tiedostopaneelista)
-2. Jos epäilyttää, sulje vanha välilehti kokonaan (`Cmd + W`)
-   ja avaa tiedosto uudelleen tiedostopaneelista oikeasta
-   sijainnista
-3. Aja `git status` siirron jälkeen ja tarkista, että vanha
-   tiedostonimi EI näy "untracked"-listassa
+1. Sulje vanha välilehti (Cmd + W) ja avaa tiedosto uudelleen tiedostopaneelista oikeasta sijainnista
+2. Aja `git status` ja tarkista, että vanha tiedostonimi ei näy "untracked"-listassa
 
-### Luodaan mkdocs.yml
+## 5.5 Luo mkdocs.yml
 
-Luo VS Codessa projektin juureen (samaan tasoon kuin docs-kansio, ei sen sisään) tiedosto mkdocs.yml ja sitten kirjoita tiedoston ensimmäiselle riville:
+Luo VS Codessa projektin **juureen** (samalle tasolle kuin docs-kansio, ei sen sisään) tiedosto `mkdocs.yml`:
 
+```yaml
 site_name: Markdown- ja GitHub-harjoitus
+```
 
-**Huom.** site_name jälkeen täytyy olla yksi välilyönti.
+`site_name` on ainoa pakollinen asetus alkuun. YAML-muodossa kaksoispisteen jälkeen täytyy olla yksi välilyönti ennen arvoa.
 
-### Käynnistetään esikatsely
+## 5.6 Käynnistä esikatselu
 
-Terminaalissa: `mkdocs serve`
+```bash
+mkdocs serve
+```
 
-Avaa selaimessa http://localhost:8000. Pysäytys Terminaalissa: Ctrl + C. 
+Avaa selaimessa **http://localhost:8000**. Palvelin pysäytetään terminaalissa **Ctrl + C** -näppäinyhdistelmällä. Jätä palvelin käyntiin muokatessasi tiedostoja – selain päivittyy automaattisesti tallennuksen jälkeen.
 
-### gitignore - jätetään .venv ja .DS_Store pois Gitistä
+## 5.7 .gitignore – jätä .venv ja .DS_Store pois Gitistä
 
-Ennen kuin committoidaan, tehdään tärkeä siisteystoimenpide: estetään `.venv`-kansion joutuminen vahingossa GitHubiin (se on iso, koneriippuvainen, ja jokainen pystyttää oman versionsa requirements.txt:n avulla).
+Luo projektin juureen tiedosto `.gitignore`:
 
-Luo VS Codessa projektin juureen tiedosto `.gitignore` ja kirjoita sisään:
 ```
 .venv/
 .DS_Store
 ```
-Selitys: `.gitignore` on tiedosto, joka listaa polut, joita Git ei koskaan seuraa – ne eivät näy `git status`-listauksessa eivätkä päädy committeihin, vaikka ajaisit `git add` .. Tämä on tärkeä tiedosto jatkossa aina kun projektissa on koneriippuvaisia tai isoja kansioita.
 
-Varmista `git status`-komennolla, että `.venv` eikä `.DS_Store` eivät näy listassa lainkaan (requirements.txt, mkdocs.yml, .gitignore ja docs-kansion siirrot sen sijaan näkyvät).
+`.gitignore` listaa polut, joita Git ei koskaan seuraa – ne eivät näy `git status`-listauksessa eivätkä päädy committeihin. `.DS_Store` on macOS Finderin oma piilotiedosto kansion näkymäasetuksille, ei osa projektin sisältöä.
 
+Jos `.DS_Store` on jo vahingossa päätynyt seurantaan, lopeta sen seuraaminen (levyltä se ei poistu):
 
-Vielä puuttuu viimeinen ´git add´ -komento, joka nostaa loput muutokset stagelle.
-
-Terminaalissa:
-
-`git add docs/index.md mkdocs.yml requirements.txt .gitignore`
-
-Tarkista uudelleen: 
-`git status`
-
-Nyt kaiken pitäisi olla "Changes to be committed" -listassa, eikä mitään "Untracked" tai "Changes not staged" -kohdissa. Jos näyttää siltä, committoi:
-
+```bash
+git rm --cached .DS_Store
 ```
+
+Tarkista `git status`-komennolla, että `.venv` eikä `.DS_Store` näy listassa lainkaan.
+
+## 5.8 Committoi MkDocs-rakenne
+
+```bash
+git add docs/index.md mkdocs.yml requirements.txt .gitignore
+git status
+```
+
+Kun kaikki on "Changes to be committed" -listassa:
+
+```bash
 git commit -m "MkDocs-projektirakenne: docs-kansio, mkdocs.yml, .gitignore"
+git push
 ```
-### Muokataan mkdocs.yml 
 
-Askel 1:
-Avaa mkdocs.yml VS Codessa ja lisää teema-asetus olemassa olevan rivin jatkoksi:
+## 5.9 Ota käyttöön Material-teema
 
-```
-site_name: Markdown- ja GitHub-harjoitus
-theme:
-  name: material
-```
-Selitys: theme: on uusi avain, jonka alle tulee sisennettynä (kaksi välilyöntiä, ei tabulaattoria – YAML on tarkka sisennyksistä) name: material. Tämä kertoo MkDocsille: "älä käytä sisäänrakennettua oletusteemaa, vaan asennettua Material-pakettia". Tallenna (Cmd + S).
+Muokkaa `mkdocs.yml`:
 
-Tärkeä YAML-huomio: sisennys pitää olla täsmälleen sama koko tiedostossa (esim. aina 2 välilyöntiä per taso) – YAML käyttää sisennystä rakenteen merkitsemiseen, ei sulkeita kuten monissa muissa formaateissa. Jos VS Code automaattisesti muuttaa sisennyksen tabulaattoriksi, MkDocs saattaa valittaa – tarkista tarvittaessa.
-
-#### Käynnistä esikatselu uudelleen
-
-Jos `mkdocs serve` on yhä käynnissä edellisestä kerrasta, se päivittyy automaattisesti heti kun tallensit mkdocs.yml:n – terminaaliin ilmestyy rivi tyyliin "Detected file changes, rebuilding". Jos palvelin ei ole käynnissä, käynnistä se:
-
-
-`mkdocs serve`
-
-Päivitä selain (localhost:8000). Näet heti eron: siisti navigaatiopalkki vasemmalla, hakukenttä ylhäällä, siniset korostusvärit ja modernimpi typografia.
-
-Askel 3: Muutama hyödyllinen lisäasetus (valinnainen mutta suositeltava)
-
-Voit laajentaa mkdocs.yml:ää näillä hyvillä perusasetuksilla:
-
-yaml
+```yaml
 site_name: Markdown- ja GitHub-harjoitus
 theme:
   name: material
@@ -511,106 +522,65 @@ theme:
   features:
     - navigation.instant
     - search.suggest
+```
 
-Selitys: language: fi vaihtaa teeman valmiit tekstit (kuten hakukentän placeholder-tekstin) suomeksi. features-lista ottaa käyttöön lisäominaisuuksia: navigation.instant tekee sivujen välillä siirtymisestä nopeampaa (ei koko sivun uudelleenlatausta), search.suggest näyttää hakuehdotuksia kirjoittaessa. Nämä ovat vain kaksi esimerkkiä kymmenistä saatavilla olevista – Material-teemalla on paljon säädettävää, johon voidaan palata myöhemmin tarpeen mukaan.
+`theme: name: material` kertoo MkDocsille, että käytetään asennettua Material-pakettia sisäänrakennetun oletusteeman sijaan. `language: fi` vaihtaa teeman valmiit tekstit suomeksi. `features`-lista ottaa käyttöön lisäominaisuuksia: `navigation.instant` nopeuttaa sivujen välistä siirtymistä, `search.suggest` näyttää hakuehdotuksia kirjoittaessa.
 
-Tallenna ja katso selaimesta, että hakukentän teksti on nyt suomeksi ("Hae").
+**YAML-huomio:** sisennys pitää olla täsmälleen sama koko tiedostossa (esim. aina 2 välilyöntiä per taso) – YAML käyttää sisennystä rakenteen merkitsemiseen.
 
-#### Vaihtoehtoisia teemoja mkdocs.yml:n theme: name: -kohtaan
+Tallenna ja päivitä selain – näkyviin tulee siisti navigaatiopalkki, hakukenttä ja modernimpi typografia.
 
-MkDocsissa on kaksi sisäänrakennettua teemaa (eivät vaadi erillistä asennusta) ja lukuisia kolmannen osapuolen teemoja (vaativat oman `pip install` -asennuksensa, kuten Material aikanaan):
+### Vaihtoehtoisia teemoja
 
-|Teema	|Asennus	|Kuvaus|
+| Teema | Asennus | Kuvaus |
 |---|---|---|
-|mkdocs	|sisäänrakennettu	|MkDocsin oma oletusteema, Bootstrap-pohjainen. Yksinkertainen, toimiva, mutta vaatimattoman näköinen – tätä näit ennen Materialin käyttöönottoa|
-|readthedocs	|sisäänrakennettu	|Jäljittelee tuttua Read the Docs -sivustojen ulkoasua (paljon Python-kirjastojen dokumentaatiota käyttää tätä tyyliä). Vasemman reunan navigaatio, siisti mutta hieman vanhahtava ilme|
-|material	|pip install mkdocs-material	|Nykyisin suosituin vaihtoehto, käytössäsi jo. Moderni ulkoasu, sisäänrakennettu hakutoiminto, tumma/vaalea tila, runsaasti muokattavia lisäominaisuuksia (features-lista)|
-|mkdocs-bootstrap4	|erillinen asennus	|Bootstrap 4 -pohjainen ulkoasu, tuttu monille verkkosivuille Bootstrapin suositun kevyen tyylin ansiosta|
-|mkdocs-alabaster	|erillinen asennus	|Kevyt, minimalistinen ja rauhallisen näköinen teema – suosittu erityisesti pienissä henkilökohtaisissa dokumentaatioprojekteissa|
-|mkdocs-windmill	|erillinen asennus	|Yksinkertainen, responsiivinen teema selkeällä sivupalkkinavigaatiolla, kevyempi vaihtoehto kuin Material|
+| mkdocs | sisäänrakennettu | MkDocsin oletusteema, Bootstrap-pohjainen. Yksinkertainen mutta vaatimaton |
+| readthedocs | sisäänrakennettu | Jäljittelee Read the Docs -sivustojen ulkoasua. Siisti mutta hieman vanhahtava |
+| material | `pip install mkdocs-material` | Suosituin vaihtoehto, käytössä tässä projektissa. Hakutoiminto, tumma/vaalea tila, runsaasti lisäominaisuuksia |
+| mkdocs-bootstrap4 | erillinen asennus | Bootstrap 4 -pohjainen ulkoasu |
+| mkdocs-alabaster | erillinen asennus | Kevyt, minimalistinen – suosittu pienissä henkilökohtaisissa projekteissa |
+| mkdocs-windmill | erillinen asennus | Yksinkertainen, responsiivinen, kevyempi kuin Material |
 
-Käytännössä lähes kaikki tosielämän MkDocs-dokumentaatiosivustot (esimerkiksi useat suuret yritykset) käyttävät nimenomaan Materialia sen kattavuuden ja aktiivisen ylläpidon vuoksi, joten valintasi oli hyvä. Muiden kokeilu on silti helppoa: vaihda vain theme: name: -riviä ja aja mkdocs serve uudelleen nähdäksesi eron – kolmannen osapuolen teemoissa pitää ensin ajaa `pip install <teeman-nimi>` samaan tapaan kuin Material aikanaan.
+## 5.10 Committoi teema-asetus
 
-### Committoidaan teema-asetus
-
-Terminaalissa:
-
-`git status`
-
-Pitäisi näkyä mkdocs.yml muokattuna (modified). Lisää ja committoi:
-
-```
-git add mkdocs.yml
-git commit -m "Otettu käyttöön Material-teema"
-```
-
-Työnnä GitHubiin:
-
-`git push`
-
-
-#### Julkaisu GitHub Pagesiin
-
-Nyt itse julkaisukomento:
-
-`mkdocs gh-deploy`
-
-Selitys mitä tapahtuu tämän yhden komennon takana: MkDocs (1) rakentaa koko sivuston valmiiksi HTML-, CSS- ja JS-tiedostoiksi site-nimiseen väliaikaiskansioon, (2) luo (tai päivittää) repositorioosi erillisen haaran nimeltä gh-pages, joka sisältää vain nuo rakennetut tiedostot – ei lähdekoodiasi (.md-tiedostoja) vaan valmiin sivuston, ja (3) työntää sen haaran GitHubiin automaattisesti.
-
-Tämä on tärkeä käsite: sinulla on nyt kaksi haaraa GitHubissa – main (lähdemateriaali: docs-kansio, mkdocs.yml, kaikki mitä olet kirjoittanut) ja gh-pages (valmis, rakennettu sivusto, jonka GitHub Pages tarjoilee selaimeen). Et koskaan muokkaa gh-pages-haaraa käsin – se syntyy aina uudelleen mkdocs gh-deploy -komennolla main-haaran sisällöstä.
-
-GitHub saattaa tarvita hetken (yleensä alle minuutin, joskus pari) ottaakseen gh-pages-haaran käyttöön Pages-palveluna ensimmäistä kertaa.
-
-#### Kuinka ajaa Terminaalikomennot VS Codessa
-
-mkdocs gh-deploy ei ole Git-komento, vaan MkDocsin oma työkalu, joka rakentaa sivuston ja hoitaa Git-työnnön taustalla puolestasi. Sille ei ole olemassa VS Coden Source Control -paneelin nappia, koska VS Coden Git-käyttöliittymä osaa vain tavallisia Git-toimintoja (add, commit, push, pull) – ei MkDocsin kaltaisten ulkopuolisten työkalujen erikoiskomentoja. Sama pätee mkdocs serve-komentoon: sekään ei ole Git-toiminto, joten Source Control -paneelissa ei ole sille vastinetta.
-
-Mutta hyvä uutinen ratkaisee juuri tavoitteesi: VS Codessa on sisäänrakennettu terminaali, joka toimii täsmälleen kuten erillinen Terminal-sovellus, mutta samassa ikkunassa koodisi kanssa – et koskaan vaihda sovellusta.
-
-#### VS Coden sisäänrakennettu terminaali
-
-Avaa se näppäinyhdistelmällä **Ctrl + ** (gravis-merkki, Esc-näppäimen alapuolella, samalla näppäimellä kuin § suomalaisessa asettelussa) tai valikosta **Terminal → New Terminal**. Terminaali-ikkuna avautuu editorin alaosaan, ja se on **täsmälleen sama zsh-tulkki** kuin erillisessä Terminal-sovelluksessa – samat komennot, sama .venv`-aktivointi, sama kaikki. Ainoa ero on sijainti: se elää VS Coden sisällä.
-
-Eli käytännössä koko tähänastinen työskentelysi voisi tapahtua näin:
-
-Tiedostojen editointi: VS Coden editori (kuten nytkin)
-Git add / commit: Source Control -paneeli hiirellä (kuten olet jo tehnyt)
-mkdocs serve / mkdocs gh-deploy: VS Coden sisäänrakennettu terminaali (Ctrl + `)
-
-Näin pysyt yhdessä ikkunassa koko ajan – vain näppäintä Ctrl + ` painamalla vaihdat editorin ja terminaalin välillä saman sovelluksen sisällä, et sovellusten välillä.
-
-Käytännössä nyt
-
-Terminal-komennot voi ajaa myös VS Coden sisäänrakennetussa terminaalissa (Ctrl + `), jolloin ei tarvitse vaihtaa sovellusten välillä.
-
-Paina **Ctrl + ** tai valitse ylävalikosta >Terminal ja sieltä >New Terminal VS Codessa avataksesi terminaalin, tarkista että (.venv)näkyy alussa (jos ei, ajasource .venv/bin/activate`), ja aja siellä samat komennot kuin aiemmin:
-
-```
+```bash
 git add mkdocs.yml
 git commit -m "Otettu käyttöön Material-teema"
 git push
+```
+
+## 5.11 Julkaise GitHub Pagesiin
+
+```bash
 mkdocs gh-deploy
 ```
-(Commit ja push voit vaihtoehtoisesti tehdä Source Control -paneelin napeilla, jos haluat – molemmat tavat toimivat samasta ikkunasta.)
 
-kaikki tavalliset Git-toiminnot (`add`, `commit`, `push`) hoituvat Source Control -paneelista, ja vain MkDocsin omat erikoiskomennot (`mkdocs serve`, `mkdocs gh-deploy`) tarvitsevat terminaalin, koska ne eivät ole Git-komentoja. Tämä on juuri se yhden ikkunan työskentelytapa, jonka halusin.
+Tämä yksi komento tekee kolme asiaa: (1) rakentaa koko sivuston valmiiksi HTML/CSS/JS-tiedostoiksi `site`-väliaikaiskansioon, (2) luo tai päivittää repositorion erillisen **gh-pages**-haaran, joka sisältää vain rakennetun sivuston (ei .md-lähdetiedostoja), ja (3) työntää sen haaran GitHubiin automaattisesti.
+
+Repositoriossa on nyt kaksi haaraa: **main** (lähdemateriaali – docs-kansio, mkdocs.yml) ja **gh-pages** (valmis, rakennettu sivusto, jonka GitHub Pages tarjoilee selaimeen). gh-pages-haaraa ei koskaan muokata käsin – se syntyy aina uudelleen `mkdocs gh-deploy`-komennolla main-haaran sisällöstä.
+
+GitHub saattaa tarvita hetken (yleensä alle minuutin) ottaakseen gh-pages-haaran käyttöön Pages-palveluna ensimmäistä kertaa.
+
+## 5.12 Tarkista julkaisu
+
+Avaa selaimessa `https://kayttajatunnus.github.io/repo-nimi/`.
+
+Jos sivu ei aukea:
+
+1. Mene repositorioon → **Settings** → **Pages**
+2. Tarkista, että ylhäällä lukee **"Your site is live at ..."** – jos kyllä, kokeile pakottaa selain lataamaan sivu uudelleen ilman välimuistia (Cmd + Shift + R)
+3. Jos ei, tarkista **Source**-kohdasta, että valittuna on **Deploy from a branch** ja haara **gh-pages**
+4. Varmista tarvittaessa terminaalissa, että haara syntyi: `git branch -a`
+
+## 5.13 Sivuston päivittäminen jatkossa
+
+Muokkaa .md-tiedostoja docs-kansiossa, commitoi ja pushaa normaalisti (Osa 4). Kun haluat päivittää **julkisen** sivuston vastaamaan uusinta versiota, aja uudelleen:
+
+```bash
+mkdocs gh-deploy
+```
+
+Tämä on ainoa ylimääräinen askel julkaisussa – itse sisällönmuokkaus ei muutu miksikään. Uusien sivujen lisääminen onnistuu lisäämällä .md-tiedostoja docs-kansioon – MkDocs huomaa ne automaattisesti navigaatioon.
 
 
-### GitHub julkaisun tarkistaminen
-
-Tarkistus repositorion pääsivulta
-
-Palaa repositorion Code-välilehdelle. Oikeassa reunassa, "About"-laatikon alapuolella, näkyy usein pieni "github-pages"-linkki tai ympäristöluettelo (Environments), josta klikkaamalla pääset näkemään viimeisimmän julkaisun tilan ja tarkan ajankohdan.
-
-Vaihtoehtoisesti:
-
-1. Mene repositorioosi: github.com/jukkarouhe/md-harjoitus
-2. Klikkaa yläpalkin **Settings**-välilehteä (repositorion omat asetukset, ei GitHub-tilisi asetukset)
-3. Valitse vasemmasta valikosta **Pages** 
-4. Sivun yläosassa pitäisi lukea joko:
-- **"Your site is live at https://jukkarouhe.github.io/md-harjoitus/"** vihreällä – tällöin julkaisu on kunnossa GitHubin puolesta, ja 404 johtuu joko väärästä osoitteesta tai selaimen välimuistista (kokeile Cmd + Shift + R, joka pakottaa sivun lataamaan uudelleen ilman välimuistia)
-- tai kohta **"Source"**, josta tarkistat että valittuna on **Deploy from a branch** ja haara on **gh-pages** (juurikansiosta, ei docs-kansiosta) – jos gh-pages-haaraa ei ole valittuna lainkaan, valitse se pudotusvalikosta ja paina Save
-
-
-- **Päivittäminen jatkossa on yksinkertaista:** muokkaa .md-tiedostoja, commitoi ja pushaa normaalisti (kuten olet oppinut), ja aina kun haluat päivittää julkisen sivuston vastaavaksi, aja `mkdocs gh-deploy` uudelleen. Se on ainoa ylimääräinen askel julkaisussa – itse sisällönmuokkaus ei muutu miksikään.
-- Jos joskus haluat laajentaa sivustoa useammalla sivulla (ei vain yhdellä index.md:llä), se onnistuu lisäämällä uusia .md-tiedostoja docs-kansioon – MkDocs huomaa ne automaattisesti navigaatioon.
+last edited: 3.8.2026
