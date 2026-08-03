@@ -876,6 +876,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#github-julkaisun-tarkistaminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub julkaisun tarkistaminen
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1538,6 +1549,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#github-julkaisun-tarkistaminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub julkaisun tarkistaminen
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2021,6 +2043,25 @@ mkdocs gh-deploy
 </code></pre>
 <p>(Commit ja push voit vaihtoehtoisesti tehdä Source Control -paneelin napeilla, jos haluat – molemmat tavat toimivat samasta ikkunasta.)</p>
 <p>kaikki tavalliset Git-toiminnot (<code>add</code>, <code>commit</code>, <code>push</code>) hoituvat Source Control -paneelista, ja vain MkDocsin omat erikoiskomennot (<code>mkdocs serve</code>, <code>mkdocs gh-deploy</code>) tarvitsevat terminaalin, koska ne eivät ole Git-komentoja. Tämä on juuri se yhden ikkunan työskentelytapa, jonka halusin.</p>
+<h3 id="github-julkaisun-tarkistaminen">GitHub julkaisun tarkistaminen</h3>
+<p>Tarkistus repositorion pääsivulta</p>
+<p>Palaa repositorion Code-välilehdelle. Oikeassa reunassa, "About"-laatikon alapuolella, näkyy usein pieni "github-pages"-linkki tai ympäristöluettelo (Environments), josta klikkaamalla pääset näkemään viimeisimmän julkaisun tilan ja tarkan ajankohdan.</p>
+<p>Vaihtoehtoisesti:</p>
+<ol>
+<li>Mene repositorioosi: github.com/jukkarouhe/md-harjoitus</li>
+<li>Klikkaa yläpalkin <strong>Settings</strong>-välilehteä (repositorion omat asetukset, ei GitHub-tilisi asetukset)</li>
+<li>Valitse vasemmasta valikosta <strong>Pages</strong> </li>
+<li>Sivun yläosassa pitäisi lukea joko:</li>
+<li><strong>"Your site is live at https://jukkarouhe.github.io/md-harjoitus/"</strong> vihreällä – tällöin julkaisu on kunnossa GitHubin puolesta, ja 404 johtuu joko väärästä osoitteesta tai selaimen välimuistista (kokeile Cmd + Shift + R, joka pakottaa sivun lataamaan uudelleen ilman välimuistia)</li>
+<li>
+<p>tai kohta <strong>"Source"</strong>, josta tarkistat että valittuna on <strong>Deploy from a branch</strong> ja haara on <strong>gh-pages</strong> (juurikansiosta, ei docs-kansiosta) – jos gh-pages-haaraa ei ole valittuna lainkaan, valitse se pudotusvalikosta ja paina Save</p>
+</li>
+<li>
+<p><strong>Päivittäminen jatkossa on yksinkertaista:</strong> muokkaa .md-tiedostoja, commitoi ja pushaa normaalisti (kuten olet oppinut), ja aina kun haluat päivittää julkisen sivuston vastaavaksi, aja <code>mkdocs gh-deploy</code> uudelleen. Se on ainoa ylimääräinen askel julkaisussa – itse sisällönmuokkaus ei muutu miksikään.</p>
+</li>
+<li><strong>Kannattaa vielä kirjata ohje.md:hen</strong> koko tämä julkaisuprosessi tiiviisti yhteen paikkaan (mkdocs serve esikatseluun, mkdocs gh-deploy julkaisuun), jotta se on helposti palautettavissa mieleen kuukausien päästä.</li>
+<li>Jos joskus haluat laajentaa sivustoa useammalla sivulla (ei vain yhdellä index.md:llä), se onnistuu lisäämällä uusia .md-tiedostoja docs-kansioon – MkDocs huomaa ne automaattisesti navigaatioon.</li>
+</ol>
 
 
 
