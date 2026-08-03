@@ -322,12 +322,129 @@ Selitys: `pull` hakee GitHubista commitit, joita koneellasi ei vielä ole. Yksin
 /Ei muistikuvaa mitä tehty|`git status`kertoo aina tilanteen. VS Codessa: Source Control -paneeli|
 
 
-## 5 Julkaisu nettiin
+## 5 MkDocs ja julkaisu nettiin
 
 Julkaisuun on kaksi reittiä, ja tässä kannattaa hetki miettiä:
 
 Pikatapa: repositorion asetuksista (Settings → Pages) voi kytkeä Pagesin päälle suoraan main-haarasta, jolloin GitHub tekee md-tiedostoista yksinkertaiset sivut. Toimii, mutta lopputulos on vaatimaton eikä vastaa tavoitettamme.
 
-Suunniteltu tapa (vaihe 5): rakennetaan sivusto MkDocsilla ja Material-teemalla – juuri siksi ne on asennettu koneellesi. Silloin saat hakutoiminnon, navigaation ja ammattimaisen ulkoasun, ja julkaisu tapahtuu komennolla mkdocs gh-deploy, joka hoitaa GitHub Pages -kytkennän puolestasi automaattisesti.
+Suunniteltu tapa: rakennetaan sivusto MkDocsilla ja Material-teemalla. Silloin saat hakutoiminnon, navigaation ja ammattimaisen ulkoasun, ja julkaisu tapahtuu komennolla mkdocs gh-deploy, joka hoitaa GitHub Pages -kytkennän puolestasi automaattisesti.
+
+### Tarkistetaan MkDocs asennus
+
+Terminaalissa projektikansiossa (`cd ~/Projects/md-harjoitus`):
+
+`mkdocs --versions`
+
+Jos komento ei löydä MkDocs asennusta, todennäköisesti sitä ei ole Terminaalin hakupolussa (PATH). Toinen mahdollisuus on että MkDocs on asennettu virtuaaliympäristöön (venv), joka pitää aktivoida uudelleen.
+
+Kokeile Termonaalissa näitä komentoja järjestyksessä ja katso mikä tuottaa tulosta:
+
+`python3 -m mkdocs --version`
+
+Selitys: tämä käynnistää MkDocsin Pythonin kautta ohittaen PATH-ongelman. Jos tämä tulostaa version (1.6.1), paketti on asennettu ja kyse on vain hakupolusta – helppo korjata.
+
+Jos tuli virhe ("No module named mkdocs"), tarkista näkyykö paketti pip-listauksessa:
+
+`pip3 list | grep -i mkdocs``
+
+Selitys: pip3 list listaa kaikki asennetut Python-paketit, ja grep -i mkdocs suodattaa listasta rivit, joissa lukee mkdocs (-i = isot/pienet kirjaimet samanarvoisia). Putkimerkki | (Option + 7) ohjaa edellisen komennon tulosteen seuraavalle – tämäkin konsepti saattaa olla DOS-ajoilta tuttu.
+
+Jos asennusta ei löydy, se on mahdollisesti asennettu virtuaaliympäristöön jonkun aiemman projektin yhteydessä (porealtaan huoltokansio?).
+
+#### Etsitään virtuaaliympäristö
+
+Aja Terminaalissa (missä tahansa kansiossa):
+
+`find ~/Projects -name "pyvenv.cfg"` 
+
+- Jos venv löytyi: aktivoidaan se väliaikaisesti, tarkistetaan sisältääkö se MkDocsin, ja päätetään haluatko käyttää samaa venviä myös tässä projektissa vai luoda tälle oma erillinen (suositeltavampi – projektit kannattaa pitää siististi erillään toisistaan)
+- Jos ei löytynyt mitään: paketit asennettiin ehkä suoraan globaaliin Pythoniin, mutta eri Python-versiolla kuin nykyinen `python3` osoittaa (huomasitko tulosteessa polun `/opt/homebrew/opt/python@3.14/`? – jos asennus tehtiin esim. Python 3.12:lla, paketit eivät näy 3.14:n listassa). Tässä tapauksessa selvitetään mitä Python-versioita koneellasi on.
+
+**Suositeltu tapa**: luodaan tälle projektille oma virtuaaliympäristö. Tämä on muutenkin Python-projekteissa suositeltu käytäntö, koska jokainen projekti pysyy omissa paketeissaan sekoittamatta muita.
+
+#### Miksi virtuaaliympäristö ylipäätään?
+
+Venv on kuin erillinen, eristetty "laatikko" Python-paketeille per projekti. Ilman sitä kaikki paketit menisivät yhteen isoon kasaan koko koneelle, ja eri projektien versiotarpeet voisivat riidellä keskenään. Venv ratkaisee tämän: kun se on aktivoituna, `pip install` asentaa paketit vain siihen kansioon, ei koko koneelle.
+
+##### Virtuaaliympäristön luominen
+
+Terminaalissa , projektikansiossa (`cd ~/Projects/md-harjoitus`):
+
+`python3 -m venv .venv`
+
+Selitys: `python3 -m venv` on Pythonin sisäänrakennettu työkalu venvien luontiin. `.venv` on luotavan kansion nimi (piste alussa piilottaa sen tavallisesta listauksesta – vakiintunut käytäntö). Tämä luo projektikansioon `.venv`-nimisen alikansion, joka sisältää oman kopion Pythonista ja tyhjän pip-asennuksen.
+
+##### Virtuaaliympäristön aktivoiminen
+
+`source .venv/bin/activate`
+
+Selitys: `source` ajaa skriptin nykyisessä terminaali-istunnossa (eikä uudessa aliprosessissa, kuten tavallinen komennon ajo tekisi) – tämä on välttämätöntä, jotta aktivointi jää voimaan. Onnistuessaan terminaalin komentorivin alkuun ilmestyy (`.venv`), joka kertoo: "olet nyt tämän venvin sisällä, kaikki pip- ja python-komennot koskevat vain sitä."
+
+##### Asennetaan paketit requirements.txt:stä
+
+Projektisi dokumentaatiossa on jo requirements.txt, joka listaa tarvittavat paketit. Jos tiedosto on toisen Projektin kansiossa kopioi se tämän Projektin kansioon ajamalla:
+
+`cp ~/Projects/poreallas/requirements.txt ~/Projects/md-harjoitus/requirements.txt` 
+
+Selitys: `cp` (copy) kopioi tiedoston – ensimmäinen polku on lähde, toinen kohde. Alkuperäinen tiedosto poreallas-kansiossa säilyy koskemattomana.
+
+Tämän jälkeen asennetaan paketit 
+
+`pip install -r requirements.txt` 
+
+koska nyt tiedosto löytyy oikeasta paikasta.
+
+Pieni lisähuomio myöhempää varten: koska requirements.txt on nyt osa tätä projektia, se kannattaa myös committoida Gitiin yhdessä mkdocs.yml:n kanssa – se on nimenomaan sellainen tiedosto, joka pitää viedä GitHubiin (toisin kuin .venv-kansio), jotta projekti on kenen tahansa pystytettävissä uudelleen.
+
+##### Tarkista asennus
+
+Aja Terminaalissa
+
+`mkdocs --version`
+
+Nyt komento löytyy, koska aktiivinen venv lisäsi oman `bin`-kansionsa hakupolun alkuun.
+
+**Tärkeä muistisääntö**: venv pitää aktivoida **jokaisessa uudessa terminaali-istunnossa** erikseen (komento `source .venv/bin/activate`) ennen kuin mkdocs-komennot toimivat. Jos suljet terminaalin ja avaat uuden, (`.venv`) ei enää näy eikä mkdocs löydy – se ei ole virhe, vaan pitää vain aktivoida uudelleen. Pois venvistä pääsee komennolla *deactivate*.
+
+Vinkki myöhempää varten: `.venv`-kansiota ei koskaan viedä Gitiin (se on iso ja koneriippuvainen) – siksi juuri requirements.txt on olemassa: sen avulla kuka tahansa voi pystyttää saman ympäristön uudelleen yhdellä komennolla.
+
+### Järjestetään kansiot MkDocsin tapaan
+
+Nyt kun MkDocs toimii, tehdään seuraava siirto:
+
+```
+mkdir docs
+git mv ohje.md docs/index.md
+git mv kuvat docs/kuvat
+``` 
+
+### Luodaan mkdocs.yml
+
+Luo VS Codessa projektin juureen (samaan tasoon kuin docs-kansio, ei sen sisään) tiedosto mkdocs.yml ja sitten kirjoita tiedoston ensimmäiselle riville:
+
+site_name: Markdown- ja GitHub-harjoitus
+
+**Huom.** site_name jälkeen täytyy olla yksi välilyönti.
+
+### Käynnistetään esikatsely
+
+Terminaalissa: `mkdocs serve`
+
+Avaa selaimessa http://localhost:8000. Pysäytys Terminaalissa: Ctrl + C. 
+
+### gitignore - jätetään .venv ja .DS_Store pois Gitistä
+
+Ennen kuin committoidaan, tehdään tärkeä siisteystoimenpide: estetään `.venv`-kansion joutuminen vahingossa GitHubiin (se on iso, koneriippuvainen, ja jokainen pystyttää oman versionsa requirements.txt:n avulla).
+
+Luo VS Codessa projektin juureen tiedosto `.gitignore` ja kirjoita sisään:
+```
+.venv/
+.DS_Store
+```
+Selitys: `.gitignore` on tiedosto, joka listaa polut, joita Git ei koskaan seuraa – ne eivät näy `git status`-listauksessa eivätkä päädy committeihin, vaikka ajaisit `git add` .. Tämä on tärkeä tiedosto jatkossa aina kun projektissa on koneriippuvaisia tai isoja kansioita.
+
+Varmista `git status`-komennolla, että `.venv` eikä `.DS_Store` eivät näy listassa lainkaan (requirements.txt, mkdocs.yml, .gitignore ja docs-kansion siirrot sen sijaan näkyvät).
+
 
 
