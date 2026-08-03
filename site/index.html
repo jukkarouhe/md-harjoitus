@@ -1781,6 +1781,14 @@ git commit -m &quot;Kuvaava viesti&quot;   # 8. Tallenna versio paikallisesti
 git push                         # 9. Työnnä GitHubiin
 mkdocs gh-deploy                 # 10. Päivitä julkinen sivusto
 </code></pre>
+<p>Jos docs-kansiossa on nyt useampi .md sivu, ne näkyvät kukin omalla nimellään vasemmassa navigaatiossa, mikä on juuri MkDocsin ideana monisivuisessa dokumentaatiossa.</p>
+<p>Vinkki jatkoa varten: navigaation järjestystä ja nimiä voi halutessaan ohjata itse lisäämällä mkdocs.yml-tiedostoon nav-osion, esimerkiksi:</p>
+<pre><code>yaml
+nav:
+  - Etusivu: index.md
+  - Pikaopas: pikaopas.md
+</code></pre>
+<p>Ilman nav-osiota MkDocs järjestää sivut aakkosjärjestykseen tiedostonimen mukaan, mikä ei aina vastaa loogista lukujärjestystä. Tämä on hyödyllinen tietää, jos sivuja tulee lisää.</p>
 <h2 id="osa-1-markdown-syntaksi">Osa 1: Markdown-syntaksi</h2>
 <h3 id="otsikot">Otsikot</h3>
 <p>Otsikot tehdään risuaita-merkillä <code>#</code>. Yksi risuaita on pääotsikko, kaksi alaotsikko, kolme sitä seuraava taso. Jätä välilyönti risuaidan ja otsikkotekstin väliin.</p>
