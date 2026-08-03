@@ -1,3 +1,7 @@
 site_name: Markdown- ja GitHub-harjoitus
 theme:
   name: material
+  language: fi
+  features:
+    - navigation.instant
+    - search.suggest

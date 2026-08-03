@@ -478,6 +478,7 @@ git commit -m "MkDocs-projektirakenne: docs-kansio, mkdocs.yml, .gitignore"
 ```
 ### Muokataan mkdocs.yml 
 
+Askel 1:
 Avaa mkdocs.yml VS Codessa ja lisää teema-asetus olemassa olevan rivin jatkoksi:
 
 ```
@@ -489,12 +490,12 @@ Selitys: theme: on uusi avain, jonka alle tulee sisennettynä (kaksi välilyönt
 
 Tärkeä YAML-huomio: sisennys pitää olla täsmälleen sama koko tiedostossa (esim. aina 2 välilyöntiä per taso) – YAML käyttää sisennystä rakenteen merkitsemiseen, ei sulkeita kuten monissa muissa formaateissa. Jos VS Code automaattisesti muuttaa sisennyksen tabulaattoriksi, MkDocs saattaa valittaa – tarkista tarvittaessa.
 
-Askel 2: Käynnistä esikatselu uudelleen
+#### Käynnistä esikatselu uudelleen
 
-Jos mkdocs serve on yhä käynnissä edellisestä kerrasta, se päivittyy automaattisesti heti kun tallensit mkdocs.yml:n – terminaaliin ilmestyy rivi tyyliin "Detected file changes, rebuilding". Jos palvelin ei ole käynnissä, käynnistä se:
+Jos `mkdocs serve` on yhä käynnissä edellisestä kerrasta, se päivittyy automaattisesti heti kun tallensit mkdocs.yml:n – terminaaliin ilmestyy rivi tyyliin "Detected file changes, rebuilding". Jos palvelin ei ole käynnissä, käynnistä se:
 
-bash
-mkdocs serve
+
+`mkdocs serve`
 
 Päivitä selain (localhost:8000). Näet heti eron: siisti navigaatiopalkki vasemmalla, hakukenttä ylhäällä, siniset korostusvärit ja modernimpi typografia.
 
