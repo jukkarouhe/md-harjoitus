@@ -1,4 +1,4 @@
-# Markdown- ja GitHub-harjoitus
+# Markdown- ja GitHub opas
 
 Tämä dokumentti kokoaa opitut asiat askel askeleelta: Markdown-syntaksi, Git paikallisesti, GitHub-yhteys, päivittäinen työskentelyrutiini ja lopuksi dokumentaation julkaisu verkkosivuna MkDocsilla.
 
