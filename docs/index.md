@@ -593,7 +593,7 @@ mkdocs gh-deploy
 ```
 (Commit ja push voit vaihtoehtoisesti tehdä Source Control -paneelin napeilla, jos haluat – molemmat tavat toimivat samasta ikkunasta.)
 
-kaikki tavalliset Git-toiminnot (add, commit, push) hoituvat Source Control -paneelista, ja vain MkDocsin omat erikoiskomennot (serve, gh-deploy) tarvitsevat terminaalin, koska ne eivät ole Git-komentoja. Tämä on juuri se yhden ikkunan työskentelytapa, jonka halusin.
+kaikki tavalliset Git-toiminnot (`add`, `commit`, `push`) hoituvat Source Control -paneelista, ja vain MkDocsin omat erikoiskomennot (`mkdocs serve`, `mkdocs gh-deploy`) tarvitsevat terminaalin, koska ne eivät ole Git-komentoja. Tämä on juuri se yhden ikkunan työskentelytapa, jonka halusin.
 
 
 
